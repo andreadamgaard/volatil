@@ -8,6 +8,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        hackney: ["hackney", "sans-serif"],
+      },
     },
   },
   plugins: [],

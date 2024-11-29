@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "hackney";
+  src: url("/src/app/fonts/hackney-webfont.woff"), url("/src/app/fonts/hackney-webfont.woff2");
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
