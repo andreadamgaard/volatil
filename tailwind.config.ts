@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         hackney: ["hackney", "sans-serif"],
         DINCondensed: ["DIN Condensed", "sans-serif"],
+        abel: ["var(--font-abel)"],
       },
     },
   },

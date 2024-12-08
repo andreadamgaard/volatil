@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import { Abel } from "next/font/google";
+
+export const abel = Abel({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-abel",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={abel.className}>{children}</body>
     </html>
   );
 }
