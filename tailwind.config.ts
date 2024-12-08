@@ -5,11 +5,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        bg: "#FFFBFD",
+        primary: "#A80A44",
+        hover: "#DA2B6B",
+        textSale: "#A80A4466",
+        secondary: "#FFDEEB",
+        Vblue: {
+          50: "#457BFF",
+          100: "#1458FF",
+        },
       },
       fontFamily: {
         hackney: ["hackney", "sans-serif"],
+        DINCondensed: ["DIN Condensed", "sans-serif"],
       },
     },
   },

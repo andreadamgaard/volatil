@@ -4,24 +4,16 @@
 
 @font-face {
   font-family: "hackney";
-  src: url("/src/app/fonts/hackney-webfont.woff"), url("/src/app/fonts/hackney-webfont.woff2");
+  src: url("/src/app/fonts/hackney-webfont.woff2"), url("/src/app/fonts/hackney-webfont.woff");
   font-display: swap;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: "DIN Condensed";
+  src: url("https://use.typekit.net/ley7ovp.css");
+  font-display: swap;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-primary bg-bg font-DINCondensed;
 }
