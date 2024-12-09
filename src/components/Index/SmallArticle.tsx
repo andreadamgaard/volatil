@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LinkButton } from "../Button/Button";
 
-type BigArtProps = {
+type SmallArtProps = {
   img: string;
   imgAlt: string;
   title: string;
@@ -9,12 +9,12 @@ type BigArtProps = {
   href: string;
 };
 
-export const BigArt = ({ img, imgAlt, title, linkText, href }: BigArtProps) => {
+export const SmallArticle = ({ img, imgAlt, title, linkText, href }: SmallArtProps) => {
   return (
-    <article className="min-w-[11rem] min-h-[17rem] w-[22rem] md:w-[30rem] md:h-[26rem] lg:w-[42rem] lg:h-[31rem] relative overflow-hidden group">
-      <span className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-white z-10">
-        <h2 className="font-hackney text-4xl md:text-7xl lg:text-8xl xl:text-9xl">{title}</h2>
-        <LinkButton size="medium" className="text-xs" href={href}>
+    <article className="min-w-[7.2rem] min-h-[13rem] w-[14rem] md:h-[22rem] md:w-[19rem] lg:w-[26rem] lg:h-[28rem] relative overflow-hidden group">
+      <span className="absolute w-full h-full flex flex-col items-center justify-end py-3 md:py-9 text-center text-white z-10">
+        <h2 className="font-hackney text-3xl md:text-6xl lg:text-7xl">{title}</h2>
+        <LinkButton size="small" href={href}>
           {linkText}
         </LinkButton>
       </span>

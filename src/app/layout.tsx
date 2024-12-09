@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={abel.className}>
-        <Menu />
+        {/* <Menu /> */}
         <main>{children}</main>
       </body>
     </html>
