@@ -15,5 +15,5 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel;
+  @apply text-primary bg-bg font-abel antialiased;
 }
