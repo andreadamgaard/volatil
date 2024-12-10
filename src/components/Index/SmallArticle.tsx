@@ -20,7 +20,7 @@ export const SmallArticle = ({ img, imgAlt, title, linkText, href }: SmallArtPro
       </span>
       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:opacity-0 transition duration-500 ease-in-out" />
       <div className="relative -z-10 w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
-        <Image src={img} alt={imgAlt} layout="fill" objectFit="cover" />
+        <Image src={img} alt={imgAlt} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
       </div>
     </article>
   );
