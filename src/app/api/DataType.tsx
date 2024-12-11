@@ -23,12 +23,12 @@ export type BoxesType = {
   sku: string;
   handle: string;
   title: string;
-  navn: string;
-  producent: string;
-  year: string;
+  navn: string | string[];
+  producent: string | string[];
+  year: string | string[];
   type: string;
-  druer: string;
-  land?: string[];
+  druer: string | string[];
+  land: string[];
   area: string;
   alkoholprocent: string;
   tilsat_svovl: string;

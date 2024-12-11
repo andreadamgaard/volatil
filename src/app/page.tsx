@@ -7,8 +7,8 @@ import { LineOne } from "./svgs/line1";
 import { LineTwo } from "./svgs/line2";
 import { LineThree } from "./svgs/line3";
 import { SmallArticle } from "@/components/Index/SmallArticle";
-import { AutumnBox } from "@/components/Index/AutumnBox";
 import type { BoxesType, ProductInfoType } from "./api/DataType";
+import { AutumnBox } from "@/components/boxArt/AutumnBox";
 
 export default function Home() {
   const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);
