@@ -7,6 +7,7 @@ export const fetchData = async (table) => {
     headers: {
       "Content-Type": "application/json",
       apikey: key,
+      Range: "0-1600",
     },
   });
   return response.json();
@@ -14,4 +15,5 @@ export const fetchData = async (table) => {
 
 export const fetchProductData = () => fetchData("product-data");
 export const fetchProductInfo = () => fetchData("product-info");
+export const fetchBoxes = () => fetchData("boxes");
 export const fetchSub = () => fetchData("subscription");

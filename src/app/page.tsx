@@ -1,22 +1,28 @@
 "use client";
 
-import { useEffect } from "react";
-import { fetchProductData, fetchProductInfo } from "./api/api";
+import { useEffect, useState } from "react";
+import { fetchBoxes, fetchProductData, fetchProductInfo } from "./api/api";
 import { BigArt } from "@/components/Index/BigArticle";
 import { LineOne } from "./svgs/line1";
 import { LineTwo } from "./svgs/line2";
 import { LineThree } from "./svgs/line3";
 import { SmallArticle } from "@/components/Index/SmallArticle";
+import { AutumnBox } from "@/components/Index/AutumnBox";
+import type { BoxesType, ProductInfoType } from "./api/DataType";
 
 export default function Home() {
+  const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);
+
   useEffect(() => {
     const getData = async () => {
       const productData = await fetchProductData();
-      const productInfo = (await fetchProductInfo()) as { land: string }[];
+      const productInfo = (await fetchProductInfo()) as ProductInfoType[];
+      const boxes = (await fetchBoxes()) as BoxesType[];
 
-      const getCountry = [...new Set(productInfo.flatMap((item) => item.land))];
-      //console.log("land", getCountry);
-      // console.log("data", productInfo);
+      //Hent data til Autumn box
+      const getAutumnBox = boxes.find((item) => item.sku === "38965412") || null;
+      setAutumnBoxData(getAutumnBox);
+      // console.log(getAutumnBox)
     };
     getData();
   }, []);
@@ -28,6 +34,10 @@ export default function Home() {
         <BigArt img="/images/abonnement.png" imgAlt="STAFF PICKS" title="STAFF PICKS!" linkText="Vi ved semi hvad vi taler om" href="/" />
       </section>
       <LineOne className="py-4 md:py-8 w-full h-auto" />
+      <section>
+        <AutumnBox data={autumnBoxData} />
+      </section>
+      <LineTwo className="py-4 md:py-8 w-full h-auto" />
       <section className="flex gap-2 md:gap-7 lg:gap-10 justify-center">
         <SmallArticle img="/images/cider.png" imgAlt="Cider" title="Cider!" linkText="Ægte Sprød cider" href="/" />
         <SmallArticle img="/images/wierd.png" imgAlt="Weird shit" title="Weird shit" linkText="(på den gode måde)!" href="/" />
