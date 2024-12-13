@@ -11,7 +11,7 @@ type BigArtProps = {
 
 export const BigArt = ({ img, imgAlt, title, linkText, href }: BigArtProps) => {
   return (
-    <article className="min-w-[11rem] min-h-[17rem] w-[22rem] md:w-[30rem] md:h-[26rem] lg:w-[42rem] lg:h-[31rem] relative overflow-hidden group">
+    <article className="min-w-44 min-h-[17rem] w-[22rem] md:w-[30rem] md:h-[26rem] lg:w-[42rem] lg:h-[31rem] relative overflow-hidden group">
       <span className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-white z-10">
         <h2 className="font-hackney text-4xl md:text-7xl lg:text-8xl xl:text-9xl">{title}</h2>
         <LinkButton size="medium" className="text-xs" href={href}>

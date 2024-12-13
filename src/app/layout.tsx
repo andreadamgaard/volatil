@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Abel } from "next/font/google";
 import { Menu } from "@/components/Menu/Menu";
+import { Footer } from "@/components/footer/Footer";
 
 export const abel = Abel({
   weight: "400",
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={abel.className}>
         {/* <Menu /> */}
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

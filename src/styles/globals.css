@@ -17,3 +17,7 @@
 body {
   @apply text-primary bg-bg font-abel antialiased;
 }
+
+*:focus-visible {
+  @apply outline-none focus:ring focus:ring-offset-bg focus:ring-[#dd4f83] focus:rounded;
+}

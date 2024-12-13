@@ -8,8 +8,8 @@ type ButonProps = Omit<AriaButtonProps, "children"> & {
 
 export const Button = ({ children, ...props }: ButonProps) => {
   return (
-    <AriaButton {...props} className="transition ease-in-out duration-200 bg-Vblue-50 hover:bg-Vblue-100 py-4 w-full max-h-14 rounded flex justify-center items-center">
-      <span className="text-3xl text-bg font-hackney">{children}</span>
+    <AriaButton {...props} className="transition ease-in-out duration-200 bg-Vblue-50 hover:bg-Vblue-100 py-4 w-full max-h-10 lg:max-h-14 rounded flex justify-center items-center">
+      <span className="text-2xl lg:text-3xl text-bg font-hackney">{children}</span>
     </AriaButton>
   );
 };
