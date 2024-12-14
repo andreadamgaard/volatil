@@ -66,8 +66,8 @@ export const Menu = () => {
 
             <div>
               <div className="flex  ring-primary ring-2">
-                <Image className="h-fit w-auto" src="/images/hand-wine.png" alt="hand with wine" width={227} height={800} />
-                <Image className="h-fit w-auto" src="/images/wine-wall.png" alt="wall with wine" width={227} height={800} />
+                <Image className="h-full w-auto" src="/images/hand-wine.png" alt="hand with wine" width={227} height={800} />
+                <Image className="h-full w-auto" src="/images/wine-wall.png" alt="wall with wine" width={227} height={800} />
               </div>
             </div>
           </div>
