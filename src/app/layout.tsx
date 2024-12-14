@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { Abel } from "next/font/google";
 import { Menu } from "@/components/Menu/Menu";
 import { Footer } from "@/components/footer/Footer";
+import clsx from "clsx";
 
 export const abel = Abel({
   weight: "400",
@@ -23,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={abel.className}>
+      <body className={clsx(abel.className, "antialiased")}>
         {/* <Menu /> */}
         <main>{children}</main>
         <Footer />

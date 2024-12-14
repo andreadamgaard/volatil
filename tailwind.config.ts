@@ -20,6 +20,13 @@ export default {
         DINCondensed: ["DIN Condensed", "sans-serif"],
         abel: ["var(--font-abel)"],
       },
+      aspectRatio: {
+        "3/4": "3 / 4",
+        "4/3": "4 / 3",
+        "4/5": "4 / 5",
+        "9/16": "9 / 16",
+        "16/10": "16 / 10",
+      },
     },
   },
   plugins: [],
