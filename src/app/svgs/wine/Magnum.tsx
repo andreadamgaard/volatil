@@ -4,16 +4,14 @@ type Props = {
 
 export const Magnum = ({ className }: Props) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114.24 319.86" role="img" aria-labelledby="title">
-      <title id="title">Magnum Illustration</title>
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156.51 329.52" role="img" aria-labelledby="title">
+      <title id="title">Magnum flaske</title>
       <defs>
         <style>
-          {`.cls-1 { fill: #cf2b25; }
-            .cls-2 { fill: #e84a2e; }
-            .cls-3 { fill: #fff; }
-            .cls-4 { fill: #cde3d4; }
-            .cls-5 { fill: #b3b3b3; }
-            .cls-6 { fill: #fbe6cd; }`}
+          {`.cls-1 { fill: #6a9f62; }
+            .cls-2 { fill: #fff; }
+            .cls-3 { fill: #409262; }
+            .cls-4 { fill: #cde3d4; }`}
         </style>
       </defs>
       <g id="Magnum">

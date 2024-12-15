@@ -41,7 +41,7 @@ export const BoxText = ({ data }: { data: BoxesType | null }) => {
             <br />
             Usually ready in 24 hours
           </p>
-          <Link>View store information</Link>
+          <Link intent="text">View store information</Link>
         </span>
       </div>
     </article>

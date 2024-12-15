@@ -4,12 +4,12 @@ import type { LinkProps } from "react-aria-components";
 
 type ButonProps = Omit<LinkProps, "children"> & {
   children: React.ReactNode;
-  icon?: boolean;
+  intent: "text" | "icon" | "null";
 };
 
-export const Link = ({ children, icon, ...props }: ButonProps) => {
+export const Link = ({ children, intent, ...props }: ButonProps) => {
   return (
-    <AriaLink {...props} className={clsx("transition ease-in-out duration-200 w-fit inline-flex items-center border-b border-b-current hover:text-hover hover:border-transparent", icon && "border-b-transparent hover:scale-105")}>
+    <AriaLink {...props} className={clsx("transition ease-in-out duration-200 w-fit inline-flex items-center hover:text-hover", intent === "text" && "border-b border-b-current hover:border-transparent", intent === "icon" && "hover:scale-105")}>
       {children}
     </AriaLink>
   );
