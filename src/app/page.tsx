@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { fetchBoxes, fetchProductData, fetchProductInfo } from "./api/api";
-import { BigArt } from "@/components/Index/BigArticle";
+import { BigArt } from "@/components/IndexSetup/BigArticle";
 import { LineOne } from "./svgs/line1";
 import { LineTwo } from "./svgs/line2";
 import { LineThree } from "./svgs/line3";
-import { SmallArticle } from "@/components/Index/SmallArticle";
+import { SmallArticle } from "@/components/IndexSetup/SmallArticle";
 import type { BoxesType, ProductInfoType } from "./api/DataType";
 import { AutumnBox } from "@/components/boxIndex/AutumnBox";
 
