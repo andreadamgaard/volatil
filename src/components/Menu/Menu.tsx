@@ -1,5 +1,5 @@
 "use client";
-import { VolatilLogo } from "@/app/Logo/VolatilLogo";
+import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { CircleUserRound, Search, ShoppingBasket } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";

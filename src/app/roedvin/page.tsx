@@ -1,4 +1,4 @@
-export default function RedWine() {
+export default function Rødvin() {
   return (
     <section>
       <h1>Rødvin</h1>

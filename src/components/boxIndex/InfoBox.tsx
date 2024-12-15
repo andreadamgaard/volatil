@@ -13,7 +13,7 @@ export const InfoBox = ({ data }: { data: BoxesType | null }) => {
         <span className="flex flex-wrap">
           {Array.isArray(data.navn) ? (
             data.navn.map((navn, index) => (
-              <span key={Math.random()} className="inline-flex items-center">
+              <span key={`${navn}-${index}`} className="inline-flex items-center">
                 <p>{navn}</p>
                 {index < data.navn.length - 1 && <span className="inline-block mx-1 font-bold lg:mx-2 text-center">|</span>}
               </span>
@@ -28,7 +28,7 @@ export const InfoBox = ({ data }: { data: BoxesType | null }) => {
         <span className="flex flex-wrap">
           {Array.isArray(data.druer) ? (
             data.druer.map((drue, index) => (
-              <span key={Math.random()} className="inline-flex items-center">
+              <span key={`${drue}-${index}`} className="inline-flex items-center">
                 <p>{drue}</p>
                 {index < data.druer.length - 1 && <span className="inline-block mx-1 font-bold lg:mx-2 text-center">|</span>}
               </span>
@@ -42,7 +42,7 @@ export const InfoBox = ({ data }: { data: BoxesType | null }) => {
         <Earth className="size-5" />
         <span className="flex flex-wrap">
           {data.land.map((land, index) => (
-            <span key={Math.random()} className="inline-flex items-center">
+            <span key={`${land}-${index}`} className="inline-flex items-center">
               <p>{land}</p>
               {index < data.land.length - 1 && <span className="inline-block mx-1 font-bold lg:mx-2 text-center">|</span>}
             </span>
