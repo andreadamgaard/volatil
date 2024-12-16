@@ -15,7 +15,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function SwiperKarusel({ shows }: SwiperImages) {
   return (
-    <section className="w-full group relative pt-1 pb-4">
+    <section className="w-full group relative pb-4">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, Keyboard]}
         loop={true}
@@ -44,7 +44,7 @@ export default function SwiperKarusel({ shows }: SwiperImages) {
             spaceBetween: 10,
           },
           992: {
-            slidesPerView: 1.7,
+            slidesPerView: 1.2,
             spaceBetween: 12,
           },
           1920: {
@@ -54,10 +54,10 @@ export default function SwiperKarusel({ shows }: SwiperImages) {
         }}
       >
         {shows.map((show) => (
-          <SwiperSlide key={show.title} className="flex justify-center items-center py-4 antialiased">
+          <SwiperSlide key={show.title} className="flex justify-center items-center antialiased">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <img className="relative w-full h-full object-cover aspect-[7/6] min-[579px]:aspect-video" src={show.src} alt={show.alt} />
+                <img className="relative w-full h-full object-cover aspect-[7/6] min-[579px]:aspect-swiper" src={show.src} alt={show.alt} />
                 <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute pl-3 text-white bottom-0 py-5 min-[576px]:pl-4 pr-4 transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
