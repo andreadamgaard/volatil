@@ -44,26 +44,8 @@ export const Menu = () => {
       setIsDropdownOpen(false);
     }
   };
-
-  // const handleKeyDown = (event: React.KeyboardEvent, category: Category) => {
-  //   if (event.key === "Enter" || event.key === " ") {
-  //     if (activeCategory === category) {
-  //       setActiveCategory("");
-  //     } else {
-  //       setActiveCategory(category);
-  //     }
-  //   }
-  // };
-
-  // const handleBlur = (event: React.FocusEvent) => {
-  //   const relatedTarget = event.relatedTarget as HTMLElement | null;
-  //   if (!relatedTarget?.closest(".dropdown-container") && !relatedTarget?.closest(".vine-button")) {
-  //     setActiveCategory("");
-  //   }
-  // };
-
   return (
-    <nav className="bg-secondary relative w-full h-fit flex justify-center items-center px-8 py-2 z-50">
+    <nav className="bg-secondary w-full h-fit flex justify-center items-center px-8 pb-2 z-50 sticky top-0">
       <div className="basis-0	grow flex gap-10">
         <button className="flex items-center font-hackney text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
           Vine
@@ -100,6 +82,9 @@ export const Menu = () => {
           </div>
         )}
 
+        <Link href="/alle/" intent="null" aria-label="forside">
+          <span className="font-hackney text-4xl hover:text-hover">Alle Vine</span>
+        </Link>
         <Link href="/" intent="null" aria-label="forside">
           <span className="font-hackney text-4xl hover:text-hover">Om os</span>
         </Link>
