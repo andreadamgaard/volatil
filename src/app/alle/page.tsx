@@ -54,8 +54,11 @@ export default function AllWines() {
       </header>
 
       {/* Sorteringsfilter */}
-      <div className="flex justify-end mb-4">
-        <Sorting onSortChange={(sortKey) => setSortOption(sortKey)} label="Sorter vin:" />
+      <div className="flex justify-between w-full mb-4 px-6">
+        <span>Filtre her</span>
+        <span>
+          <Sorting onSortChange={(sortKey) => setSortOption(sortKey)} />
+        </span>
       </div>
 
       {/* Vin-visning */}
