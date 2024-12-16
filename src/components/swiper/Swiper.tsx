@@ -53,8 +53,8 @@ export default function SwiperKarusel({ shows }: SwiperImages) {
           },
         }}
       >
-        {shows.map((show, index) => (
-          <SwiperSlide key={index} className="flex justify-center items-center py-4 antialiased">
+        {shows.map((show) => (
+          <SwiperSlide key={show.title} className="flex justify-center items-center py-4 antialiased">
             {({ isActive, isPrev, isNext }) => (
               <>
                 <img className="relative w-full h-full object-cover aspect-[7/6] min-[579px]:aspect-video" src={show.src} alt={show.alt} />
