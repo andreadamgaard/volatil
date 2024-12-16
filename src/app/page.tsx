@@ -30,33 +30,33 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
-      <section>
-        <SwiperKarusel shows={SwiperData} />
+    <div>
+      <section className="pb-4 md:pb-6">
+        <SwiperKarusel slides={SwiperData} />
       </section>
       <div>
         <section className="flex gap-2.5 md:gap-6 lg:gap-10 justify-center">
-          <BigArt img="/images/billigjuice.png" imgAlt="billig juice" title="Billigjuice!" linkText="(som stadig er psyko!)" href="/" />
-          <BigArt img="/images/staffPicks.png" imgAlt="STAFF PICKS" title="STAFF PICKS!" linkText="Vi ved semi hvad vi taler om" href="/" />
+          <BigArt img="/images/billigjuice.webp" imgAlt="billig juice" title="Billigjuice!" linkText="(som stadig er psyko!)" href="/" />
+          <BigArt img="/images/staffPicks.webp" imgAlt="STAFF PICKS" title="STAFF PICKS!" linkText="Vi ved semi hvad vi taler om" href="/" />
         </section>
 
         <LineOne className="py-4 md:py-8 w-full h-auto" />
 
         <section className="flex gap-2.5 md:gap-6 justify-center">
           <AutumnBox data={autumnBoxData} />
-          <SmallArticle size="large" img="/images/abonnement.png" imgAlt="Abonnement kasse" title="Sindsygt ABONNEMENT!" linkText="svedig Vin til dig hver måned!" href="/" />
+          <SmallArticle size="large" img="/images/abonnement.webp" imgAlt="Abonnement kasse" title="Sindsygt ABONNEMENT!" linkText="svedig Vin til dig hver måned!" href="/" />
         </section>
 
         <LineTwo className="py-4 md:py-8 w-full h-auto" />
 
         <section className="flex gap-2.5 md:gap-6 lg:gap-10 justify-center">
-          <SmallArticle size="medium" img="/images/cider.png" imgAlt="Cider" title="Cider!" linkText="Ægte Sprød cider" href="/" />
-          <SmallArticle size="medium" img="/images/wierd.png" imgAlt="Weird shit" title="Weird shit" linkText="(på den gode måde)!" href="/" />
-          <SmallArticle size="medium" img="/images/psykovin.png" imgAlt="Psykovin" title="Psykovin!" linkText="Sådan ægte psyko" href="/" />
+          <SmallArticle size="medium" img="/images/cider.webp" imgAlt="Cider" title="Cider!" linkText="Ægte Sprød cider" href="/" />
+          <SmallArticle size="medium" img="/images/wierd.webp" imgAlt="Weird shit" title="Weird shit" linkText="(på den gode måde)!" href="/" />
+          <SmallArticle size="medium" img="/images/psykovin.webp" imgAlt="Psykovin" title="Psykovin!" linkText="Sådan ægte psyko" href="/" />
         </section>
         <LineThree className="py-4 md:py-8 w-full h-auto" />
         <section className="">
-          <SmallArticle size="large" img="/images/gavekort.png" imgAlt="Gavekort flaske" title="Køb et gavekort" linkText="Ikke?!" href="/" />
+          <SmallArticle size="large" img="/images/gavekort.webp" imgAlt="Gavekort flaske" title="Køb et gavekort" linkText="Ikke?!" href="/" />
         </section>
       </div>
     </div>
