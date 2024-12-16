@@ -23,7 +23,7 @@ main {
 }
 
 *:focus-visible {
-  @apply outline-none focus:ring focus:ring-offset-bg focus:ring-[#dd4f83] focus:rounded;
+  @apply outline-none focus:ring focus:ring-offset-bg focus:ring-focus focus:rounded;
 }
 
 .headline {

@@ -10,6 +10,7 @@ export default {
         hover: "#DA2B6B",
         textSale: "#A80A4466",
         secondary: "#FFDEEB",
+        focus: "#DD4F83",
         Vblue: {
           50: "#457BFF",
           100: "#1458FF",
