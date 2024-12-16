@@ -1,0 +1,64 @@
+.custom-bullet {
+  @apply w-[7px] h-[7px] m-[5px] bg-[#ffffff99] opacity-100;
+}
+.custom-bullet-active {
+  @apply w-[7px] h-[7px] m-[5px] bg-white opacity-100;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  --swiper-pagination-bullet-horizontal-gap: 5px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  --swiper-pagination-bottom: 18px;
+}
+
+.custom-arrow-prev,
+.custom-arrow-next {
+  width: 10%;
+  height: 100%;
+  top: 9%;
+}
+
+@media (min-width: 579px) {
+  .custom-arrow-prev,
+  .custom-arrow-next {
+    width: 8%;
+    height: 100%;
+    top: 11%;
+  }
+}
+@media (min-width: 768px) {
+  .custom-arrow-prev,
+  .custom-arrow-next {
+    height: 100%;
+    top: 9%;
+  }
+}
+@media (min-width: 992px) {
+  .custom-arrow-prev,
+  .custom-arrow-next {
+    width: 10%;
+    height: 100%;
+    top: 12%;
+  }
+}
+@media (min-width: 1920px) {
+  .custom-arrow-prev,
+  .custom-arrow-next {
+    width: 8%;
+    height: 100%;
+    top: 10%;
+  }
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: none;
+}
+/* .swiper-button-prev svg, .swiper-button-next svg {
+  display: none;
+  
+} */
