@@ -3,14 +3,14 @@ import { BigArt } from "./BigArticle";
 
 const BigData = [
   {
-    img: "/images/billigjuice.png",
+    img: "/images/billigjuice.webp",
     imgAlt: "billig juice",
     title: "Billigjuice!",
     linkText: "(som stadig er psyko!)",
     href: "/",
   },
   {
-    img: "/images/abonnement.png",
+    img: "/images/abonnement.webp",
     imgAlt: "STAFF PICKS",
     title: "STAFF PICKS!",
     linkText: "Vi ved semi hvad vi taler om",

@@ -7,7 +7,7 @@ export const NavImg = () => {
       <Link href="/" aria-label="Staff picks" className="relative h-full w-1/2 group">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
-        <Image className="h-full w-full object-cover" src="/images/WineHands.png" alt="hand with wine" width={227} height={800} />
+        <Image className="h-full w-full object-cover" src="/images/WineHands.webp" alt="hand with wine" width={227} height={800} />
         <figcaption className="absolute inset-x-0 bottom-6 text-center transition-transform duration-200 ease-in-out group-hover:scale-105">Staff Picks</figcaption>
       </Link>
 

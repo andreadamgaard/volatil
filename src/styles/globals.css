@@ -15,9 +15,17 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel antialiased;
+  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen;
+}
+
+main {
+  @apply flex-grow;
 }
 
 *:focus-visible {
   @apply outline-none focus:ring focus:ring-offset-bg focus:ring-[#dd4f83] focus:rounded;
+}
+
+.headline {
+  @apply font-hackney text-6xl pt-16 md:text-9xl md:pt-12 whitespace-nowrap;
 }

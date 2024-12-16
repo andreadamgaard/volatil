@@ -108,7 +108,7 @@ export const Menu = () => {
       {/* Resten af top nav */}
       {/* Logo */}
       <Link href="/" intent="null" aria-label="forside">
-        <h1 className=" font-hackney text-9xl -my-4 transition ease-in-out duration-200 hover:text-hover">VOLATIL</h1>
+        <h1 className=" font-hackney text-6xl  transition ease-in-out duration-200 hover:text-hover">VOLATIL</h1>
         {/* <VolatilLogo className="hover:text-hover h-16 stroke-[8px] transition ease-in-out duration-200" /> */}
       </Link>
 
