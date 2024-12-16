@@ -1,14 +1,14 @@
 "use client";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
-import { CircleUserRound, Search, ShoppingBasket } from "lucide-react";
-import Image from "next/image";
-import React, { useState } from "react";
+import { ChevronDown, CircleUserRound, Search, ShoppingBasket } from "lucide-react";
+import React, { useRef, useState } from "react";
 import { Alle } from "./Categories/Alle";
 import { Typer } from "./Categories/Typer";
 import { Land } from "./Categories/Land";
 import { Opdagesle } from "./Categories/Opdagelse";
 import clsx from "clsx";
 import { Link } from "../Link/Link";
+import { NavImg } from "./NavImg";
 
 type Category = "Alle vine" | "Typer" | "Land" | "Gå på opdagelse";
 
@@ -20,48 +20,96 @@ const categories: Record<Category, () => JSX.Element> = {
 };
 export const Menu = () => {
   const [activeCategory, setActiveCategory] = useState<Category | "">("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const contentRef = useRef<HTMLElement>(null);
+  const navImgRef = useRef<HTMLDivElement>(null);
+
+  const handleKeyDownOnButton = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      setIsDropdownOpen(true);
+    }
+  };
+
+  const handleKeyDownOnCategory = (event: React.KeyboardEvent, category: Category) => {
+    if (event.key === "Enter" || event.key === " ") {
+      setActiveCategory(category);
+      setTimeout(() => contentRef.current?.focus(), 0);
+    }
+  };
+
+  const handleBlur = (event: React.FocusEvent) => {
+    const relatedTarget = event.relatedTarget as HTMLElement | null;
+    if (!relatedTarget?.closest(".dropdown-container") && !relatedTarget?.closest(".vine-button")) {
+      setActiveCategory("");
+      setIsDropdownOpen(false);
+    }
+  };
+
+  // const handleKeyDown = (event: React.KeyboardEvent, category: Category) => {
+  //   if (event.key === "Enter" || event.key === " ") {
+  //     if (activeCategory === category) {
+  //       setActiveCategory("");
+  //     } else {
+  //       setActiveCategory(category);
+  //     }
+  //   }
+  // };
+
+  // const handleBlur = (event: React.FocusEvent) => {
+  //   const relatedTarget = event.relatedTarget as HTMLElement | null;
+  //   if (!relatedTarget?.closest(".dropdown-container") && !relatedTarget?.closest(".vine-button")) {
+  //     setActiveCategory("");
+  //   }
+  // };
 
   return (
-    <nav className="bg-secondary relative w-full h-fit flex justify items-center px-8 py-2 z-50">
-      <div className="basis-0	grow">
-        <button className="font-hackney text-4xl hover:text-hover" type="button" onMouseEnter={() => setActiveCategory("Alle vine")}>
+    <nav className="bg-secondary relative w-full h-fit flex justify-center items-center px-8 py-2 z-50">
+      <div className="basis-0	grow flex gap-10">
+        <button className="flex items-center font-hackney text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
           Vine
+          <ChevronDown className="size-7 stroke-[3px]" />
         </button>
 
-        {/* Dropdown-menuen */}
-        {activeCategory && (
-          <div
-            className="absolute w-fit flex min-h-[368px] h-96"
-            // onMouseLeave={() => setActiveCategory("")}
-          >
-            <ul className="min-w-44 w-60 bg-bg group py-7 text-base ring-primary ring-2 focus-within:hover:bg-primary">
-              {Object.keys(categories).map((category) => (
-                <li key={category} className={clsx("py-3 font-bold px-4 hover:bg-primary hover:text-bg", activeCategory === category && "bg-primary text-bg")} onMouseEnter={() => setActiveCategory(category as Category)}>
-                  {category}
+        {isDropdownOpen && (
+          <div className="absolute w-fit flex min-h-[368px] h-96 left-1/8 top-[85%] dropdown-container" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)} onBlur={handleBlur} tabIndex={-1} role="menu">
+            {/* Kategorier */}
+            <ul className="min-w-44 w-60 bg-bg group py-7 text-base ring-primary ring-2" role="menu">
+              {Object.keys(categories).map((category, index) => (
+                <li key={category} className="w-full">
+                  <button type="button" role="menuitem" className={clsx("w-full px-4 py-3 font-bold text-left hover:bg-primary focus:bg-primary hover:text-bg focus:text-bg", activeCategory === category && "bg-primary text-bg")} onMouseEnter={() => setActiveCategory(category as Category)} onKeyDown={(event) => handleKeyDownOnCategory(event, category as Category)} onFocus={() => setActiveCategory(category as Category)}>
+                    {category}
+                  </button>
                 </li>
               ))}
             </ul>
 
             {/* Dynamisk kategori-indhold */}
-            <div className="min-w-96 lg:w-[33rem] h-auto bg-bg ring-primary ring-2 flex items-start justify-start">{activeCategory && React.createElement(categories[activeCategory])}</div>
+            <section
+              ref={contentRef}
+              className="min-w-96 lg:w-[33rem] h-auto bg-bg ring-primary ring-2 flex items-start justify-start"
+              aria-labelledby={activeCategory}
+              tabIndex={-1} // Fokuserbart via script
+            >
+              {activeCategory && React.createElement(categories[activeCategory])}
+            </section>
 
             {/* Billeder */}
-            <div className="flex ring-primary ring-2 max-w-[28rem]">
-              <figure className="h-full w-1/2">
-                <Image className="h-full w-full object-cover" src="/images/WineHands.png" alt="hand with wine" width={227} height={800} />
-              </figure>
-              <figure className="h-full w-1/2">
-                <Image className="h-full w-full object-cover" src="/images/WallWine.png" alt="wall with wine" width={227} height={800} />
-              </figure>
+            <div ref={navImgRef}>
+              <NavImg />
             </div>
           </div>
         )}
+
+        <Link href="/" intent="null" aria-label="forside">
+          <span className="font-hackney text-4xl hover:text-hover">Om os</span>
+        </Link>
       </div>
 
       {/* Resten af top nav */}
       {/* Logo */}
       <Link href="/" intent="null" aria-label="forside">
-        <VolatilLogo className=" h-16 fill-primary stroke-[5px]" />
+        <h1 className=" font-hackney text-9xl -my-4 transition ease-in-out duration-200 hover:text-hover">VOLATIL</h1>
+        {/* <VolatilLogo className="hover:text-hover h-16 stroke-[8px] transition ease-in-out duration-200" /> */}
       </Link>
 
       {/* Højre menu */}

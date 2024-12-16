@@ -4,7 +4,7 @@ import { StockLine } from "./StockLine";
 import { AntalBox } from "../antal/AntalBox";
 import { Link } from "../Link/Link";
 import { InfoBox } from "./InfoBox";
-import { Button } from "../Button/Button";
+import { Button } from "../button/Button";
 
 export const BoxText = ({ data }: { data: BoxesType | null }) => {
   if (!data) {

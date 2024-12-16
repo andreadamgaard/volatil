@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LinkButton } from "../Button/Button";
+import { LinkButton } from "../button/Button";
 
 type BigArtProps = {
   img: string;
@@ -12,8 +12,8 @@ type BigArtProps = {
 export const BigArt = ({ img, imgAlt, title, linkText, href }: BigArtProps) => {
   return (
     <article className="min-h-64 w-1/2 md:h-[26rem] lg:h-[31rem] relative overflow-hidden group max-w-[53.75rem]">
-      <span className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-white z-10">
-        <h2 className="font-hackney text-4xl md:text-7xl lg:text-8xl xl:text-9xl antialiased">{title}</h2>
+      <span className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-white z-10 gap-1.5">
+        <h2 className="font-hackney text-4xl md:text-7xl xl:text-9xl antialiased">{title}</h2>
         <LinkButton size="medium" className="text-xs" href={href}>
           {linkText}
         </LinkButton>
