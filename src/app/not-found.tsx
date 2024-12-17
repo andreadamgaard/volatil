@@ -1,5 +1,3 @@
-"use client";
-
 import { LinkButton } from "@/components/button/Button";
 import { Link } from "@/components/Link/Link";
 
@@ -18,7 +16,7 @@ export default function NotFound() {
             <br />
             Vinen blev ikke fundet
           </h1>
-          <p className="pb-8 text-xl md:text-2xl">Vi kan 'æk finde den vin 💔</p>
+          <p className="pb-8 text-xl md:text-2xl lg:text-4xl">Vi kan 'æk finde den vin 💔</p>
           <div className="flex justify-center items-center">
             <Link intent="null" href="/">
               <LinkButton size="large">Gå tilbage til forsiden??</LinkButton>

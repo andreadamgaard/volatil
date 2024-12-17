@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { Button as AriaButton, Link as AriaLinkButton } from "react-aria-components";
 import type { ButtonProps as AriaButtonProps, LinkProps as AriaLinkButtonProps } from "react-aria-components";
