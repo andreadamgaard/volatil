@@ -14,5 +14,6 @@ export const fetchData = async (table) => {
 
 export const fetchProductData = async () => fetchData("product-data");
 export const fetchProductInfo = () => fetchData("product-info");
+
 export const fetchBoxes = () => fetchData("boxes");
 export const fetchSub = () => fetchData("subscription");

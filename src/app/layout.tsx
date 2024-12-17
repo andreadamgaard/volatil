@@ -5,6 +5,7 @@ import { Menu } from "@/components/Menu/Menu";
 import { Footer } from "@/components/footer/Footer";
 import clsx from "clsx";
 import Head from "next/head";
+import { BurgerMenu } from "@/components/burger/BurgerMenu";
 
 export const abel = Abel({
   weight: "400",
@@ -29,7 +30,12 @@ export default function RootLayout({
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
-        <Menu />
+        <span className=" md:hidden">
+          <BurgerMenu />
+        </span>
+        <span className="hidden md:block">
+          <Menu />
+        </span>
         <main>{children}</main>
         <Footer />
       </body>
