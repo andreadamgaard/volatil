@@ -5,7 +5,7 @@ import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 export const Alle = () => {
   return (
     <div className="flex flex-col w-full h-full py-4 px-6 text-base font-bold gap-y-4 items-center">
-      <Link href="/alle/" intent="null" aria-label="Alle vine">
+      <Link href="/alle-vine/" intent="null" aria-label="Alle vine">
         <span className="flex flex-col gap-y-4">
           <span className="w-fit flex flex-col items-center justify-center">
             <h2 className="font-hackney text-4xl text-center">Se alle vine (OMG!)</h2>

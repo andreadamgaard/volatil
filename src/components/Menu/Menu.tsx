@@ -82,7 +82,7 @@ export const Menu = () => {
           </div>
         )}
 
-        <Link href="/alle/" intent="null" aria-label="forside">
+        <Link href="/alle-vine/" intent="null" aria-label="forside">
           <span className="font-hackney text-4xl hover:text-hover">Alle Vine</span>
         </Link>
         <Link href="/" intent="null" aria-label="forside">
