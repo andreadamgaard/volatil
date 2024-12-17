@@ -4,11 +4,11 @@ import { LinkButton } from "@/components/button/Button";
 import { Link } from "@/components/Link/Link";
 
 export const metadata = {
-  title: "Vinen findes ikke",
-  description: "Vinen du leder efter kan vi desværre ikke finde lige nu :(",
+  title: "Siden findes ikke",
+  description: "Siden du vil ind på findes ikke :(",
 };
 
-export default function NotFound() {
+export default function error() {
   return (
     <>
       <section className="grid justify-center items-center py-16">
@@ -16,9 +16,9 @@ export default function NotFound() {
           <h1 className="font-hackney text-4xl pt-16 md:text-7xl md:pt-12 lg:text-9xl">
             Øv bøv
             <br />
-            Vinen blev ikke fundet
+            Siden blev ikke fundet
           </h1>
-          <p className="pb-8 text-xl md:text-2xl">Vi kan 'æk finde den vin 💔</p>
+          <p className="pb-8 text-xl md:text-2xl">Vi kan bare 'æk finde siden 💔</p>
           <div className="flex justify-center items-center">
             <Link intent="null" href="/">
               <LinkButton size="large">Gå tilbage til forsiden??</LinkButton>

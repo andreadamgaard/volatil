@@ -46,10 +46,10 @@ export const Menu = () => {
   };
   return (
     <nav className="bg-secondary w-full h-fit flex justify-center items-center px-8 pb-2 z-50 sticky top-0">
-      <div className="basis-0	grow flex gap-10">
-        <button className="flex items-center font-hackney text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
+      <div className="basis-0	grow flex gap-5 lg:gap-10">
+        <button className="flex items-center font-hackney text-2xl lg:text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
           Vine
-          <ChevronDown className="size-7 stroke-[3px]" />
+          <ChevronDown className="size-5 lg:size-7 stroke-[3px]" />
         </button>
 
         {isDropdownOpen && (
@@ -83,10 +83,10 @@ export const Menu = () => {
         )}
 
         <Link href="/alle-vine/" intent="null" aria-label="forside">
-          <span className="font-hackney text-4xl hover:text-hover">Alle Vine</span>
+          <span className="font-hackney text-2xl lg:text-4xl hover:text-hover">Alle Vine</span>
         </Link>
         <Link href="/" intent="null" aria-label="forside">
-          <span className="font-hackney text-4xl hover:text-hover">Om os</span>
+          <span className="font-hackney text-2xl lg:text-4xl hover:text-hover">Om os</span>
         </Link>
       </div>
 
@@ -99,7 +99,7 @@ export const Menu = () => {
 
       {/* Højre menu */}
       <div className="flex gap-4 items-center basis-0	grow justify-end">
-        <span className="flex gap-2 text-4xl items-center hover:text-hover">
+        <span className="flex gap-2 text-2xl lg:text-4xl items-center hover:text-hover">
           <Search className="size-7 " />
           <p className="font-hackney">Search</p>
         </span>
