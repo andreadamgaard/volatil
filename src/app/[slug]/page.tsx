@@ -1,5 +1,6 @@
 import { fetchProductData, fetchProductInfo } from "../api/api";
 import type { VinSingleType } from "../api/vin";
+import NotFound from "../not-found";
 
 export default async function Vin({ params }) {
   const { slug } = params;
@@ -11,13 +12,13 @@ export default async function Vin({ params }) {
   // Find SKU på vinen
   const matchingProduct = productData.find((product) => product.handle === slug);
   if (!matchingProduct) {
-    return <div>Øv bøv, din vin blev ikke fundet 💔</div>;
+    NotFound();
   }
 
   const matchingSku = matchingProduct.sku;
   const vinen = productInfo.find((info: VinSingleType) => info.sku === matchingSku);
   if (!vinen) {
-    return <div>Øv bøv, din vin blev ikke fundet 💔</div>;
+    NotFound();
   }
 
   console.log("Matching Product:", matchingProduct);
