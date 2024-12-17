@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { Link as AriaLink } from "react-aria-components";
 import type { LinkProps } from "react-aria-components";
