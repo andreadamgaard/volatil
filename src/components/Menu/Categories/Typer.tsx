@@ -59,7 +59,7 @@ export const Typer = () => {
         <Link href="/lav-alkohol/" intent="null" aria-label="Lav til 0%">
           <span className="flex flex-col items-center justify-center hover:scale-105 transition ease-in-out duration-200 group">
             <Nul className="size-28" />
-            <p className="group-hover:text-hover">lav og 0%</p>
+            <p className="group-hover:text-hover">Lav og 0%</p>
           </span>
         </Link>
         <Link href="/magnum/" intent="null" aria-label="Mangnum vine">

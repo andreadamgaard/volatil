@@ -24,7 +24,6 @@ export default function Home() {
       //Hent data til Autumn box
       const getAutumnBox = boxes.find((item) => item.sku === "38965412") || null;
       setAutumnBoxData(getAutumnBox);
-      // console.log(getAutumnBox)
     };
     getData();
   }, []);
