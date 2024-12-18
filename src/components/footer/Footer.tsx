@@ -3,7 +3,6 @@ import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { Link } from "../Link/Link";
 import { YT, Mail, IG, FB, Maestro, AmericanExpress, Mastercard, UnionPay, Visa } from "./svger/IconFooter";
 import { LineOne } from "@/content/svgs/line1";
-import { LineThree } from "@/content/svgs/line3";
 import { LineTwo } from "@/content/svgs/line2";
 
 export const Footer = () => {
@@ -11,7 +10,7 @@ export const Footer = () => {
     <footer className="bg-secondary grid justify-center px-6 pt-8 pb-10 text-sm gap-y-5 md:px-16 md:grid-cols-3 md:gap-x-0 md:gap-y-0 sm">
       <span className="flex flex-col items-center md:items-start md:col-start-1 md:col-span-2 md:row-start-1 md:max-w-[450px] md:pb-4">
         <VolatilLogo className="w-2/4 stroke-[4px] md:w-4/5 lg:w-3/4" />
-        <LineThree className="w-2/4 stroke-2 md:w-4/5 lg:w-3/4" />
+        <LineTwo className="w-2/4 stroke-2 md:w-4/5 lg:w-3/4" />
       </span>
 
       <div className="flex gap-2 justify-between md:flex-col md:grid-cols-1  md:col-start-3 md:row-span-3 md:min-w-60 md:max-w-[450px] lg:min-w-96 md:justify-self-end">
@@ -113,7 +112,7 @@ export const Footer = () => {
         </span>
       </div>
 
-      <div className="flex flex-col gap-3 pt-6 md:col-start-1 md:col-span-3 ">
+      <div className="flex flex-col gap-3 pt-6 lg:pt-0 md:col-start-1 md:col-span-3 ">
         <div className="flex gap-2 text-textSale flex-wrap text-[0.65rem] md:col-start-1 md:col-span-3 md:text-xs items-center">
           <p>© 2024 Volatil Vin</p>|<p>CVR: 38654233</p>|<p>+45 55 20 22 39</p>|
           <Link intent="text" href="mailto:info@volatil.dk">

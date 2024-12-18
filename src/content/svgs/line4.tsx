@@ -4,7 +4,7 @@ type Props = {
 
 export const LineFour = ({ className }: Props) => {
   return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 54" role="img" aria-labelledby="title4" preserveAspectRatio="none">
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 54" role="img" aria-labelledby="title4">
       <title id="title4">Line four</title>
       <line x1="0" y1="23.5" x2="1409" y2="23.5" stroke="#A80A44" strokeWidth="5" />
       <mask id="mask0_217_1365" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="1409" height="54">

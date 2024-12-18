@@ -17,13 +17,13 @@ export const SmallArticle = ({ img, imgAlt, title, linkText, href, size }: Small
       article: "min-h-52 w-1/3 md:min-h-[27rem] lg:min-h-[32rem]",
       title: "text-3xl md:text-6xl lg:text-7xl",
       txtPlacement: "gap-1.5 py-3 md:py-9",
-      btnSize: "small" as const,
+      btnSize: "large" as const,
     },
     large: {
       article: "min-h-72 w-1/2 md:w-[40%] md:min-w-[16rem] md:h-[35rem] lg:max-w-[35%]",
       title: "text-3xl sm:text-4xl md:text-4xl lg:text-6xl",
       txtPlacement: "gap-1.5 py-9 md:py-9",
-      btnSize: "small" as const,
+      btnSize: "large" as const,
     },
   };
 

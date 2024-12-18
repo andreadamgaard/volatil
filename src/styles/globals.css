@@ -19,7 +19,7 @@ body {
 }
 
 main {
-  @apply flex-grow pb-4 md:pb-6;
+  @apply pb-4 md:pb-6;
 }
 
 *:focus-visible {
