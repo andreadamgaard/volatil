@@ -5,7 +5,7 @@ type Props = {
 export const LineTwo = ({ className }: Props) => {
   return (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 54" role="img" aria-labelledby="title2">
-      <title id="title2">Line 2</title>
+      <title id="title2">Line two</title>
       <mask id="mask0_146_1313" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="1409" height="54">
         <rect y="54" width="54" height="1409" transform="rotate(-90 0 54)" fill="url(#pattern0_146_1313)" />
       </mask>
