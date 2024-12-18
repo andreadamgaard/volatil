@@ -1,21 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Filter } from "./Filter";
-import { filterData } from "../../app/api/filterData";
 
-const landeMockData = filterData.lande;
-
-export default {
-  title: "Components/Filter",
+const meta: Meta<typeof Filter> = {
   component: Filter,
-  args: {
-    data: landeMockData,
-  },
 };
 
+export default meta;
 type Story = StoryObj<typeof Filter>;
 
-export const Primary: Story = {
-  args: {
-    data: landeMockData,
-  },
-};
+export const Primary: Story = {};

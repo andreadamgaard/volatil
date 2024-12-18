@@ -31,11 +31,13 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
 
   return (
     <div className="flex flex-col place-items-end gap-1 w-[180px]">
+      {/* Sortering med dropdown */}
+
       <Field>
         {/* Label */}
-        <Label className="flex justify-end font-bold text-lg px-1 pb-1">Sorter:</Label>
+        <h2 className="flex justify-end font-bold text-lg px-1 pb-1">Sorter:</h2>
 
-        {/* filter selector */}
+        {/* Filter knappen */}
         <Listbox value={selected} onChange={handleSelection}>
           <ListboxButton
             className={clsx(
@@ -50,12 +52,12 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
             {selected ? <X className="size-5 transition ease-in-out duration-200 hover:scale-125" onClick={clearSelection} aria-label="Clear sort" /> : <ChevronDown className="size-7" aria-hidden="true" />}
           </ListboxButton>
 
-          {/* dropdown options */}
+          {/* Dropdown med valgmuligheder */}
           <Transition leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-            <ListboxOptions className="w-[10rem] mt-1 absolute bg-white rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
+            <ListboxOptions className="w-[10rem] z-10 mt-1 absolute bg-white rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
               {sortOptions.map((option) => (
                 <ListboxOption key={option.id} value={option} className={clsx("group relative flex cursor-default items-center gap-2 py-1.5 px-3 select-none rounded-lg", "data-[focus]:bg-primary data-[focus]:text-bg focus:ring-offset-2 focus:rounded-lg")}>
-                  <span className="text-sm">{option.label}</span>
+                  <span>{option.label}</span>
                   <Check className={clsx("size-4 text-primary invisible group-data-[selected]:visible group-data-[selected]-[focus]:text-bg")} aria-hidden="true" />
                 </ListboxOption>
               ))}

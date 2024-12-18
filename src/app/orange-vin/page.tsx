@@ -21,13 +21,18 @@ export default function Orangevin() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      const allOrangeVine = allData.filter((vin) => vin.tags?.includes("orangevin"));
-      const producers = Array.from(new Set(allOrangeVine.map((vin) => vin.producent))) as string[];
+      try {
+        const allData = await fetchProductData();
+        const allOrangeVine = allData.filter((vin) => vin.tags?.includes("orangevin"));
+        const producers = Array.from(new Set(allOrangeVine.map((vin) => vin.producent))) as string[];
 
-      setProductData(allOrangeVine); // Gem original data
-      setFilteredData(allOrangeVine); // Viser kun Orangevine på siden
-      setAvailableProducers(producers); // Opdateret liste over producere
+        setProductData(allOrangeVine); // Gem original data
+        setFilteredData(allOrangeVine); // Viser kun Orangevine på siden
+        setAvailableProducers(producers); // Opdateret liste over producere
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
     loadData();
   }, []);

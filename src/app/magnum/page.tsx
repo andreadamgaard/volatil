@@ -21,13 +21,18 @@ export default function MagnumFlasker() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      const allMagnumVine = allData.filter((vin) => vin.tags?.includes("Magnum"));
-      const producers = Array.from(new Set(allMagnumVine.map((vin) => vin.producent))) as string[];
+      try {
+        const allData = await fetchProductData();
+        const allMagnumVine = allData.filter((vin) => vin.tags?.includes("Magnum"));
+        const producers = Array.from(new Set(allMagnumVine.map((vin) => vin.producent))) as string[];
 
-      setProductData(allMagnumVine); // Gem original data
-      setFilteredData(allMagnumVine); // Viser kun Magum
-      setAvailableProducers(producers); // Opdateret liste over producere
+        setProductData(allMagnumVine); // Gem original data
+        setFilteredData(allMagnumVine); // Viser kun Magum
+        setAvailableProducers(producers); // Opdateret liste over producere
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
     loadData();
   }, []);

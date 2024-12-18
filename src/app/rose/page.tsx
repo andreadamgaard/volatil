@@ -21,13 +21,18 @@ export default function Rosevin() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      const allRoseVine = allData.filter((vin) => vin.tags?.includes("rosé"));
-      const producers = Array.from(new Set(allRoseVine.map((vin) => vin.producent))) as string[];
+      try {
+        const allData = await fetchProductData();
+        const allRoseVine = allData.filter((vin) => vin.tags?.includes("rosé"));
+        const producers = Array.from(new Set(allRoseVine.map((vin) => vin.producent))) as string[];
 
-      setProductData(allRoseVine); // Gem original data
-      setFilteredData(allRoseVine); // Viser kun Rosevine
-      setAvailableProducers(producers); // Opdateret liste over producere
+        setProductData(allRoseVine); // Gem original data
+        setFilteredData(allRoseVine); // Viser kun Rosevine
+        setAvailableProducers(producers); // Opdateret liste over producere
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
     loadData();
   }, []);

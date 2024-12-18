@@ -1,13 +1,14 @@
 "use client";
 import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 import { LineOne } from "@/content/svgs/line1";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
 import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
 import { VinVisning } from "@/components/vinVisning/vinVisning";
+import Loading from "../loading";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
@@ -21,9 +22,15 @@ export default function AllWines() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      setProductData(allData); // Gem original data
-      setFilteredData(allData); // Start med at vise alt
+      try {
+        const allData = await fetchProductData();
+
+        setProductData(allData); // Gem original data
+        setFilteredData(allData); // Start med at vise alt
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
     loadData();
   }, []);
@@ -37,11 +44,13 @@ export default function AllWines() {
       if (selectedFilterType.length > 0) {
         data = data.filter((vin) => selectedFilterType.some((filter) => vin.tags?.includes(filter)));
       }
+
       // Filtrering for lande: Kun hvis der er valgte lande
       if (selectedFilterLand.length > 0) {
         data = data.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
       }
 
+      // Filtrering for producenter
       if (selectedFilterProducent.length > 0) {
         data = data.filter((vin) => selectedFilterProducent.includes(vin.producent));
       }
@@ -66,7 +75,7 @@ export default function AllWines() {
 
   return (
     <section className="flex flex-col items-center justify-center">
-      <header className="w-2/3 md:w-3/4 lg:w-2/3 flex flex-col items-center">
+      <header className="w-[80%] md:w-[90%] lg:w-2/3 flex flex-col items-center">
         <span className="flex justify-end items-center gap-x-10 text-center ">
           <h1 className="headline">
             Alle vine<span className="text-4xl">(omg!)</span>
@@ -77,19 +86,24 @@ export default function AllWines() {
       </header>
 
       {/* Sorteringsfilter */}
-      <div className="flex justify-between items-end w-full mb-4 px-6">
-        <span className="flex gap-4">
-          <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilterType} />
-          <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
-          <Filter data={filterData.producent} label="Producent" onDataChange={setSelectedFilterProducent} />
-        </span>
-        <span>
+      <div className="flex justify-between items-start md:items-end w-full mb-4 px-6">
+        <div className="">
+          <h2 className="flex justify-start font-bold text-lg px-1 pb-1">Filtrer:</h2>
+          <span className="grid grid-cols-2 md:flex gap-1 md:gap-4">
+            <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilterType} />
+            <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+            <Filter data={filterData.producent} label="Producent" onDataChange={setSelectedFilterProducent} />
+          </span>
+        </div>
+        <div>
           <Sorting onSortChange={setSortOption} />
-        </span>
+        </div>
       </div>
 
       {/* Vin-visning */}
-      <VinVisning data={filteredData} />
+      <Suspense fallback={<Loading />}>
+        <VinVisning data={filteredData} />
+      </Suspense>
 
       {/* Observer til lazy load */}
       {/* <section ref={observerRef} className="h-10 w-full" /> */}

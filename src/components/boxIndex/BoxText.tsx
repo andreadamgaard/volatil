@@ -30,7 +30,7 @@ export const BoxText = ({ data }: { data: BoxesType | null }) => {
 
       <div className="hidden md:flex items-end justify-between gap-3">
         <AntalBox />
-        <Button>Tilføj til kurv</Button>
+        <Button size="small">Tilføj til kurv</Button>
       </div>
 
       <div className="hidden gap-3 md:flex xl:gap-4 ">

@@ -21,13 +21,18 @@ export default function Ciders() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      const allCider = allData.filter((vin) => vin.tags?.includes("cider"));
-      const producers = Array.from(new Set(allCider.map((vin) => vin.producent))) as string[];
+      try {
+        const allData = await fetchProductData();
+        const allCider = allData.filter((vin) => vin.tags?.includes("cider"));
+        const producers = Array.from(new Set(allCider.map((vin) => vin.producent))) as string[];
 
-      setProductData(allCider); // Gem original data
-      setFilteredData(allCider); // Viser kun Cider på siden
-      setAvailableProducers(producers); // Opdateret liste over producere
+        setProductData(allCider); // Gem original data
+        setFilteredData(allCider); // Viser kun Cider på siden
+        setAvailableProducers(producers); // Opdateret liste over producere
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
     loadData();
   }, []);

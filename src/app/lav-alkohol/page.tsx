@@ -21,14 +21,20 @@ export default function lavAlkohol() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allData = await fetchProductData();
-      const allLowVine = allData.filter((vin) => vin.tags?.some((tag) => tag === "lav alkohol" || tag === "0%"));
-      const producers = Array.from(new Set(allLowVine.map((vin) => vin.producent))) as string[];
+      try {
+        const allData = await fetchProductData();
+        const allLowVine = allData.filter((vin) => vin.tags?.some((tag) => tag === "lav alkohol" || tag === "0%"));
+        const producers = Array.from(new Set(allLowVine.map((vin) => vin.producent))) as string[];
 
-      setProductData(allLowVine); // Gem original data
-      setFilteredData(allLowVine); // Viser Lav alko
-      setAvailableProducers(producers); // Opdateret liste over producere
+        setProductData(allLowVine); // Gem original data
+        setFilteredData(allLowVine); // Viser Lav alko
+        setAvailableProducers(producers); // Opdateret liste over producere
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        error("Kunne ikke hente data, prøv igen senere.");
+      }
     };
+
     loadData();
   }, []);
 
