@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="pb-4 md:pb-6">
+      <section className="">
         <SwiperKarusel slides={SwiperData} />
       </section>
       <div>
