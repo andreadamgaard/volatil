@@ -37,18 +37,18 @@ export default {
         ".bg-svg": {
           backgroundImage: "url('/images/branches.svg')",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center 100px",
+          backgroundPosition: "center",
           backgroundAttachment: "fixed",
-          backgroundSize: "100%" /* Standard */,
+          backgroundSize: "90%" /* Standard */,
         },
         "@media (min-width: 768px)": {
           ".bg-svg": {
-            backgroundSize: "90%" /* Medium skærme */,
+            backgroundSize: "65%" /* Medium skærme */,
           },
         },
         "@media (min-width: 1024px)": {
           ".bg-svg": {
-            backgroundSize: "80%" /* Store skærme */,
+            backgroundSize: "55%" /* Store skærme */,
           },
         },
       });
