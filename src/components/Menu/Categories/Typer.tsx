@@ -32,7 +32,7 @@ export const Typer = () => {
             <p className="group-hover:text-hover">Hvidvin</p>
           </span>
         </Link>
-        <Link href="/orange/" intent="null" aria-label="Orange vine">
+        <Link href="/orange-vin/" intent="null" aria-label="Orange vine">
           <span className="flex flex-col items-center justify-center hover:scale-105 transition ease-in-out duration-200 group">
             <Orange className="size-28" />
             <p className="group-hover:text-hover">Orange</p>

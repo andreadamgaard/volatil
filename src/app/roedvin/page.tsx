@@ -1,5 +1,4 @@
 "use client";
-import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 import { LineOne } from "@/content/svgs/line1";
 import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
@@ -27,7 +26,7 @@ export default function Rødvin() {
       const producers = Array.from(new Set(allRødVine.map((vin) => vin.producent))) as string[];
 
       setProductData(allRødVine); // Gem original data
-      setFilteredData(allRødVine); // Start med at vise alt
+      setFilteredData(allRødVine); // Viser kun Rødvine
       setAvailableProducers(producers); // Opdateret liste over producere
     };
     loadData();

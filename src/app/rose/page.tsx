@@ -1,5 +1,4 @@
 "use client";
-import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 import { LineOne } from "@/content/svgs/line1";
 import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
@@ -8,7 +7,6 @@ import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
 import { VinVisning } from "@/components/vinVisning/vinVisning";
-import { Red } from "@/content/svgs/wine/Red";
 import { Rose } from "@/content/svgs/wine/Rose";
 
 export default function Rosevin() {
@@ -28,7 +26,7 @@ export default function Rosevin() {
       const producers = Array.from(new Set(allRoseVine.map((vin) => vin.producent))) as string[];
 
       setProductData(allRoseVine); // Gem original data
-      setFilteredData(allRoseVine); // Start med at vise alt
+      setFilteredData(allRoseVine); // Viser kun Rosevine
       setAvailableProducers(producers); // Opdateret liste over producere
     };
     loadData();

@@ -76,7 +76,7 @@ export const BurgerMenu = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link intent="burger" href="/orange/" className="block ">
+                        <Link intent="burger" href="/orange-vin/" className="block ">
                           Orange
                         </Link>
                       </li>
