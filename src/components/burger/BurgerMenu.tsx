@@ -3,9 +3,9 @@ import { Button, Menu } from "@headlessui/react";
 import { MenuIcon, X, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "../Link/Link";
-import clsx from "clsx";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { LineFour } from "@/content/svgs/line4";
+import { filterData } from "@/app/api/filterData";
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ export const BurgerMenu = () => {
   const [isLandeOpen, setIsLandeOpen] = useState(false);
   const [isOpdagesleOpen, setIsOpdagesleOpen] = useState(false);
 
-  const lande = ["Argentina", "Australien", "Bulgarien", "Danmark", "Frankrig", "Georgien", "Grækenland", "Italien", "Kroatien", "New Zealand", "Portugal", "Slovakiet", "Slovenien", "Spanien", "Sverige", "Sydafrika", "Tjekkiet", "Tyskland", "Ungarn", "Østrig"];
+  const lande = filterData.lande;
 
   return (
     <header className="w-full bg-bg z-40">
@@ -28,7 +28,7 @@ export const BurgerMenu = () => {
         </div>
 
         <div className="relative basis-1/3 flex justify-end  items-center">
-          <Button className="relative w-8 h-8 flex items-center justify-center z-50" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <Button className="relative w-8 h-8 flex items-center justify-center " onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "rotate-45" : "translate-y-[-8px]"}`} />
             <span className={`absolute w-8 h-1 bg-primary rounded transition-opacity duration-400 ${isOpen ? "opacity-0" : ""}`} />
             <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "-rotate-45" : "translate-y-[8px]"}`} />
@@ -36,7 +36,7 @@ export const BurgerMenu = () => {
 
           {/* Menu */}
           {isOpen && (
-            <div className="absolute top-full mt-3 right-0 w-72 h-fit bg-bg px-6 py-4 rounded ring-2 ring-primary">
+            <div className="absolute z-50 top-full mt-3 right-0 w-72 h-fit bg-bg px-6 py-4 rounded ring-2 ring-primary">
               <ul className="space-y-4">
                 <li>
                   <Link intent="burger" href="/alle-vine/" className="block">
@@ -123,7 +123,7 @@ export const BurgerMenu = () => {
                 {isLandeOpen && (
                   <ul className="mt-2 space-y-4 pl-4">
                     {lande.map((land) => (
-                      <li key="land">{land}</li>
+                      <li key={land}>{land}</li>
                     ))}
                   </ul>
                 )}
