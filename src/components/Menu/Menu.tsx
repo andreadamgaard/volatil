@@ -46,7 +46,7 @@ export const Menu = () => {
     }
   };
   return (
-    <header className="w-full bg-bg z-50 pt-2">
+    <header className="w-full bg-bg z-40 pt-2 relative">
       <nav className=" flex justify-center items-center px-8 ">
         <div className="basis-0	grow flex gap-5 lg:gap-10">
           <button className="flex items-center font-hackney text-2xl lg:text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
@@ -55,7 +55,7 @@ export const Menu = () => {
           </button>
 
           {isDropdownOpen && (
-            <div className="absolute w-fit flex min-h-[368px] h-96 left-1/8 top-[85%] dropdown-container" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)} onBlur={handleBlur} tabIndex={-1} role="menu">
+            <div className="absolute w-fit z-50 flex min-h-[368px] h-96 left-[2%] top-[65%] dropdown-container" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)} onBlur={handleBlur} tabIndex={-1} role="menu">
               {/* Kategorier */}
               <ul className="min-w-44 w-60 bg-bg group py-7 text-base ring-primary ring-2" role="menu">
                 {Object.keys(categories).map((category, index) => (
