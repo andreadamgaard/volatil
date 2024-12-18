@@ -36,22 +36,22 @@ export const BurgerMenu = () => {
           <div className="absolute top-full mt-3 right-0 w-72 h-fit bg-bg px-6 py-4 rounded ring-2 ring-primary">
             <ul className="space-y-4">
               <li>
-                <Link intent="burger" href="/alle-vine" className="block">
+                <Link intent="burger" href="/alle-vine/" className="block">
                   Alle Vine
                 </Link>
               </li>
               <li>
-                <Link intent="burger" href="/" className="block">
+                <Link intent="burger" href="/om-os/" className="block">
                   Om os
                 </Link>
               </li>
               <li>
-                <Link intent="burger" href="/gavekort" className="block">
+                <Link intent="burger" href="/" className="block">
                   Gavekort
                 </Link>
               </li>
               <li>
-                <Link intent="burger" href="/om-os" className="block">
+                <Link intent="burger" href="/" className="block">
                   Naturvin på abonnement
                 </Link>
               </li>

@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/vinVisning/VinVisning";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
+import { VinVisning } from "@/components/vinVisning/vinVisning";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

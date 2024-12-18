@@ -15,11 +15,11 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen;
+  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen bg-svg;
 }
 
 main {
-  @apply flex-grow;
+  @apply flex-grow pb-4 md:pb-6;
 }
 
 *:focus-visible {

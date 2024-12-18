@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
 import type { VinSingleType } from "../api/vin";
 import NotFound from "../not-found";
@@ -13,7 +14,7 @@ export default async function Vin({ params }: { params: { slug: string } }) {
   try {
     // Hent data fra begge datasæt
     const productData = await fetchProductData();
-    const productInfo = await fetchProductInfo();
+    const productInfo: VinSingleType[] = await fetchProductInfo();
 
     // Find det matchende produkt baseret på slug
     const matchingProduct = productData.find((dataVin) => dataVin.handle === slug);
@@ -35,14 +36,18 @@ export default async function Vin({ params }: { params: { slug: string } }) {
     return (
       <div>
         <h1>{vin.navn}</h1>
-        <p>Producent: {vin.producent}</p>
-        <p>Druer: {vin.druer}</p>
-        <p>Land: {vin.land}</p>
-        <p>Flot Etiket: {vin.flot_etiket}</p>
+        <figure className="max-w-[30rem] h-auto ">
+          <Image src={vin.image} alt={vin.navn} width={2580} height={3855} className="w-full h-auto rounded-t object-cover" />
+        </figure>
+        <article>
+          <p>Producent: {vin.producent}</p>
+          <p>Druer: {vin.druer}</p>
+          <p>Land: {vin.land}</p>
+          <p>Flot Etiket: {vin.flot_etiket}</p>
+        </article>
       </div>
     );
   } catch (error) {
-    console.error("Fejl under hentning af data:", error);
     return NotFound();
   }
 }
