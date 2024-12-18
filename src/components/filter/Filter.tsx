@@ -1,49 +1,53 @@
-import { Button, Checkbox, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { useState } from "react";
+import { Button, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+import clsx from "clsx";
+import { Check, ChevronDown, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const producers = ["Jérôme Arnoux", "Clos Massotte", "Ferme Des Sept Lunes", "Mendall", "Ramaz Nikoladze", "Patrick Desplats", "Jérôme Saurigny", "Fabio Gea", "Giacomo Fenocchio"];
+// Generisk Filter-komponent
+export const Filter = ({ data = [], label = "Filter", onDataChange }) => {
+  const [selectedItems, setSelectedItems] = useState([]);
 
-export const Filter = () => {
-  const [selectedProducers, setSelectedProducers] = useState([]);
-
-  const toggleProducer = (producer) => {
-    setSelectedProducers(
-      (prev) =>
-        prev.includes(producer)
-          ? prev.filter((item) => item !== producer) // Fjern fra listen
-          : [...prev, producer] // Tilføj til listen
-    );
+  const toggleItem = (item) => {
+    setSelectedItems((prev) => (prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]));
   };
 
   const clearSelections = () => {
-    setSelectedProducers([]);
+    setSelectedItems([]);
   };
+
+  useEffect(() => {
+    if (onDataChange) onDataChange(selectedItems);
+  }, [selectedItems, onDataChange]);
 
   return (
     <div className="w-72 relative">
       {/* Dropdown */}
-      <Listbox>
+      <Listbox value={selectedItems} onChange={setSelectedItems} multiple>
         {/* Dropdown Button */}
-        <ListboxButton className="w-full rounded border border-gray-300 py-2 px-3 text-left cursor-pointer">Producent ({selectedProducers.length} valgt)</ListboxButton>
+        <ListboxButton className={clsx("input w-[10rem] flex items-center justify-between border-2 rounded-xl pr-1.5 pl-4 py-1 text-lg font-bold transition ease-in-out duration-200", selectedItems.length ? "bg-primary text-bg border-primary" : "bg-bg text-primary border-primary")}>
+          <span>{label}</span>
+          <ChevronDown className="stroke-[3px]" />
+        </ListboxButton>
 
         {/* Liste af valgmuligheder */}
-        <ListboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md border bg-white shadow-lg">
+        <ListboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md border-2 border-primary bg-bg shadow-lg">
           {/* Ryd-knap */}
-          <div className="flex items-center justify-between px-3 py-2 border-b">
-            <span className="font-medium">{selectedProducers.length} valgt</span>
-            <Button onClick={clearSelections} className="text-sm text-red-600 hover:underline">
+          <div className="sticky top-0 z-10 flex items-center justify-between px-3 py-2 border-b-2 border-primary bg-bg">
+            <span className="font-medium ">{selectedItems.length} valgt</span>
+            <Button onClick={clearSelections} className={clsx("text-sm font-bold border-2 rounded-full flex justify-center items-center gap-1 px-2 transition ease-in-out duration-200", "border-primary", "hover:bg-primary hover:text-bg")}>
               Ryd
+              <X className="size-4 stroke-[3px]" />
             </Button>
           </div>
 
-          {/* Checkbox Liste */}
-          {producers.map((producer) => (
-            <ListboxOption key={producer} value={producer} as="div">
+          {/* Dynamisk Checkbox Liste */}
+          {data.map((item) => (
+            <ListboxOption key={item} value={item} className={clsx("flex items-center px-3 py-2 cursor-pointer data-[active]:bg-textSale data-[active]:text-bg")}>
               {({ selected }) => (
-                <Label onClick={() => toggleProducer(producer)} className={`flex items-center px-3 py-2 cursor-pointer ${selected ? "bg-gray-100" : ""}`}>
-                  <Checkbox checked={selectedProducers.includes(producer)} onChange={() => toggleProducer(producer)} className="mr-2 h-4 w-4 border border-gray-300 rounded focus:ring-2 focus:ring-red-600 checked:bg-red-600" />
-                  {producer}
-                </Label>
+                <div className="flex items-center justify-center">
+                  <div className={clsx("h-5 w-5 border-2 border-primary rounded flex items-center justify-center mr-2 transition ease-in-out duration-200", selected ? "bg-primary" : "bg-bg")}>{selected && <Check className="size-3.5 stroke-[3px] text-bg" />}</div>
+                  <span>{item}</span>
+                </div>
               )}
             </ListboxOption>
           ))}

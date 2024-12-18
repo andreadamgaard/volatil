@@ -6,40 +6,52 @@ import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
 import { Sorting } from "@/components/sorting/Sorting";
 import { VinVisning } from "@/components/vinVisning/VinVisning";
+import { filterData } from "../api/filterData";
+import { Filter } from "@/components/filter/Filter";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
-  const [sortedData, setSortedData] = useState<VinVisningType[]>([]);
+  const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
+
+  // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
       const allData = await fetchProductData();
-      setProductData(allData);
-      setSortedData(allData);
+      setProductData(allData); // Gem original data
+      setFilteredData(allData); // Start med at vise alt
     };
     loadData();
   }, []);
 
   useEffect(() => {
-    const handleSort = () => {
-      if (sortOption === "none") {
-        setSortedData(productData);
-        return;
+    // Funktion til filtrering og sortering
+    const filterAndSortData = () => {
+      let data = [...productData];
+
+      // Filtrering: Kun hvis der er valgte filtre
+      if (selectedFilters.length > 0) {
+        data = data.filter((vin) => selectedFilters.some((filter) => vin.tags?.includes(filter)));
       }
 
-      const sorted = [...productData].sort((a, b) => {
-        if (sortOption === "az") return a.navn.localeCompare(b.navn);
-        if (sortOption === "za") return b.navn.localeCompare(a.navn);
-        if (sortOption === "LowHigh") return a.price - b.price;
-        if (sortOption === "HighLow") return b.price - a.price;
-        return 0;
-      });
-      setSortedData(sorted);
+      // Sortering: Kun hvis der er en aktiv sorteringsmulighed
+      if (sortOption !== "none") {
+        data = data.sort((a, b) => {
+          if (sortOption === "az") return a.navn.localeCompare(b.navn);
+          if (sortOption === "za") return b.navn.localeCompare(a.navn);
+          if (sortOption === "LowHigh") return a.price - b.price;
+          if (sortOption === "HighLow") return b.price - a.price;
+          return 0;
+        });
+      }
+
+      setFilteredData(data); // Opdater filtreret data
     };
 
-    handleSort();
-  }, [sortOption, productData]);
+    filterAndSortData();
+  }, [productData, selectedFilters, sortOption]); // Kører når data, filtre eller sorteringsindstillinger ændres
 
   return (
     <section className="flex flex-col items-center justify-center">
@@ -55,14 +67,16 @@ export default function AllWines() {
 
       {/* Sorteringsfilter */}
       <div className="flex justify-between w-full mb-4 px-6">
-        <span>Filtre her</span>
         <span>
-          <Sorting onSortChange={(sortKey) => setSortOption(sortKey)} />
+          <Filter data={filterData.typer} label="Filtrer vine" onDataChange={setSelectedFilters} />
+        </span>
+        <span>
+          <Sorting onSortChange={setSortOption} />
         </span>
       </div>
 
       {/* Vin-visning */}
-      <VinVisning data={sortedData} />
+      <VinVisning data={filteredData} />
 
       {/* Observer til lazy load */}
       {/* <section ref={observerRef} className="h-10 w-full" /> */}

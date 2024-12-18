@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Filter } from "./Filter";
+import { filterData } from "../../app/api/filterData";
 
-const producersMockData = ["Jérôme Arnoux", "Clos Massotte", "Ferme Des Sept Lunes", "Mendall", "Ramaz Nikoladze", "Patrick Desplats", "Jérôme Saurigny", "Fabio Gea", "Giacomo Fenocchio"] satisfies string[];
+const landeMockData = filterData.lande;
 
 export default {
   title: "Components/Filter",
   component: Filter,
   args: {
-    producersMockData,
+    data: landeMockData,
   },
 };
 
@@ -15,6 +16,6 @@ type Story = StoryObj<typeof Filter>;
 
 export const Primary: Story = {
   args: {
-    producersMockData,
+    data: landeMockData,
   },
 };
