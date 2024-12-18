@@ -20,17 +20,17 @@ export const Filter = ({ data = [], label = "Filter", onDataChange }) => {
   }, [selectedItems, onDataChange]);
 
   return (
-    <div className="w-72 relative">
+    <div className=" relative">
       {/* Dropdown */}
       <Listbox value={selectedItems} onChange={setSelectedItems} multiple>
         {/* Dropdown Button */}
-        <ListboxButton className={clsx("input w-[10rem] flex items-center justify-between border-2 rounded-xl pr-1.5 pl-4 py-1 text-lg font-bold transition ease-in-out duration-200", selectedItems.length ? "bg-primary text-bg border-primary" : "bg-bg text-primary border-primary")}>
+        <ListboxButton className={clsx("input  flex items-center justify-between border-2 rounded-xl pr-1.5 pl-4 py-1 text-lg font-bold transition ease-in-out duration-200", selectedItems.length ? "bg-primary text-bg border-primary" : "bg-bg text-primary border-primary")}>
           <span>{label}</span>
           <ChevronDown className="stroke-[3px]" />
         </ListboxButton>
 
         {/* Liste af valgmuligheder */}
-        <ListboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md border-2 border-primary bg-bg shadow-lg">
+        <ListboxOptions className="absolute mt-1 max-h-60 w-72 overflow-auto rounded-md border-2 border-primary bg-bg shadow-lg">
           {/* Ryd-knap */}
           <div className="sticky top-0 z-10 flex items-center justify-between px-3 py-2 border-b-2 border-primary bg-bg">
             <span className="font-medium ">{selectedItems.length} valgt</span>

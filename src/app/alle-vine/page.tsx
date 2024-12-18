@@ -15,7 +15,9 @@ export default function AllWines() {
 
   // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [selectedFilterType, setSelectedFilterType] = useState<string[]>([]);
+  const [selectedFilterLand, setSelectedFilterLand] = useState<string[]>([]);
+  const [selectedFilterProducent, setSelectedFilterProducent] = useState<string[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -31,9 +33,17 @@ export default function AllWines() {
     const filterAndSortData = () => {
       let data = [...productData];
 
-      // Filtrering: Kun hvis der er valgte filtre
-      if (selectedFilters.length > 0) {
-        data = data.filter((vin) => selectedFilters.some((filter) => vin.tags?.includes(filter)));
+      // Filtrering for type: Kun hvis der er valgte filtre
+      if (selectedFilterType.length > 0) {
+        data = data.filter((vin) => selectedFilterType.some((filter) => vin.tags?.includes(filter)));
+      }
+      // Filtrering for lande: Kun hvis der er valgte lande
+      if (selectedFilterLand.length > 0) {
+        data = data.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
+      }
+
+      if (selectedFilterProducent.length > 0) {
+        data = data.filter((vin) => selectedFilterProducent.includes(vin.producent));
       }
 
       // Sortering: Kun hvis der er en aktiv sorteringsmulighed
@@ -51,7 +61,8 @@ export default function AllWines() {
     };
 
     filterAndSortData();
-  }, [productData, selectedFilters, sortOption]); // Kører når data, filtre eller sorteringsindstillinger ændres
+  }, [productData, selectedFilterType, selectedFilterLand, selectedFilterProducent, sortOption]);
+  // Kører når data, filtre eller sorteringsindstillinger ændres
 
   return (
     <section className="flex flex-col items-center justify-center">
@@ -66,9 +77,11 @@ export default function AllWines() {
       </header>
 
       {/* Sorteringsfilter */}
-      <div className="flex justify-between w-full mb-4 px-6">
-        <span>
-          <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilters} />
+      <div className="flex justify-between items-end w-full mb-4 px-6">
+        <span className="flex gap-4">
+          <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilterType} />
+          <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+          <Filter data={filterData.producent} label="Producent" onDataChange={setSelectedFilterProducent} />
         </span>
         <span>
           <Sorting onSortChange={setSortOption} />
