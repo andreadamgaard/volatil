@@ -35,10 +35,10 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
         allowTouchMove={true}
         spaceBetween={6}
         slidesPerView={1}
-        // autoplay={{
-        //   delay: 4500,
-        // }}
-        // speed={400}
+        autoplay={{
+          delay: 4500,
+        }}
+        speed={400}
         breakpoints={{
           768: {
             slidesPerView: 1.45,
@@ -58,13 +58,15 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
           <SwiperSlide key={slide.id} className="flex justify-center items-center antialiased">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <img className="relative w-full h-full object-cover aspect-[16/9] xl:aspect-swiper" src={slide.src} alt={slide.alt} />
+                <img className="relative w-full h-full object-cover aspect-[13/9] xl:aspect-swiper" src={slide.src} alt={slide.alt} />
                 <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
                   <div className="mb-6 flex flex-col items-center ">
                     <h2 className="text-4xl lg:text-7xl m-0 font-hackney">{slide.title}</h2>
-                    <LinkButton size="small">{slide.text}</LinkButton>
+                    <LinkButton href={slide.link} size="large">
+                      {slide.text}
+                    </LinkButton>
                   </div>
                 </div>
               </>
