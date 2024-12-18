@@ -34,18 +34,22 @@ export default async function Vin({ params }: { params: { slug: string } }) {
 
     // Returner data fra `vin`
     return (
-      <div>
-        <h1>{vin.navn}</h1>
-        <figure className="max-w-[30rem] h-auto ">
-          <Image src={vin.image} alt={vin.navn} width={2580} height={3855} className="w-full h-auto rounded-t object-cover" />
-        </figure>
-        <article>
-          <p>Producent: {vin.producent}</p>
-          <p>Druer: {vin.druer}</p>
-          <p>Land: {vin.land}</p>
-          <p>Flot Etiket: {vin.flot_etiket}</p>
-        </article>
-      </div>
+      <article className="grid grid-cols-gridContent">
+        <h1 className="col-start-2 col-end-5 text-center pt-5 pb-6 font-hackney text-6xl">{vin.navn}</h1>
+        <section className="col-start-2 col-end-5">
+          <div className="grid md:grid-cols-2 gap-8">
+            <figure className="md:p-5 flex justify-center items-center">
+              <Image src={vin.image} alt={vin.navn} width={2580} height={3855} className="w-full h-auto object-cover rounded-lg" />
+            </figure>
+            <div className="flex flex-col md:p-5">
+              <p className="text-lg font-semibold">Producent: {vin.producent}</p>
+              <p className="text-lg font-semibold">Druer: {vin.druer}</p>
+              <p className="text-lg font-semibold">Land: {vin.land}</p>
+              <p className="text-lg font-semibold">Flot Etiket: {vin.flot_etiket}</p>
+            </div>
+          </div>
+        </section>
+      </article>
     );
   } catch (error) {
     return NotFound();

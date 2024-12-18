@@ -68,7 +68,7 @@ export default function AllWines() {
       {/* Sorteringsfilter */}
       <div className="flex justify-between w-full mb-4 px-6">
         <span>
-          <Filter data={filterData.typer} label="Filtrer vine" onDataChange={setSelectedFilters} />
+          <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilters} />
         </span>
         <span>
           <Sorting onSortChange={setSortOption} />
