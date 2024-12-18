@@ -36,7 +36,7 @@ export default function RootLayout({
         <span className="hidden md:block">
           <Menu />
         </span>
-        <main>{children}</main>
+        <main className="">{children}</main>
         <Footer />
       </body>
     </html>
