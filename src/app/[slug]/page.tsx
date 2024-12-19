@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
-import type { VinSingleType, VinVisningType } from "../api/vin";
+import type { VinSingleType } from "../api/vin";
 import { notFound } from "next/navigation";
 import { BoxSingleView } from "@/components/boxSingleView/BoxSingleView";
 import { StockLine } from "@/components/boxIndex/StockLine";
