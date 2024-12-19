@@ -1,4 +1,4 @@
-import type { BoxesType } from "@/src/app/api/DataType";
+import type { BoxesType } from "@/app/api/DataType";
 import { Earth, Grape, NotebookPen, Wine } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
 import { filterData } from "../api/filterData";
-import { Magnum } from "@/src/content/svgs/wine/Magnum";
-import { LineOne } from "@/src/content/svgs/line1";
-import { Filter } from "@/src/components/filter/Filter";
-import { Sorting } from "@/src/components/sorting/Sorting";
-import { VinVisning } from "@/src/components/vinVisning/vinVisning";
+import { Magnum } from "@/content/svgs/wine/Magnum";
+import { LineOne } from "@/content/svgs/line1";
+import { Filter } from "@/components/filter/Filter";
+import { Sorting } from "@/components/sorting/Sorting";
+import { VinVisning } from "@/components/vinVisning/vinVisning";
 
 export default function MagnumFlasker() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

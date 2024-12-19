@@ -3,9 +3,9 @@ import { Button } from "@headlessui/react";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "../Link/Link";
-import { filterData } from "@/src/app/api/filterData";
-import { VolatilLogo } from "@/src/content/logo/VolatilLogo";
-import { LineFour } from "@/src/content/svgs/line4";
+import { filterData } from "@/app/api/filterData";
+import { VolatilLogo } from "@/content/logo/VolatilLogo";
+import { LineFour } from "@/content/svgs/line4";
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

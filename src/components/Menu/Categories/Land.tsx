@@ -1,4 +1,4 @@
-import { LineTwo } from "@/src/content/svgs/line2";
+import { LineTwo } from "@/content/svgs/line2";
 
 export const Land = () => {
   const lande: string[] = ["Frankrig", "Slovenien", "Portugal", "Spanien", "Italien", "Østrig", "Ungarn", "Tyskland", "Danmark", "Australien", "Georgien", "Tjekkiet", "Grækenland", "New Zealand", "Slovakiet", "Argentina", "Kroatien", "Bulgarien", "Sydafrika", "Sverige"];
