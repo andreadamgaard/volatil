@@ -12,7 +12,7 @@ export const Accordion = ({ data }: AccordionProps) => {
       <summary className="list-none items-center gap-4 group-open:border-b group-open:border-b-primary ">
         <span className="flex justify-between items-center py-2 ">
           <p className="w-full px-5 text-base">
-            <strong>Ska' du ha' mer' information missekat?</strong>
+            <strong>Mere information missekat?</strong>
           </p>
           <span className="px-5 transition ease-in-out duration-300 group-open:rotate-180">
             <ChevronDown />

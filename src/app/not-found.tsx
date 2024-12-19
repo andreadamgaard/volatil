@@ -15,7 +15,7 @@ export default function NotFound() {
             <br />
             Vinen blev ikke fundet
           </h1>
-          <p className="pb-8 text-xl md:text-2xl lg:text-4xl">Vi kan 'æk finde den vin 💔</p>
+          <p className="pb-8 text-xl md:text-2xl lg:text-4xl">Vi kan æk finde den vin 💔</p>
           <div className="flex justify-center items-center">
             <LinkButton href="/" size="large">
               Gå tilbage til forsiden??

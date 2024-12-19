@@ -16,7 +16,7 @@ export default function error() {
             <br />
             Siden blev ikke fundet
           </h1>
-          <p className="pb-8 text-xl md:text-2xl">Vi kan bare 'æk finde siden 💔</p>
+          <p className="pb-8 text-xl md:text-2xl">Vi kan bare æk finde siden 💔</p>
           <div className="flex justify-center items-center">
             <LinkButton href="/" size="large">
               Gå tilbage til forsiden??
