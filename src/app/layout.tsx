@@ -30,6 +30,8 @@ export default function RootLayout({
     <html lang="en" className={`${abel.variable}`}>
       <Head>
         <meta name="robots" content="noindex, nofollow" />
+        <link rel="preload" href="/fonts/hackney-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/images/branches.svg" as="image" />
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
         <span className=" md:hidden">

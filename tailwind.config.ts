@@ -22,8 +22,7 @@ export default {
       },
 
       fontFamily: {
-        hackney: ["hackney", "sans-serif"],
-        DINCondensed: ["DIN Condensed", "sans-serif"],
+        hackney: ["hackney", "Arial", "sans-serif"],
         abel: ["var(--font-abel)"],
       },
       aspectRatio: {

@@ -15,16 +15,12 @@ import { CustomLinkButton } from "../button/CustomButton";
 
 export default function SwiperKarusel({ slides }: SwiperImages) {
   return (
-    <section className="w-full group relative pb-4">
+    <section className="w-full group relative pb-4 min-w-[300px] md:min-w-[450px] overflow-hidden">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, Keyboard]}
         loop={true}
         keyboard={{
           enabled: true,
-        }}
-        pagination={{
-          bulletClass: "swiper-pagination-bullet custom-bullet",
-          bulletActiveClass: "swiper-pagination-bullet-active custom-bullet-active",
         }}
         navigation={{
           nextEl: ".swiper-button-next",
@@ -40,24 +36,24 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
         speed={400}
         breakpoints={{
           768: {
-            slidesPerView: 1.45,
+            slidesPerView: 1.5,
             spaceBetween: 10,
           },
           992: {
-            slidesPerView: 1.7,
+            slidesPerView: 2,
             spaceBetween: 12,
           },
           1920: {
-            slidesPerView: 2.23,
+            slidesPerView: 2.5,
             spaceBetween: 16,
           },
         }}
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id} className="flex justify-center items-center antialiased">
+        {slides.map((slide, index) => (
+          <SwiperSlide key={slide.id} className="flex justify-center place-items-center antialiased min-w-[300px] md:min-w-[450px]">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <Image className="relative w-full h-full object-cover aspect-[13/9] xl:aspect-swiper" src={slide.src} alt={slide.alt} width={1350} height={575} />
+                <Image loading="eager" priority={index === 0} className="relative object-cover w-full h-[375px]" src={slide.src} alt={slide.alt} width={880} height={375} />
                 <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
@@ -73,15 +69,15 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
           </SwiperSlide>
         ))}
 
-        <div className="swiper-button-prev custom-arrow-prev opacity-0 group-hover:opacity-100 transition-opacity  duration-200">
-          <div className="bg-primary/60 hover:bg-bg transition duration-200 text-bg hover:text-primary rounded-full w-8 h-8 min-[992px]:w-12 min-[992px]:h-12 flex justify-center items-center">
+        <div className="swiper-button-prev custom-arrow-prev">
+          <div className="bg-primary/60 hover:bg-bg transition duration-200 text-bg hover:text-primary rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
             <div className=" md:h-6 md:w-6">
               <ChevronLeft className="text-inherit" />
             </div>
           </div>
         </div>
-        <div className="swiper-button-next custom-arrow-next  opacity-0 group-hover:opacity-100 transition-opacity  duration-200">
-          <div className=" bg-primary/60 hover:bg-bg transition duration-200  text-bg hover:text-primary  rounded-full w-8 h-8 min-[992px]:w-12 min-[992px]:h-12 flex justify-center items-center">
+        <div className="swiper-button-next custom-arrow-next ">
+          <div className=" bg-primary/60 hover:bg-bg transition duration-200  text-bg hover:text-primary  rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
             <div className=" md:h-6 md:w-6">
               <ChevronRight className="text-inherit" />
             </div>

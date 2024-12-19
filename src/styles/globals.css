@@ -5,17 +5,11 @@
 @font-face {
   font-family: "hackney";
   src: url("/fonts/hackney-webfont.woff2") format("woff2"), url("/fonts/hackney-webfont.woff") format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DIN Condensed";
-  src: url("https://use.typekit.net/ley7ovp.css");
-  font-display: swap;
 }
 
 body {
   @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-screen  bg-svg;
+  font-family: "hackney", Arial, sans-serif;
 }
 
 main {
@@ -28,4 +22,5 @@ main {
 
 .headline {
   @apply font-hackney text-6xl pt-16 md:text-9xl md:pt-12 whitespace-nowrap;
+  font-family: "hackney", Arial, sans-serif;
 }
