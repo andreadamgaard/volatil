@@ -1,6 +1,6 @@
 "use client";
-import { Button, Menu } from "@headlessui/react";
-import { MenuIcon, X, Plus, Minus } from "lucide-react";
+import { Button } from "@headlessui/react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "../Link/Link";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";

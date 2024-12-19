@@ -33,7 +33,7 @@ export const VinVisning = ({ data }: VinVisningProps) => {
               </h3>
               <span className="flex justify-between items-start md:text-base min-h-[2.5rem] pt-1">
                 <p className="max-w-[75%] break-words text-[0.8rem] italic md:text-base">{vin.producent}</p>
-                <p className="">{vin.price} kr</p>
+                <p>{vin.price} kr</p>
               </span>
             </div>
           </Link>

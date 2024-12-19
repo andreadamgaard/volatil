@@ -5,12 +5,13 @@ import type { ButtonProps as AriaButtonProps, LinkProps as AriaLinkButtonProps }
 
 type ButonProps = Omit<AriaButtonProps, "children"> & {
   children: React.ReactNode;
-  size: "small" | "medium";
+  size: "small" | "medium" | "large";
+  className?: string;
 };
 
-export const Button = ({ children, size, ...props }: ButonProps) => {
+export const Button = ({ children, size, className, ...props }: ButonProps) => {
   return (
-    <AriaButton {...props} className={clsx("bg-Vblue-50 ring-1 ring-Vblue-50 flex justify-center items-center   w-full transition ease-in-out duration-200 hover:bg-Vblue-100 hover:ring-Vblue-100 text-bg font-hackney", size === "small" && "max-h-8 text-2xl rounded", size === "medium" && "py-1 text-3xl rounded-full")}>
+    <AriaButton {...props} className={clsx("bg-Vblue-50 ring-1 ring-Vblue-50 flex justify-center items-center   w-full transition ease-in-out duration-200 hover:bg-Vblue-100 hover:ring-Vblue-100 text-bg font-hackney", size === "small" && "max-h-8 text-2xl rounded", size === "medium" && "py-1 text-3xl rounded-full", size === "large" && "h-11 ring-2 ring-Vblue-50 py-0.5 text-3xl rounded")}>
       {children}
     </AriaButton>
   );

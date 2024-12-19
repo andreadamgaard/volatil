@@ -17,6 +17,10 @@ export default {
           100: "#1458FF",
         },
       },
+      gridTemplateColumns: {
+        gridContent: "[full-start] var(--full) [feature-start] var(--feature) [content-start] var(--content) [content-end] var(--feature) [feature-end] var(--full) [full-end]",
+      },
+
       fontFamily: {
         hackney: ["hackney", "sans-serif"],
         DINCondensed: ["DIN Condensed", "sans-serif"],
