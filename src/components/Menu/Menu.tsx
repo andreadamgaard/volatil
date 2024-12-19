@@ -1,13 +1,13 @@
 "use client";
 import { ChevronDown, CircleUserRound, Search, ShoppingBasket } from "lucide-react";
 import React, { useRef, useState } from "react";
-import { Alle } from "./Categories/Alle";
-import { Typer } from "./Categories/Typer";
-import { Land } from "./Categories/Land";
-import { Opdagesle } from "./Categories/Opdagelse";
+import { Alle } from "@/components/Menu/Categories/Alle";
+import { Typer } from "@/components/Menu/Categories/Typer";
+import { Land } from "@/components/Menu/Categories/Land";
+import { Opdagesle } from "@/components/Menu/Categories/Opdagelse";
 import clsx from "clsx";
-import { Link } from "../Link/Link";
-import { NavImg } from "./NavImg";
+import { Link } from "@/components/Link/Link";
+import { NavImg } from "@/components/Menu/NavImg";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { LineTwo } from "@/content/svgs/line2";
 
