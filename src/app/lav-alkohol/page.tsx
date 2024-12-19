@@ -7,7 +7,7 @@ import { Nul } from "@/content/svgs/wine/Nul";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/vinVisning/vinVisning";
+import { VinVisning } from "@/components/vinVisning/VinVisning";
 
 export default function LavAlkohol() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

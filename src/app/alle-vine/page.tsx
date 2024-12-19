@@ -7,8 +7,8 @@ import { fetchProductData } from "../api/api";
 import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
-import { VinVisning } from "@/components/vinVisning/vinVisning";
 import Loading from "../loading";
+import { VinVisning } from "@/components/vinVisning/VinVisning";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

@@ -7,7 +7,7 @@ import { Rose } from "@/content/svgs/wine/Rose";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/vinVisning/vinVisning";
+import { VinVisning } from "@/components/vinVisning/VinVisning";
 
 export default function Rosevin() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
