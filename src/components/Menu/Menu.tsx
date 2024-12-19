@@ -1,5 +1,4 @@
 "use client";
-import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { ChevronDown, CircleUserRound, Search, ShoppingBasket } from "lucide-react";
 import React, { useRef, useState } from "react";
 import { Alle } from "./Categories/Alle";
@@ -9,7 +8,8 @@ import { Opdagesle } from "./Categories/Opdagelse";
 import clsx from "clsx";
 import { Link } from "../Link/Link";
 import { NavImg } from "./NavImg";
-import { LineTwo } from "@/content/svgs/line2";
+import { VolatilLogo } from "@/src/content/logo/VolatilLogo";
+import { LineTwo } from "@/src/content/svgs/line2";
 
 type Category = "Alle vine" | "Typer" | "Land" | "Gå på opdagelse";
 

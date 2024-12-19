@@ -1,5 +1,4 @@
-import { LinkButton } from "@/components/button/Button";
-import { Link } from "@/components/Link/Link";
+import { LinkButton } from "../components/button/Button";
 
 export const metadata = {
   title: "Vinen findes ikke",
@@ -18,9 +17,9 @@ export default function NotFound() {
           </h1>
           <p className="pb-8 text-xl md:text-2xl lg:text-4xl">Vi kan 'æk finde den vin 💔</p>
           <div className="flex justify-center items-center">
-            <Link intent="null" href="/">
-              <LinkButton size="large">Gå tilbage til forsiden??</LinkButton>
-            </Link>
+            <LinkButton href="/" size="large">
+              Gå tilbage til forsiden??
+            </LinkButton>
           </div>
         </article>
       </section>

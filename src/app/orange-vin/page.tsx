@@ -1,13 +1,13 @@
 "use client";
-import { LineOne } from "@/content/svgs/line1";
 import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
-import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
-import { Filter } from "@/components/filter/Filter";
-import { VinVisning } from "@/components/vinVisning/vinVisning";
-import { Orange } from "@/content/svgs/wine/Orange";
+import { Orange } from "@/src/content/svgs/wine/Orange";
+import { LineOne } from "@/src/content/svgs/line1";
+import { Filter } from "@/src/components/filter/Filter";
+import { Sorting } from "@/src/components/sorting/Sorting";
+import { VinVisning } from "@/src/components/vinVisning/vinVisning";
 
 export default function Orangevin() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

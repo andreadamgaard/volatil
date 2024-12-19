@@ -2,13 +2,12 @@ import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
 import type { VinSingleType } from "../api/vin";
 import { notFound } from "next/navigation";
-import { BoxSingleView } from "@/components/boxSingleView/BoxSingleView";
-import { AntalBox } from "@/components/antal/AntalBox";
-import { Button } from "@/components/button/Button";
-import { StockLine } from "@/components/boxIndex/StockLine";
+import { BoxSingleView } from "@/src/components/boxSingleView/BoxSingleView";
+import { StockLine } from "@/src/components/boxIndex/StockLine";
+import { AntalBox } from "@/src/components/antal/AntalBox";
+import { Button } from "@/src/components/button/Button";
 import { CheckCheck } from "lucide-react";
-import { Link } from "@/components/Link/Link";
-import { Accordion } from "@/components/accordion/Accordion";
+import { Link } from "@/src/components/Link/Link";
 
 // Hent vinen baseret på slug
 async function getVinData(slug: string) {

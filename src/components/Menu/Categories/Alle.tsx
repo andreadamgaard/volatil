@@ -1,6 +1,6 @@
-import { Link } from "@/components/Link/Link";
-import { LineTwo } from "@/content/svgs/line2";
-import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
+import { LineTwo } from "@/src/content/svgs/line2";
+import { Link } from "../../Link/Link";
+import { AllTheWines } from "@/src/content/svgs/wine/AllTheWines";
 
 export const Alle = () => {
   return (

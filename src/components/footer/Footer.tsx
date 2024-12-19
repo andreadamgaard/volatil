@@ -1,9 +1,8 @@
 "use client";
-import { VolatilLogo } from "@/content/logo/VolatilLogo";
+import { VolatilLogo } from "@/src/content/logo/VolatilLogo";
 import { Link } from "../Link/Link";
 import { YT, Mail, IG, FB, Maestro, AmericanExpress, Mastercard, UnionPay, Visa } from "./svger/IconFooter";
-import { LineOne } from "@/content/svgs/line1";
-import { LineTwo } from "@/content/svgs/line2";
+import { LineOne } from "@/src/content/svgs/line1";
 
 export const Footer = () => {
   return (

@@ -1,4 +1,4 @@
-import { Red } from "@/content/svgs/wine/Red";
+import { Red } from "@/src/content/svgs/wine/Red";
 
 export default function Loading() {
   // const skeletonKeys = Array.from({ length: 8 }, (_, i) => `skeleton-${i}`); // Skaber unikke nøgler

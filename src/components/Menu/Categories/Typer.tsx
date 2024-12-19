@@ -1,13 +1,13 @@
-import { Bobler } from "@/content/svgs/wine/Bobler";
-import { Cider } from "@/content/svgs/wine/Cider";
-import { Hvid } from "@/content/svgs/wine/Hvid";
-import { Magnum } from "@/content/svgs/wine/Magnum";
-import { Nul } from "@/content/svgs/wine/Nul";
-import { Orange } from "@/content/svgs/wine/Orange";
-import { Red } from "@/content/svgs/wine/Red";
-import { Rose } from "@/content/svgs/wine/Rose";
-import { Link } from "@/components/Link/Link";
-import { LineTwo } from "@/content/svgs/line2";
+import { LineTwo } from "@/src/content/svgs/line2";
+import { Link } from "../../Link/Link";
+import { Red } from "@/src/content/svgs/wine/Red";
+import { Hvid } from "@/src/content/svgs/wine/Hvid";
+import { Orange } from "@/src/content/svgs/wine/Orange";
+import { Rose } from "@/src/content/svgs/wine/Rose";
+import { Bobler } from "@/src/content/svgs/wine/Bobler";
+import { Cider } from "@/src/content/svgs/wine/Cider";
+import { Nul } from "@/src/content/svgs/wine/Nul";
+import { Magnum } from "@/src/content/svgs/wine/Magnum";
 
 export const Typer = () => {
   return (

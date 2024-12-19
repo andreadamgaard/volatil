@@ -1,4 +1,4 @@
-import { LineTwo } from "@/content/svgs/line2";
+import { LineTwo } from "@/src/content/svgs/line2";
 
 export const Opdagesle = () => {
   return (

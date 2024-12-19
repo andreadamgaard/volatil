@@ -1,4 +1,4 @@
-import { LineTwo } from "@/content/svgs/line2";
+import { LineTwo } from "@/src/content/svgs/line2";
 
 export const Land = () => {
   const lande: string[] = ["Frankrig", "Slovenien", "Portugal", "Spanien", "Italien", "Østrig", "Ungarn", "Tyskland", "Danmark", "Australien", "Georgien", "Tjekkiet", "Grækenland", "New Zealand", "Slovakiet", "Argentina", "Kroatien", "Bulgarien", "Sydafrika", "Sverige"];
@@ -7,18 +7,6 @@ export const Land = () => {
 
   const itemsPerColumn = Math.ceil(sortedLande.length / 3);
   const columns = [sortedLande.slice(0, itemsPerColumn), sortedLande.slice(itemsPerColumn, itemsPerColumn * 2), sortedLande.slice(itemsPerColumn * 2)];
-
-  // const sortedLande: string[] = [...lande].sort();
-
-  // const landColumns = (list: string[], columns: number): string[][] => {
-  //   const result: string[][] = Array.from({ length: columns }, () => []);
-  //   list.forEach((item: string, index: number) => {
-  //     result[index % columns].push(item);
-  //   });
-  //   return result;
-  // };
-
-  // const columns: string[][] = landColumns(sortedLande, 3);
 
   return (
     <div className="flex flex-col w-full h-full py-4 px-6 text-base font-bold gap-y-4 items-center">

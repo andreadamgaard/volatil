@@ -1,6 +1,5 @@
 "use client";
-
-import type { VinSingleType } from "@/app/api/vin";
+import type { VinSingleType } from "@/src/app/api/vin";
 import { ChevronDown } from "lucide-react";
 
 type AccordionProps = {

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { Abel } from "next/font/google";
-import { Menu } from "@/components/Menu/Menu";
-import { Footer } from "@/components/footer/Footer";
 import clsx from "clsx";
 import Head from "next/head";
-import { BurgerMenu } from "@/components/burger/BurgerMenu";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { BurgerMenu } from "../components/burger/BurgerMenu";
+import { Menu } from "lucide-react";
+import { Footer } from "../components/footer/Footer";
 
 export const abel = Abel({
   weight: "400",
