@@ -10,7 +10,7 @@ import { AutumnBox } from "../components/boxIndex/AutumnBox";
 import { SmallArticle } from "../components/IndexSetup/SmallArticle";
 import Link from "next/link";
 import { AllTheWines } from "../content/svgs/wine/AllTheWines";
-import { LinkButtonNoLink } from "../components/button/Button";
+import { LinkButtonNoLink } from "@/components/button/CustomButton";
 
 export default function Home() {
   const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);

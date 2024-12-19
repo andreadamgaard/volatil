@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { LinkButtonNoLink } from "../button/Button";
 import Link from "next/link";
+import { LinkButtonNoLink } from "../button/CustomButton";
 
 type BigArtProps = {
   img: string;

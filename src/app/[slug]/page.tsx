@@ -5,9 +5,9 @@ import { notFound } from "next/navigation";
 import { BoxSingleView } from "@/components/boxSingleView/BoxSingleView";
 import { StockLine } from "@/components/boxIndex/StockLine";
 import { AntalBox } from "@/components/antal/AntalBox";
-import { Button } from "@/components/button/Button";
 import { CheckCheck } from "lucide-react";
 import { Link } from "@/components/Link/Link";
+import { CustomButton } from "@/components/button/CustomButton";
 
 async function GetVinData(slug: string): Promise<VinSingleType | null> {
   const productData = await fetchProductData();
@@ -103,7 +103,7 @@ export default async function VinPage({ params }) {
 
         <div className="flex items-end justify-between gap-4 md:gap-10">
           <AntalBox size="medium" />
-          <Button size="large">KØB MIG!</Button>
+          <CustomButton size="large">KØB MIG!</CustomButton>
         </div>
 
         <div>

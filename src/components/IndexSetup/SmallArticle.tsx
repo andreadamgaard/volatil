@@ -1,7 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
-import { LinkButtonNoLink } from "../button/Button";
+import { LinkButtonNoLink } from "../button/CustomButton";
 
 type SmallArtProps = {
   img: string;

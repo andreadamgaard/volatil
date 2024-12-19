@@ -1,7 +1,7 @@
 import { Link } from "../Link/Link";
 import Image from "next/image";
-import { Button } from "../button/Button";
 import type { VinVisningType } from "@/app/api/vin";
+import { CustomButton } from "../button/CustomButton";
 
 type VinVisningProps = {
   data: VinVisningType[];
@@ -18,9 +18,9 @@ export const VinListe = ({ data }: VinVisningProps) => {
                 <Image src={vin.image} alt={vin.title} width={2580} height={3855} className="h-full xl:min-h-[16rem] object-cover object-center" />
               </div>
               <div className="absolute inset-0 px-7 pb-4 flex items-end justify-end opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-                <Button size="medium" className="px-4 py-2">
+                <CustomButton size="medium" className="px-4 py-2">
                   Køb mig lige?!
-                </Button>
+                </CustomButton>
               </div>
             </figure>
 

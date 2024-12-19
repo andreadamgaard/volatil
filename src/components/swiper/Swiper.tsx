@@ -2,18 +2,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import clsx from "clsx";
 import type { SwiperImages } from "./SwiperData";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/keyboard";
-
 import "../../styles/swiper.css";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { LinkButton } from "../button/Button";
 import Image from "next/image";
+import { CustomLinkButton } from "../button/CustomButton";
 
 export default function SwiperKarusel({ slides }: SwiperImages) {
   return (
@@ -65,9 +62,9 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
                   <div className="mb-6 flex flex-col items-center ">
                     <h2 className="text-4xl lg:text-7xl m-0 font-hackney">{slide.title}</h2>
-                    <LinkButton href={slide.link} size="large">
+                    <CustomLinkButton href={slide.link} size="large">
                       {slide.text}
-                    </LinkButton>
+                    </CustomLinkButton>
                   </div>
                 </div>
               </>

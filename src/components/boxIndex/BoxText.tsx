@@ -3,8 +3,8 @@ import { StockLine } from "./StockLine";
 import { AntalBox } from "../antal/AntalBox";
 import { Link } from "../Link/Link";
 import { InfoBox } from "./InfoBox";
-import { Button } from "../button/Button";
 import type { BoxesType } from "@/app/api/DataType";
+import { CustomButton } from "../button/CustomButton";
 
 export const BoxText = ({ data }: { data: BoxesType | null }) => {
   if (!data) {
@@ -30,7 +30,7 @@ export const BoxText = ({ data }: { data: BoxesType | null }) => {
 
       <div className="hidden md:flex items-end justify-between gap-3">
         <AntalBox />
-        <Button size="small">Tilføj til kurv</Button>
+        <CustomButton size="small">Tilføj til kurv</CustomButton>
       </div>
 
       <div className="hidden gap-3 md:flex xl:gap-4 ">
