@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/keyboard";
+
 import "../../styles/swiper.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
