@@ -57,16 +57,14 @@ export default function Home() {
         <section className="flex gap-2.5 md:gap-6 lg:gap-10 justify-center">
           <SmallArticle size="large" img="/images/gavekort.webp" imgAlt="Gavekort flaske" title="Køb et gavekort" linkText="Ikke?!" href="/" />
 
-          <article className="relative flex flex-col justify-center items-center border-2 border-primary px-4 rounded overflow-hidden w-1/2">
-            <Link href="/alle-vine/" className="h-full w-full">
-              <span className="flex flex-col justify-center items-center">
-                <figure>
-                  <AllTheWines className="max-w-72 h-36 sm:h-52 md:max-w-80 md:min-h-80" />
-                </figure>
-                <LinkButtonNoLink size="large">Se alle vine! (OMG!)</LinkButtonNoLink>
-              </span>
-            </Link>
-          </article>
+          <Link href="/alle-vine/" className="flex flex-col gap-5 border-2 border-primary px-4 rounded overflow-hidden w-1/2 items-center justify-end">
+            <span className="flex flex-col justify-center items-center gap-1.5 py-9 md:py-9">
+              <figure>
+                <AllTheWines className="max-w-72 h-36 sm:h-52 md:max-w-80 md:min-h-80" />
+              </figure>
+              <LinkButtonNoLink size="large">Se alle vine! (OMG!)</LinkButtonNoLink>
+            </span>
+          </Link>
         </section>
       </div>
     </div>
