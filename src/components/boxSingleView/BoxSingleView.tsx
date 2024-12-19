@@ -1,5 +1,5 @@
 "use client";
-import { Earth, Grape, MapPin, Wine } from "lucide-react";
+import { ChevronDown, Earth, Grape, MapPin, Wine } from "lucide-react";
 import { Accordion } from "../accordion/Accordion";
 import type { VinSingleType } from "@/app/api/vin";
 
@@ -20,7 +20,7 @@ export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
         <span>
           <p>
             <strong className="text-sm">Det vigtige spørgsmål, er etiketten flot?!</strong> <br />
-            {data.flot_etiket}
+            {data.flot_etiket || "Ingen ved det?"}
           </p>
         </span>
       </div>
@@ -31,7 +31,7 @@ export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
             <span className="flex flex-wrap">
               <p>
                 <strong className="text-sm">Vindruer:</strong> <br />
-                {data.druer}
+                {data.druer || "-"}
               </p>
             </span>
           </span>
@@ -40,7 +40,7 @@ export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
             <span className="flex flex-wrap">
               <p>
                 <strong className="text-sm">Type:</strong> <br />
-                {data.type}
+                {data.type || "-"}
               </p>
             </span>
           </span>
@@ -51,7 +51,7 @@ export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
             <span className="flex flex-wrap">
               <p>
                 <strong className="text-sm">Land:</strong> <br />
-                {data.land}
+                {data.land || "-"}
               </p>
             </span>
           </span>
@@ -60,13 +60,50 @@ export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
             <span className="flex flex-wrap">
               <p>
                 <strong className="text-sm">Områdeeee:</strong> <br />
-                {data.area}
+                {data.area || "-"}
               </p>
             </span>
           </span>
         </div>
       </div>
-      <Accordion data={data} />
+      <details className="group w-full  border-t border-primary rounded-b-lg">
+        <summary className="list-none items-center gap-4 group-open:border-b group-open:border-b-primary transition ease-in-out duration-200 group-hover:bg-secondary hover:rounded-b-lg group-open:hover:rounded-none ">
+          <span className="flex justify-between items-center py-2 ">
+            <p className="w-full px-5 text-base">
+              <strong>Mere information missekat?</strong>
+            </p>
+            <span className="px-5 transition ease-in-out duration-300 group-open:rotate-180">
+              <ChevronDown />
+            </span>
+          </span>
+        </summary>
+        <div className="py-6 px-4 transition ease-in-out duration-300 flex justify-between items-center md:py-6 md:px-8">
+          <span className="border-r">
+            <p>
+              <strong className="text-sm">Alkoholprocent:</strong> <br />
+              {data.alkoholprocent || "-"}
+            </p>
+          </span>
+          <div className="h-12 w-px bg-primary" />
+
+          <span>
+            <p>
+              <strong className="text-sm"> Tilsat svolv:</strong>
+
+              <br />
+              {data.tilsat_svovl || "-"}
+            </p>
+          </span>
+          <div className="h-12 w-px bg-primary" />
+          <span>
+            <p>
+              <strong className="text-sm"> Størrelse:</strong>
+              <br />
+              {data.size || "-"}
+            </p>
+          </span>
+        </div>
+      </details>
     </div>
   );
 };

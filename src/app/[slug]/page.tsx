@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
-import type { VinSingleType } from "../api/vin";
+import type { VinSingleType, VinVisningType } from "../api/vin";
 import { notFound } from "next/navigation";
 import { BoxSingleView } from "../../components/boxSingleView/BoxSingleView";
 import { StockLine } from "../../components/boxIndex/StockLine";
@@ -11,21 +11,21 @@ import { CustomButton } from "../../components/button/CustomButton";
 
 async function GetVinData(slug: string): Promise<VinSingleType | null> {
   const productData = await fetchProductData();
-  const matchingProduct = productData.find((dataVin) => dataVin.handle === slug);
+  const matchingProduct = productData.find((dataVin: VinVisningType) => dataVin.handle === slug);
   if (!matchingProduct) return null;
 
   const productInfo = await fetchProductInfo();
-  return productInfo.find((infoVin) => infoVin.sku === matchingProduct.sku) || null;
+  return productInfo.find((infoVin: VinSingleType) => infoVin.sku === matchingProduct.sku) || null;
 }
 
-export async function generateStaticParams() {
-  const productData = await fetchProductData();
-  if (!Array.isArray(productData)) {
-    console.error("fetchProductData returned invalid data:", productData);
-    return [];
-  }
-  return productData.map((vin) => ({ slug: vin.handle }));
-}
+// export async function generateStaticParams() {
+//   const productData = await fetchProductData();
+//   if (!Array.isArray(productData)) {
+//     console.error("fetchProductData returned invalid data:", productData);
+//     return [];
+//   }
+//   return productData.map((vin) => ({ slug: vin.handle }));
+// }
 
 export default async function VinPage({ params }) {
   const { slug } = await params;
