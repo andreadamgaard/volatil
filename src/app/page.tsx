@@ -1,15 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { fetchBoxes } from "./api/api";
-import { LineOne } from "../content/svgs/line1";
-import type { BoxesType } from "./api/DataType";
-import SwiperKarusel from "../components/swiper/Swiper";
-import { SwiperData } from "../components/swiper/SwiperData";
-import { BigArt } from "../components/IndexSetup/BigArticle";
-import { AutumnBox } from "../components/boxIndex/AutumnBox";
-import { SmallArticle } from "../components/IndexSetup/SmallArticle";
+import { fetchBoxes } from "@/app/api/api";
+import { LineOne } from "@/content/svgs/line1";
+import type { BoxesType } from "@/app//api/DataType";
+import SwiperKarusel from "@/components/swiper/Swiper";
+import { SwiperData } from "@/components/swiper/SwiperData";
+import { BigArt } from "@/components/IndexSetup/BigArticle";
+import { AutumnBox } from "@/components/boxIndex/AutumnBox";
+import { SmallArticle } from "@/components/IndexSetup/SmallArticle";
 import Link from "next/link";
-import { AllTheWines } from "../content/svgs/wine/AllTheWines";
+import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 import { LinkButtonNoLink } from "@/components/button/CustomButton";
 
 export default function Home() {

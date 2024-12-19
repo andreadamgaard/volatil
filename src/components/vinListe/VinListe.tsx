@@ -1,7 +1,7 @@
-import { Link } from "../Link/Link";
+import { Link } from "@/components/Link/Link";
 import Image from "next/image";
 import type { VinVisningType } from "@/app/api/vin";
-import { CustomButton } from "../button/CustomButton";
+import { CustomButton } from "@/components/button/CustomButton";
 
 type VinVisningProps = {
   data: VinVisningType[];

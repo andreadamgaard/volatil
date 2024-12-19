@@ -2,12 +2,12 @@ import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
 import type { VinSingleType } from "../api/vin";
 import { notFound } from "next/navigation";
-import { BoxSingleView } from "@/components/boxSingleView/BoxSingleView";
-import { StockLine } from "@/components/boxIndex/StockLine";
-import { AntalBox } from "@/components/antal/AntalBox";
+import { BoxSingleView } from "../../components/boxSingleView/BoxSingleView";
+import { StockLine } from "../../components/boxIndex/StockLine";
+import { AntalBox } from "../../components/antal/AntalBox";
 import { CheckCheck } from "lucide-react";
-import { Link } from "@/components/Link/Link";
-import { CustomButton } from "@/components/button/CustomButton";
+import { Link } from "../../components/Link/Link";
+import { CustomButton } from "../../components/button/CustomButton";
 
 async function GetVinData(slug: string): Promise<VinSingleType | null> {
   const productData = await fetchProductData();
