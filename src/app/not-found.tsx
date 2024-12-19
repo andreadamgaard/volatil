@@ -1,5 +1,3 @@
-import { LinkButton } from "../components/button/Button";
-
 export const metadata = {
   title: "Vinen findes ikke",
   description: "Vinen du leder efter kan vi desværre ikke finde lige nu :(",
