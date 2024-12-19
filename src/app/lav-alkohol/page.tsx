@@ -9,7 +9,7 @@ import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
 import { VinVisning } from "@/components/vinVisning/vinVisning";
 
-export default function lavAlkohol() {
+export default function LavAlkohol() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
   const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
   const [availableProducers, setAvailableProducers] = useState<string[]>([]);

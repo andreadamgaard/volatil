@@ -3,26 +3,15 @@ import { Button, LinkButton } from "./Button";
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  argTypes: {
-    children: {
-      table: {
-        defaultValue: { summary: "Button" },
-      },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const PrimaryBtn: Story = {
-  args: {
-    children: "Button",
-  },
-};
+export const PrimaryBtn: Story = {};
 
 export const LinkTwo: Story = {
-  render: (args) => (
+  render: () => (
     <div className=" grid gap-6">
       <LinkButton size="medium">Link 1</LinkButton>
       <LinkButton size="medium" className="font-DINCondensed ">

@@ -1,4 +1,4 @@
-export default function AllWines() {
+export default function OmOs() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 text-center min-h-[70vh]">
       <h1 className=" font-hackney text-5xl">Om os (lynhurtigt):</h1>

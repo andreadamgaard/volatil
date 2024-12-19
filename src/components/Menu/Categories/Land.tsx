@@ -15,7 +15,7 @@ export const Land = () => {
         <LineTwo className="-mt-1" />
       </span>
       <div className="grid grid-cols-3 gap-x-14 justify-start">
-        {columns.map((column, colIndex) => (
+        {columns.map((column) => (
           <ul key={column.join("-")} className="space-y-4">
             {column.map((land) => (
               <li key={land}>{land}</li>

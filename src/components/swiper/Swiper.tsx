@@ -13,6 +13,7 @@ import "../../styles/swiper.css";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LinkButton } from "../button/Button";
+import Image from "next/image";
 
 export default function SwiperKarusel({ slides }: SwiperImages) {
   return (
@@ -58,7 +59,7 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
           <SwiperSlide key={slide.id} className="flex justify-center items-center antialiased">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <img className="relative w-full h-full object-cover aspect-[13/9] xl:aspect-swiper" src={slide.src} alt={slide.alt} />
+                <Image className="relative w-full h-full object-cover aspect-[13/9] xl:aspect-swiper" src={slide.src} alt={slide.alt} fill objectFit="cover" />
                 <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>

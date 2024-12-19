@@ -8,8 +8,6 @@ type BoxSingleViewProps = {
 };
 
 export const BoxSingleView = ({ data }: BoxSingleViewProps) => {
-  const { beskrivelse, druer, land, area, type } = data;
-
   return (
     <div className="bg-bg border-primary border-2 max-w-[30rem] justify-center  rounded-lg w-full  pt-5 flex flex-col text-base gap-3">
       <div className="px-5 pb-6 border-b border-b-primary flex flex-col gap-4">

@@ -58,7 +58,7 @@ export const Menu = () => {
             <div className="absolute w-fit z-50 flex min-h-[368px] h-96 left-[2%] top-[65%] dropdown-container" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)} onBlur={handleBlur} tabIndex={-1} role="menu">
               {/* Kategorier */}
               <ul className="min-w-44 w-60 bg-bg group py-7 text-base ring-primary ring-2" role="menu">
-                {Object.keys(categories).map((category, index) => (
+                {Object.keys(categories).map((category) => (
                   <li key={category} className="w-full">
                     <button type="button" role="menuitem" className={clsx("w-full px-4 py-3 font-bold text-left hover:bg-primary focus:bg-primary hover:text-bg focus:text-bg", activeCategory === category && "bg-primary text-bg")} onMouseEnter={() => setActiveCategory(category as Category)} onKeyDown={(event) => handleKeyDownOnCategory(event, category as Category)} onFocus={() => setActiveCategory(category as Category)}>
                       {category}

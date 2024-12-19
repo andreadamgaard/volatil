@@ -10,7 +10,7 @@ import { CheckCheck } from "lucide-react";
 import { Link } from "@/components/Link/Link";
 
 // Hent vinen baseret på slug
-async function getVinData(slug: string) {
+async function GetVinData(slug: string) {
   const productData = await fetchProductData();
   const productInfo: VinSingleType[] = await fetchProductInfo();
 
@@ -30,7 +30,7 @@ export default async function VinPage({ params }: { params: { slug: string } }) 
   }
 
   // Hent vin-data
-  const vin = await getVinData(slug);
+  const vin = await GetVinData(slug);
 
   // Hvis vinen ikke findes
   if (!vin) {

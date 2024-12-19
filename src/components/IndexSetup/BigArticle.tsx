@@ -16,9 +16,7 @@ export const BigArt = ({ img, imgAlt, title, linkText, href }: BigArtProps) => {
       <Link href={href}>
         <span className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-center text-white z-10 gap-1.5">
           <h2 className="font-hackney text-4xl md:text-7xl xl:text-9xl antialiased">{title}</h2>
-          <LinkButtonNoLink size="large" className="text-xs">
-            {linkText}
-          </LinkButtonNoLink>
+          <LinkButtonNoLink size="large">{linkText}</LinkButtonNoLink>
         </span>
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:opacity-0 transition duration-500 ease-in-out" />
         <figure className="relative -z-10 w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
