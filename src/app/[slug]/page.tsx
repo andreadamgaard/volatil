@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { fetchProductData, fetchProductInfo } from "../api/api";
-import type { VinSingleType } from "../api/vin";
+import type { VinSingleType, VinVisningType } from "../api/vin";
 import { notFound } from "next/navigation";
 import { BoxSingleView } from "@/components/boxSingleView/BoxSingleView";
 import { StockLine } from "@/components/boxIndex/StockLine";
@@ -10,20 +10,25 @@ import { CheckCheck } from "lucide-react";
 import { Link } from "@/components/Link/Link";
 
 // Hent vinen baseret på slug
-async function GetVinData(slug: string) {
-  const productData = await fetchProductData();
-  const productInfo: VinSingleType[] = await fetchProductInfo();
+async function GetVinData(slug: string): Promise<VinSingleType | null> {
+  // Hent produktdata (VinVisningType[])
+  const productData: VinVisningType[] = await fetchProductData();
 
+  // Find vin baseret på slug
   const matchingProduct = productData.find((dataVin) => dataVin.handle === slug);
   if (!matchingProduct) return null;
 
+  // Hent detaljerede produktinformationer (VinSingleType[])
+  const productInfo: VinSingleType[] = await fetchProductInfo();
+
+  // Find info baseret på sku
   const vin = productInfo.find((infoVin: VinSingleType) => infoVin.sku === matchingProduct.sku);
   return vin || null;
 }
 
 export default async function VinPage({ params }: { params: { slug: string } }) {
   // Hent `params.slug` som en asynkron værdi
-  const { slug } = params;
+  const slug = params?.slug;
 
   if (!slug) {
     return notFound();
