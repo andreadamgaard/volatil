@@ -23,7 +23,7 @@ async function GetVinData(slug: string) {
 
 export default async function VinPage({ params }: { params: { slug: string } }) {
   // Hent `params.slug` som en asynkron værdi
-  const { slug } = await params;
+  const { slug } = params;
 
   if (!slug) {
     return notFound();
