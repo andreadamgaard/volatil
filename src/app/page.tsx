@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { fetchBoxes, fetchProductData, fetchProductInfo } from "./api/api";
 import { BigArt } from "@/components/IndexSetup/BigArticle";
 import { LineOne } from "../content/svgs/line1";
-import { LineTwo } from "../content/svgs/line2";
 import { SmallArticle } from "@/components/IndexSetup/SmallArticle";
 import type { BoxesType, ProductInfoType } from "./api/DataType";
 import { AutumnBox } from "@/components/boxIndex/AutumnBox";
@@ -11,7 +10,7 @@ import SwiperKarusel from "@/components/swiper/Swiper";
 import { SwiperData } from "@/components/swiper/SwiperData";
 import { Link } from "@/components/Link/Link";
 import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
-import { LinkButton } from "@/components/button/Button";
+import { LinkButton, LinkButtonNoLink } from "@/components/button/Button";
 
 export default function Home() {
   const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);
@@ -66,9 +65,9 @@ export default function Home() {
                 <figure>
                   <AllTheWines className="max-w-72 h-36 sm:h-52 md:max-w-80 md:min-h-80" />
                 </figure>
-                <LinkButton size="large" className="font-hackney text-3xl md:text-5xl">
+                <LinkButtonNoLink size="large" className="font-hackney text-3xl md:text-5xl">
                   Se alle vine! (OMG!)
-                </LinkButton>
+                </LinkButtonNoLink>
               </span>
             </Link>
           </article>
