@@ -13,6 +13,7 @@ export default function Ciders() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
   const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
   const [availableProducers, setAvailableProducers] = useState<string[]>([]);
+  const [availableLande, setAvailableLande] = useState<string[]>([]);
 
   // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
@@ -25,10 +26,12 @@ export default function Ciders() {
         const allData = await fetchProductData();
         const allCider = allData.filter((vin) => vin.tags?.includes("cider"));
         const producers = Array.from(new Set(allCider.map((vin) => vin.producent))) as string[];
+        const land = Array.from(new Set(allCider.map((vin) => vin.land))) as string[];
 
         setProductData(allCider); // Gem original data
         setFilteredData(allCider); // Viser kun Cider på siden
         setAvailableProducers(producers); // Opdateret liste over producere
+        setAvailableLande(producers); // Opdateret liste over producere
       } catch (error) {
         console.error("Error fetching data:", error);
         error("Kunne ikke hente data, prøv igen senere.");

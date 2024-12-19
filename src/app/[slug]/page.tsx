@@ -9,15 +9,6 @@ import { CheckCheck } from "lucide-react";
 import { Link } from "../../components/Link/Link";
 import { CustomButton } from "../../components/button/CustomButton";
 
-async function GetVinData(slug: string): Promise<VinSingleType | null> {
-  const productData = await fetchProductData();
-  const matchingProduct = productData.find((dataVin: VinVisningType) => dataVin.handle === slug);
-  if (!matchingProduct) return null;
-
-  const productInfo = await fetchProductInfo();
-  return productInfo.find((infoVin: VinSingleType) => infoVin.sku === matchingProduct.sku) || null;
-}
-
 // export async function generateStaticParams() {
 //   const productData = await fetchProductData();
 //   if (!Array.isArray(productData)) {
@@ -26,6 +17,17 @@ async function GetVinData(slug: string): Promise<VinSingleType | null> {
 //   }
 //   return productData.map((vin) => ({ slug: vin.handle }));
 // }
+
+async function GetVinData(slug: string): Promise<VinSingleType | null> {
+  const productData = await fetchProductData();
+  // Find vinen der matcher slug i productData
+  const matchingProduct = productData.find((dataVin: VinVisningType) => dataVin.handle === slug);
+  if (!matchingProduct) return null;
+
+  // Vi bruger matchingProduct.sku til at finde vinen fra Info-data
+  const productInfo = await fetchProductInfo();
+  return productInfo.find((infoVin: VinSingleType) => infoVin.sku === matchingProduct.sku) || null;
+}
 
 export default async function VinPage({ params }) {
   const { slug } = await params;

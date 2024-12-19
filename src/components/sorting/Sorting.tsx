@@ -57,7 +57,6 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
             {sortOptions.map((option) => (
               <ListboxOption key={option.id} value={option} className={clsx("group relative flex cursor-default items-center gap-2 py-1.5 px-3 select-none rounded-lg", "data-[focus]:bg-primary data-[focus]:text-bg focus:ring-offset-2 focus:rounded-lg")}>
                 <span>{option.label}</span>
-                <Check className={clsx("size-4 text-primary invisible group-data-[selected]:visible group-data-[selected]-[focus]:text-bg")} aria-hidden="true" />
               </ListboxOption>
             ))}
           </ListboxOptions>
