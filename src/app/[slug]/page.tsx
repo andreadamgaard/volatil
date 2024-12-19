@@ -20,6 +20,10 @@ async function GetVinData(slug: string): Promise<VinSingleType | null> {
 
 export async function generateStaticParams() {
   const productData = await fetchProductData();
+  if (!Array.isArray(productData)) {
+    console.error("fetchProductData returned invalid data:", productData);
+    return [];
+  }
   return productData.map((vin) => ({ slug: vin.handle }));
 }
 
