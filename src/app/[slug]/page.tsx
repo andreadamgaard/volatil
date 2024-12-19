@@ -26,10 +26,7 @@ async function GetVinData(slug: string): Promise<VinSingleType | null> {
   return vin || null;
 }
 
-export default async function VinPage({ params }: { params: { slug: string } }) {
-  // Hent `params.slug` som en asynkron værdi
-  const slug = params?.slug;
-
+export default async function VinPage({ params: { slug } }: { params: { slug: string } }) {
   if (!slug) {
     return notFound();
   }
