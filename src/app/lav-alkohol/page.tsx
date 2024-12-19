@@ -7,7 +7,7 @@ import { Nul } from "@/content/svgs/wine/Nul";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/VinVisning/VinVisning";
+import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function LavAlkohol() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
@@ -97,7 +97,7 @@ export default function LavAlkohol() {
       </div>
 
       {/* Vin-visning */}
-      <VinVisning data={filteredData} />
+      <VinListe data={filteredData} />
     </section>
   );
 }

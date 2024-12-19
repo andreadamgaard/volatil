@@ -7,7 +7,7 @@ import { Orange } from "@/content/svgs/wine/Orange";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/VinVisning/VinVisning";
+import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function Orangevin() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
@@ -96,7 +96,7 @@ export default function Orangevin() {
       </div>
 
       {/* Vin-visning */}
-      <VinVisning data={filteredData} />
+      <VinListe data={filteredData} />
     </section>
   );
 }

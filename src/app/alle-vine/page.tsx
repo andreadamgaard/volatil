@@ -8,7 +8,7 @@ import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
 import Loading from "../loading";
-import { VinVisning } from "@/components/VinVisning/VinVisning";
+import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
@@ -104,7 +104,7 @@ export default function AllWines() {
 
       {/* Vin-visning */}
       <Suspense fallback={<Loading />}>
-        <VinVisning data={filteredData} />
+        <VinListe data={filteredData} />
       </Suspense>
 
       {/* Observer til lazy load */}

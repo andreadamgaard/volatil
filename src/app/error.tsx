@@ -1,6 +1,4 @@
 "use client";
-import { LinkButton } from "../components/button/Button";
-
 export const metadata = {
   title: "Siden findes ikke",
   description: "Siden du vil ind på findes ikke :(",
@@ -17,11 +15,6 @@ export default function error() {
             Siden blev ikke fundet
           </h1>
           <p className="pb-8 text-xl md:text-2xl">Vi kan bare æk finde siden 💔</p>
-          <div className="flex justify-center items-center">
-            <LinkButton href="/" size="large">
-              Gå tilbage til forsiden??
-            </LinkButton>
-          </div>
         </article>
       </section>
     </>

@@ -7,7 +7,7 @@ type VinVisningProps = {
   data: VinVisningType[];
 };
 
-export const VinVisning = ({ data }: VinVisningProps) => {
+export const VinListe = ({ data }: VinVisningProps) => {
   return (
     <div className="grid grid-cols-2 px-6 py-5 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {data.map((vin) => (

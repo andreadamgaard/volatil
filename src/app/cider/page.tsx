@@ -7,7 +7,7 @@ import { Cider } from "@/content/svgs/wine/Cider";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/VinVisning/VinVisning";
+import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function Ciders() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
@@ -96,7 +96,7 @@ export default function Ciders() {
       </div>
 
       {/* Vin-visning */}
-      <VinVisning data={filteredData} />
+      <VinListe data={filteredData} />
     </section>
   );
 }
