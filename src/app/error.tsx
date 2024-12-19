@@ -1,5 +1,4 @@
 "use client";
-
 import { LinkButton } from "../components/button/Button";
 
 export const metadata = {
