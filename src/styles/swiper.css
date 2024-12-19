@@ -1,13 +1,3 @@
-.swiper-slide {
-  min-width: 450px;
-}
-
-@media (max-width: 768px) {
-  .swiper-slide {
-    min-width: 300px;
-  }
-}
-
 .custom-arrow-prev,
 .custom-arrow-next {
   width: 10%;

@@ -34,27 +34,13 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
           delay: 4500,
         }}
         speed={400}
-        breakpoints={{
-          768: {
-            slidesPerView: 1.5,
-            spaceBetween: 10,
-          },
-          992: {
-            slidesPerView: 2,
-            spaceBetween: 12,
-          },
-          1920: {
-            slidesPerView: 2.5,
-            spaceBetween: 16,
-          },
-        }}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={slide.id} className="flex justify-center place-items-center antialiased min-w-[300px] md:min-w-[450px]">
+          <SwiperSlide key={slide.id} className="flex justify-center place-items-center antialiased min-w-[400px] md:min-w-[450px]">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <Image loading="eager" priority={index === 0} className="relative object-cover w-full h-[375px]" src={slide.src} alt={slide.alt} width={880} height={375} />
-                <div className="absolute bottom-0 bg-gradient-to-t from-black to-transparent w-full h-[70%] " />
+                <Image loading="eager" priority={index === 0} className="relative object-cover w-full h-[450px] md:h-[480px]" src={slide.src} alt={slide.alt} width={880} height={375} />
+                <div className="absolute bottom-0 bg-gradient-to-t from-black/90 to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
                   <div className="mb-6 flex flex-col items-center ">
@@ -70,14 +56,14 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
         ))}
 
         <div className="swiper-button-prev custom-arrow-prev">
-          <div className="bg-primary/60 hover:bg-bg transition duration-200 text-bg hover:text-primary rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
+          <div className="bg-primary/60 hover:bg-bg  text-bg opacity-0 group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
             <div className=" md:h-6 md:w-6">
               <ChevronLeft className="text-inherit" />
             </div>
           </div>
         </div>
         <div className="swiper-button-next custom-arrow-next ">
-          <div className=" bg-primary/60 hover:bg-bg transition duration-200  text-bg hover:text-primary  rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
+          <div className=" bg-primary/60 hover:bg-bg  text-bg opacity-0 group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary  rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
             <div className=" md:h-6 md:w-6">
               <ChevronRight className="text-inherit" />
             </div>
