@@ -1,16 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import clsx from "clsx";
-import type { SwiperImages } from "@/components/swiper/SwiperData";
+import type { SwiperImages } from "./SwiperData";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/keyboard";
-import "@/styles/";
+import "../../styles/swiper.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { CustomLinkButton } from "@/components/button/CustomButton";
+import { CustomLinkButton } from "../button/CustomButton";
 
 export default function SwiperKarusel({ slides }: SwiperImages) {
   return (
