@@ -7,7 +7,7 @@ import { Magnum } from "@/content/svgs/wine/Magnum";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/vinVisning/VinVisning";
+import { VinVisning } from "@/components/VinVisning/VinVisning";
 
 export default function MagnumFlasker() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

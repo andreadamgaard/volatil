@@ -8,7 +8,7 @@ import { Sorting } from "@/components/sorting/Sorting";
 import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
 import Loading from "../loading";
-import { VinVisning } from "@/components/vinVisning/VinVisning";
+import { VinVisning } from "@/components/VinVisning/VinVisning";
 
 export default function AllWines() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);

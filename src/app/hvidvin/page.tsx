@@ -7,7 +7,7 @@ import { Hvid } from "@/content/svgs/wine/Hvid";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
 import { Sorting } from "@/components/sorting/Sorting";
-import { VinVisning } from "@/components/vinVisning/VinVisning";
+import { VinVisning } from "@/components/VinVisning/VinVisning";
 
 export default function Hvidvin() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
