@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LinkButton, LinkButtonNoLink } from "../button/Button";
+import { LinkButtonNoLink } from "../button/Button";
 import clsx from "clsx";
 import Link from "next/link";
 

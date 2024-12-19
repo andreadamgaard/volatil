@@ -1,5 +1,5 @@
 import type { BoxesType } from "@/app/api/DataType";
-import { CheckCheck, Earth, Grape, NotebookPen, Wine } from "lucide-react";
+import { CheckCheck } from "lucide-react";
 import { StockLine } from "./StockLine";
 import { AntalBox } from "../antal/AntalBox";
 import { Link } from "../Link/Link";
