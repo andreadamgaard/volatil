@@ -113,21 +113,6 @@ export const BurgerMenu = () => {
                   </div>
                 </li>
                 <div>
-                  <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsLandeOpen(!isLandeOpen)} aria-expanded={isLandeOpen}>
-                    <span>Lande</span>
-                    <span className={`transition-transform duration-300 ${isLandeOpen ? "rotate-45 " : ""}`}>
-                      <Plus className="size-7" />
-                    </span>
-                  </Button>
-                </div>
-                {isLandeOpen && (
-                  <ul className="mt-2 space-y-4 pl-4">
-                    {lande.map((land) => (
-                      <li key={land}>{land}</li>
-                    ))}
-                  </ul>
-                )}
-                <div>
                   <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsOpdagesleOpen(!isOpdagesleOpen)} aria-expanded={isOpdagesleOpen}>
                     <span>Gå på opdagelse</span>
                     <span className={`transition-transform duration-300 ${isOpdagesleOpen ? "rotate-45 " : ""}`}>
@@ -142,6 +127,24 @@ export const BurgerMenu = () => {
                     <li>Weird shit (på den gode måde!)</li>
                     <li>Staff picks</li>
                   </ul>
+                )}
+                <div>
+                  <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsLandeOpen(!isLandeOpen)} aria-expanded={isLandeOpen}>
+                    <span>Lande</span>
+                    <span className={`transition-transform duration-300 ${isLandeOpen ? "rotate-45 " : ""}`}>
+                      <Plus className="size-7" />
+                    </span>
+                  </Button>
+                </div>
+
+                {isLandeOpen && (
+                  <div className=" mt-2 max-h-64 overflow-y-auto">
+                    <ul className=" space-y-4 pl-4 ">
+                      {lande.map((land) => (
+                        <li key={land}>{land}</li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </ul>
             </div>

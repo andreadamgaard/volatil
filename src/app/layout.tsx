@@ -6,6 +6,8 @@ import { Footer } from "@/components/footer/Footer";
 import clsx from "clsx";
 import Head from "next/head";
 import { BurgerMenu } from "@/components/burger/BurgerMenu";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const abel = Abel({
   weight: "400",
@@ -36,7 +38,9 @@ export default function RootLayout({
         <span className="hidden md:block">
           <Menu />
         </span>
-        <main className="">{children}</main>
+        <main className="">
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </main>
         <Footer />
       </body>
     </html>
