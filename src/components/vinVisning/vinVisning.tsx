@@ -14,7 +14,7 @@ export const VinVisning = ({ data }: VinVisningProps) => {
         <article key={vin.sku} className="flex flex-col max-w-[30rem] ring-2 ring-primary rounded">
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
             <figure className="relative w-full lg:max-h-96 lx:max-h-[30rem] overflow-hidden rounded-t group">
-              <div className="relative w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
+              <div className=" w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
                 <Image src={vin.image} alt={vin.title} width={2580} height={3855} className="h-full xl:min-h-[16rem] object-cover object-center" />
               </div>
               <div className="absolute inset-0 px-7 pb-4 flex items-end justify-end opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">

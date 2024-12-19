@@ -72,30 +72,32 @@ export default function lavAlkohol() {
 
   return (
     <section className="flex flex-col items-center justify-center">
-      <header className="w-2/3 md:w-3/4 lg:w-2/3 flex flex-col items-center">
+      <header className=" flex flex-col items-center w-full">
         <span className="flex justify-end items-center gap-x-2 text-center ">
           <h1 className="headline">Lav alko og 0%!</h1>
           <Nul className="size-24 md:size-36 -rotate-6" />
         </span>
-        <LineOne />
+        <span className="w-[95%] md:w-[90%] lg:w-2/3">
+          <LineOne />
+        </span>
       </header>
 
       {/* Sorteringsfilter */}
-      <div className="flex justify-between items-end w-full mb-4 px-6">
-        <span className="flex gap-4">
-          <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
-          <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
-        </span>
-        <span>
+      <div className="flex justify-between items-start md:items-end w-full mb-4 px-6">
+        <div>
+          <h2 className="flex justify-start font-bold text-lg px-1 pb-1">Filtrer:</h2>
+          <span className="flex flex-col md:flex-row md:gap-4">
+            <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+            <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
+          </span>
+        </div>
+        <div>
           <Sorting onSortChange={setSortOption} />
-        </span>
+        </div>
       </div>
 
       {/* Vin-visning */}
       <VinVisning data={filteredData} />
-
-      {/* Observer til lazy load */}
-      {/* <section ref={observerRef} className="h-10 w-full" /> */}
     </section>
   );
 }

@@ -15,7 +15,7 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen bg-svg;
+  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-screen  bg-svg;
 }
 
 main {
