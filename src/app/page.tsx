@@ -63,9 +63,7 @@ export default function Home() {
                 <figure>
                   <AllTheWines className="max-w-72 h-36 sm:h-52 md:max-w-80 md:min-h-80" />
                 </figure>
-                <LinkButtonNoLink size="large" className="font-hackney text-3xl md:text-5xl">
-                  Se alle vine! (OMG!)
-                </LinkButtonNoLink>
+                <LinkButtonNoLink size="large">Se alle vine! (OMG!)</LinkButtonNoLink>
               </span>
             </Link>
           </article>

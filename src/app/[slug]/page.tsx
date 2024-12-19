@@ -23,7 +23,7 @@ export async function generateStaticParams() {
   return productData.map((vin) => ({ slug: vin.handle }));
 }
 
-export default async function VinPage({ params }: { params: { slug: string } }) {
+export default async function VinPage({ params }) {
   const { slug } = await params;
 
   if (!slug) {
