@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkButton } from "@/components/button/Button";
+import { LinkButton } from "../components/button/Button";
 
 export const metadata = {
   title: "Siden findes ikke",

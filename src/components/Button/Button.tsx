@@ -3,13 +3,13 @@ import clsx from "clsx";
 import { Button as AriaButton, Link as AriaLinkButton } from "react-aria-components";
 import type { ButtonProps as AriaButtonProps, LinkProps as AriaLinkButtonProps } from "react-aria-components";
 
-type ButonProps = Omit<AriaButtonProps, "children"> & {
+type ButtonProps = Omit<AriaButtonProps, "children"> & {
   children: React.ReactNode;
   size: "small" | "medium" | "large";
   className?: string;
 };
 
-export const Button = ({ children, size, className, ...props }: ButonProps) => {
+export const Button = ({ children, size, className, ...props }: ButtonProps) => {
   return (
     <AriaButton {...props} className={clsx("bg-Vblue-50 ring-1 ring-Vblue-50 flex justify-center items-center   w-full transition ease-in-out duration-200 hover:bg-Vblue-100 hover:ring-Vblue-100 text-bg font-hackney", size === "small" && "max-h-8 text-2xl rounded", size === "medium" && "py-1 text-3xl rounded-full", size === "large" && "h-11 ring-2 ring-Vblue-50 py-0.5 text-3xl rounded")}>
       {children}
@@ -17,13 +17,13 @@ export const Button = ({ children, size, className, ...props }: ButonProps) => {
   );
 };
 
-type LinkButonProps = Omit<AriaLinkButtonProps, "children"> & {
+type LinkButtonProps = Omit<AriaLinkButtonProps, "children"> & {
   children?: React.ReactNode;
   className?: string;
   size: "small" | "medium" | "large";
 };
 
-export const LinkButton = ({ children, className, size, ...props }: LinkButonProps) => {
+export const LinkButton = ({ children, className, size, ...props }: LinkButtonProps) => {
   const sizes = {
     small: "text-xs md:text-xl lg:text-2xl",
     medium: "text-sm md:text-2xl lg:text-3xl ",

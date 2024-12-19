@@ -1,24 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
-import { fetchBoxes, fetchProductData, fetchProductInfo } from "./api/api";
-import { BigArt } from "@/components/IndexSetup/BigArticle";
+import { fetchBoxes } from "./api/api";
 import { LineOne } from "../content/svgs/line1";
-import { SmallArticle } from "@/components/IndexSetup/SmallArticle";
-import type { BoxesType, ProductInfoType } from "./api/DataType";
-import { AutumnBox } from "@/components/boxIndex/AutumnBox";
-import SwiperKarusel from "@/components/swiper/Swiper";
-import { SwiperData } from "@/components/swiper/SwiperData";
-import { Link } from "@/components/Link/Link";
-import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
-import { LinkButton, LinkButtonNoLink } from "@/components/button/Button";
+import type { BoxesType } from "./api/DataType";
+import SwiperKarusel from "../components/swiper/Swiper";
+import { SwiperData } from "../components/swiper/SwiperData";
+import { BigArt } from "../components/IndexSetup/BigArticle";
+import { AutumnBox } from "../components/boxIndex/AutumnBox";
+import { SmallArticle } from "../components/IndexSetup/SmallArticle";
+import Link from "next/link";
+import { AllTheWines } from "../content/svgs/wine/AllTheWines";
+import { LinkButtonNoLink } from "../components/button/Button";
 
 export default function Home() {
   const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);
 
   useEffect(() => {
     const getData = async () => {
-      const productData = await fetchProductData();
-      const productInfo = (await fetchProductInfo()) as ProductInfoType[];
       const boxes = (await fetchBoxes()) as BoxesType[];
 
       //Hent data til Autumn box
@@ -60,7 +58,7 @@ export default function Home() {
           <SmallArticle size="large" img="/images/gavekort.webp" imgAlt="Gavekort flaske" title="Køb et gavekort" linkText="Ikke?!" href="/" />
 
           <article className="relative flex flex-col justify-center items-center border-2 border-primary px-4 rounded overflow-hidden w-1/2">
-            <Link href="/alle-vine/" intent="icon" className="h-full w-full">
+            <Link href="/alle-vine/" className="h-full w-full">
               <span className="flex flex-col justify-center items-center">
                 <figure>
                   <AllTheWines className="max-w-72 h-36 sm:h-52 md:max-w-80 md:min-h-80" />

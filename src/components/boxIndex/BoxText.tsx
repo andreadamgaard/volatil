@@ -1,10 +1,10 @@
-import type { BoxesType } from "@/app/api/DataType";
 import { CheckCheck } from "lucide-react";
 import { StockLine } from "./StockLine";
 import { AntalBox } from "../antal/AntalBox";
 import { Link } from "../Link/Link";
 import { InfoBox } from "./InfoBox";
 import { Button } from "../button/Button";
+import type { BoxesType } from "@/src/app/api/DataType";
 
 export const BoxText = ({ data }: { data: BoxesType | null }) => {
   if (!data) {
