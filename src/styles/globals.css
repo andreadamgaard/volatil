@@ -5,6 +5,7 @@
 @font-face {
   font-family: "hackney";
   src: url("/fonts/hackney-webfont.woff2") format("woff2"), url("/fonts/hackney-webfont.woff") format("woff");
+  display: "swap";
 }
 
 body {
