@@ -1,6 +1,5 @@
 "use client";
 import { ChevronDown, Earth, Grape, MapPin, Wine } from "lucide-react";
-import { Accordion } from "../accordion/Accordion";
 import type { VinSingleType } from "@/app/api/vin";
 
 type BoxSingleViewProps = {

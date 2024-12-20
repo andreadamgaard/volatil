@@ -1,4 +1,4 @@
-const rootUrl = "https://jliooxtwhiwrcjpjtfdt.supabase.co/rest/v1/";
+const rootUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 export const fetchData = async (table) => {

@@ -1,5 +1,5 @@
 import { Field, Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
-import { Check, ChevronDown, X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import clsx from "clsx";
 import { useState } from "react";
 
