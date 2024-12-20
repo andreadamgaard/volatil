@@ -1,7 +1,7 @@
 import { Button, Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from "@headlessui/react";
 import clsx from "clsx";
 import { Check, ChevronDown, X } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export const Filter = ({ data = [], label = "Filter", onDataChange }) => {
   const [selectedItems, setSelectedItems] = useState([]);
