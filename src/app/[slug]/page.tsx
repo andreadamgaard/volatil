@@ -62,7 +62,7 @@ export default async function VinPage({ params }) {
 
       {/* Billede */}
       <figure className=" min-w-72  flex justify-center items-center md:w-fit  md:max-w-[37rem]">
-        <Image src={vin.image} alt={vin.navn} width={2580} height={3855} className="w-full h-auto object-cover rounded-lg" />
+        <Image loading="eager" src={vin.image} alt={vin.navn} width={2580} height={3855} className="w-full h-auto object-cover rounded-lg" />
       </figure>
 
       {/* Tekst og data */}
