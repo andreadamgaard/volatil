@@ -56,14 +56,14 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
         ))}
 
         <div className="swiper-button-prev custom-arrow-prev">
-          <div className="bg-primary/60 hover:bg-bg  text-bg opacity-0 group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
+          <div className="bg-primary/60 hover:bg-bg  text-bg group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center aspect-square ">
             <div className=" md:h-6 md:w-6">
               <ChevronLeft className="text-inherit" />
             </div>
           </div>
         </div>
         <div className="swiper-button-next custom-arrow-next ">
-          <div className=" bg-primary/60 hover:bg-bg  text-bg opacity-0 group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary  rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center">
+          <div className=" bg-primary/60 hover:bg-bg  text-bg group-hover:opacity-100 transition-opacity  duration-200 hover:opacity-100 hover:text-primary  rounded-full w-8 h-8 md:w-12 md:h-12 flex justify-center items-center  aspect-square">
             <div className=" md:h-6 md:w-6">
               <ChevronRight className="text-inherit" />
             </div>
