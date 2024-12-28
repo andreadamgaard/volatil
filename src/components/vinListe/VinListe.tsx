@@ -19,12 +19,12 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
   const filteredAndSortedData = useMemo(() => {
     let filteredData = [...data];
 
-    if (selectedFilterType.length > 0) {
+    if (selectedFilterType && selectedFilterType.length > 0) {
       filteredData = filteredData.filter((vin) => selectedFilterType.some((filter) => vin.tags?.includes(filter)));
     }
 
     if (selectedFilterLand.length > 0) {
-      filteredData = filteredData.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
+      filteredData = filteredData.filter((vin) => selectedFilterLand.some((filter) => vin.land?.includes(filter)));
     }
 
     if (selectedFilterProducent.length > 0) {

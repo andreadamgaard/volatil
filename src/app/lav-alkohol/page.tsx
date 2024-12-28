@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
-import { filterData } from "../api/filterData";
 import { Nul } from "@/content/svgs/wine/Nul";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
@@ -11,8 +10,8 @@ import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function LavAlkohol() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
-  const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
   const [availableProducers, setAvailableProducers] = useState<string[]>([]);
+  const [availableLande, setAvailableLande] = useState<string[]>([]);
 
   // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
@@ -24,11 +23,13 @@ export default function LavAlkohol() {
       try {
         const allData = await fetchProductData();
         const allLowVine = allData.filter((vin) => vin.tags?.some((tag) => tag === "lav alkohol" || tag === "0%"));
-        const producers = Array.from(new Set(allLowVine.map((vin) => vin.producent))) as string[];
 
-        setProductData(allLowVine); // Gem original data
-        setFilteredData(allLowVine); // Viser Lav alko
-        setAvailableProducers(producers); // Opdateret liste over producere
+        const producers = Array.from(new Set(allLowVine.map((vin) => vin.producent))).sort() as string[];
+        const land = Array.from(new Set(allLowVine.flatMap((vin) => vin.land))).sort() as string[];
+
+        setProductData(allLowVine);
+        setAvailableProducers(producers);
+        setAvailableLande(land);
       } catch (error) {
         console.error("Error fetching data:", error);
         error("Kunne ikke hente data, prøv igen senere.");
@@ -37,38 +38,6 @@ export default function LavAlkohol() {
 
     loadData();
   }, []);
-
-  useEffect(() => {
-    // Funktion til filtrering og sortering
-    const filterAndSortData = () => {
-      let data = [...productData];
-
-      // Filtrering for lande: Kun hvis der er valgte lande
-      if (selectedFilterLand.length > 0) {
-        data = data.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
-      }
-
-      if (selectedFilterProducent.length > 0) {
-        data = data.filter((vin) => selectedFilterProducent.includes(vin.producent));
-      }
-
-      // Sortering: Kun hvis der er en aktiv sorteringsmulighed
-      if (sortOption !== "none") {
-        data = data.sort((a, b) => {
-          if (sortOption === "az") return a.navn.localeCompare(b.navn);
-          if (sortOption === "za") return b.navn.localeCompare(a.navn);
-          if (sortOption === "LowHigh") return a.price - b.price;
-          if (sortOption === "HighLow") return b.price - a.price;
-          return 0;
-        });
-      }
-
-      setFilteredData(data); // Opdater filtreret data
-    };
-
-    filterAndSortData();
-  }, [productData, selectedFilterLand, selectedFilterProducent, sortOption]);
-  // Kører når data, filtre eller sorteringsindstillinger ændres
 
   return (
     <section className="flex flex-col items-center justify-center">
@@ -87,7 +56,7 @@ export default function LavAlkohol() {
         <div>
           <h2 className="flex justify-start font-bold text-lg px-1 pb-1">Filtrer:</h2>
           <span className="flex flex-col md:flex-row md:gap-4">
-            <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+            <Filter data={availableLande} label="Lande" onDataChange={setSelectedFilterLand} />
             <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
           </span>
         </div>
@@ -97,7 +66,7 @@ export default function LavAlkohol() {
       </div>
 
       {/* Vin-visning */}
-      <VinListe data={filteredData} />
+      <VinListe data={productData} sortOption={sortOption} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
     </section>
   );
 }

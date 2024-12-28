@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
-import { filterData } from "../api/filterData";
 import { Bobler } from "@/content/svgs/wine/Bobler";
 import { LineOne } from "@/content/svgs/line1";
 import { Filter } from "@/components/filter/Filter";
@@ -11,8 +10,8 @@ import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function Boblerne() {
   const [productData, setProductData] = useState<VinVisningType[]>([]);
-  const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
   const [availableProducers, setAvailableProducers] = useState<string[]>([]);
+  const [availableLande, setAvailableLande] = useState<string[]>([]);
 
   // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
@@ -23,52 +22,21 @@ export default function Boblerne() {
     const loadData = async () => {
       try {
         const allData = await fetchProductData();
-        const allBobler = allData.filter((vin) => vin.tags?.some((tag) => tag === "bobbler" || tag === "pet nat" || tag === "sparkling wine" || tag === "bubbles"));
-        const producers = Array.from(new Set(allBobler.map((vin) => vin.producent))) as string[];
+        const allBobler = allData.filter((vin) => vin.tags?.some((tag) => ["bobbler", "pet nat", "sparkling wine", "bubbles"].includes(tag)));
 
-        setProductData(allBobler); // Gem original data
-        setFilteredData(allBobler); // Viser alle bobler, pet nat osv
-        setAvailableProducers(producers); // Opdateret liste over producere
+        const producers = Array.from(new Set(allBobler.map((vin) => vin.producent))).sort() as string[];
+        const land = Array.from(new Set(allBobler.flatMap((vin) => vin.land))).sort() as string[];
+
+        setProductData(allBobler);
+        setAvailableProducers(producers);
+        setAvailableLande(land);
       } catch (error) {
         console.error("Error fetching data:", error);
-        error("Kunne ikke hente data, prøv igen senere.");
       }
     };
+
     loadData();
   }, []);
-
-  useEffect(() => {
-    // Funktion til filtrering og sortering
-    const filterAndSortData = () => {
-      let data = [...productData];
-
-      // Filtrering for lande: Kun hvis der er valgte lande
-      if (selectedFilterLand.length > 0) {
-        data = data.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
-      }
-
-      if (selectedFilterProducent.length > 0) {
-        data = data.filter((vin) => selectedFilterProducent.includes(vin.producent));
-      }
-
-      // Sortering: Kun hvis der er en aktiv sorteringsmulighed
-      if (sortOption !== "none") {
-        data = data.sort((a, b) => {
-          if (sortOption === "az") return a.navn.localeCompare(b.navn);
-          if (sortOption === "za") return b.navn.localeCompare(a.navn);
-          if (sortOption === "LowHigh") return a.price - b.price;
-          if (sortOption === "HighLow") return b.price - a.price;
-          return 0;
-        });
-      }
-
-      setFilteredData(data); // Opdater filtreret data
-    };
-
-    filterAndSortData();
-  }, [productData, selectedFilterLand, selectedFilterProducent, sortOption]);
-  // Kører når data, filtre eller sorteringsindstillinger ændres
-
   return (
     <section className="flex flex-col items-center justify-center">
       <header className=" flex flex-col items-center w-full">
@@ -80,13 +48,12 @@ export default function Boblerne() {
           <LineOne />
         </span>
       </header>
-
       {/* Sorteringsfilter */}
       <div className="flex justify-between items-start md:items-end w-full mb-4 px-6">
         <div>
           <h2 className="flex justify-start font-bold text-lg px-1 pb-1">Filtrer:</h2>
           <span className="flex flex-col md:flex-row md:gap-4">
-            <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+            <Filter data={availableLande} label="Lande" onDataChange={setSelectedFilterLand} />
             <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
           </span>
         </div>
@@ -94,9 +61,8 @@ export default function Boblerne() {
           <Sorting onSortChange={setSortOption} />
         </div>
       </div>
-
       {/* Vin-visning */}
-      <VinListe data={filteredData} />
+      <VinListe data={productData} sortOption={sortOption} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
     </section>
   );
 }

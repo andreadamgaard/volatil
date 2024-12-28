@@ -9,6 +9,7 @@ export type VinVisningType = {
   price: number;
   image: string;
   navn: string;
+  land: string;
 };
 export type VinSingleType = {
   sku: string;

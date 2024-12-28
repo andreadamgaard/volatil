@@ -12,8 +12,8 @@ import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function AllWines() {
   const dataRef = useRef<VinVisningType[] | null>(null); // Gemmer data
-  // const [filteredData, setFilteredData] = useState<VinVisningType[]>([]); // Filtreret data
-  const [availableProducers, setAvailableProducers] = useState<string[]>([]); // Dynamiske producenter
+  const [availableProducers, setAvailableProducers] = useState<string[]>([]);
+  const [availableLande, setAvailableLande] = useState<string[]>([]);
 
   const [sortOption, setSortOption] = useState<string>("none");
   const [selectedFilterType, setSelectedFilterType] = useState<string[]>([]);
@@ -29,10 +29,12 @@ export default function AllWines() {
           dataRef.current = allData;
 
           // Generer sorteret liste af producenter
-          const producers = Array.from(new Set(allData.map((vin) => vin.producent)))
-            .filter((producent): producent is string => typeof producent === "string") // Sikrer at kun strings inkluderes
-            .sort((a, b) => a.localeCompare(b)); // Sorter alfabetisk
+          const producers = Array.from(new Set(allData.map((vin) => vin.producent))).sort() as string[];
+
+          const land = Array.from(new Set(allData.flatMap((vin) => vin.land))).sort() as string[];
+
           setAvailableProducers(producers);
+          setAvailableLande(land);
         } catch (error) {
           console.error("ingen data fetch", error);
           error();
@@ -62,7 +64,7 @@ export default function AllWines() {
           <h2 className="flex justify-start font-bold text-lg px-1 pb-1">Filtrer:</h2>
           <span className="flex flex-col md:flex-row md:gap-4">
             <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilterType} />
-            <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
+            <Filter data={availableLande} label="Lande" onDataChange={setSelectedFilterLand} />
             <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
           </span>
         </div>
