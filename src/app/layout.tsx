@@ -34,6 +34,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/hackney-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/styles/globals.css" as="style" />
         <link rel="preload" href="/styles/swiper.css" as="style" />
+        <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" />
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
         <span className=" md:hidden">
