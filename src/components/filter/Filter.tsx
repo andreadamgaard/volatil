@@ -24,7 +24,7 @@ export const Filter = ({ data = [], label = "Filter", onDataChange }) => {
         </ListboxButton>
 
         <Transition leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-          <ListboxOptions className={clsx("absolute mt-1 max-h-60 w-52 md:w-72 overflow-auto rounded-md border-2 border-primary bg-bg shadow-lg z-50 left-0 top-full")}>
+          <ListboxOptions className={clsx("absolute mt-1 max-h-60 w-52 md:w-72 overflow-auto rounded-md border-2 border-primary bg-bg shadow-lg z-30 left-0 top-full")}>
             {/* Header med ryd-knap */}
             <div className="flex items-center justify-between px-3 py-2 border-b-2 border-primary bg-bg h-12">
               <span className="font-medium">{selectedItems.length} valgt</span>

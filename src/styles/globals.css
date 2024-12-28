@@ -29,7 +29,7 @@ main {
 .rotated-bg::before {
   content: "";
   @apply fixed inset-0 bg-no-repeat bg-center z-[-100] pointer-events-none;
-  background-image: url("/images/branches.svg");
+  background-image: url("/images/branches.webp");
 
   /* Mobile (default) styling */
   background-attachment: scroll;
