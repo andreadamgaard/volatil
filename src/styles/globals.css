@@ -28,7 +28,7 @@ main {
 
 .rotated-bg::before {
   content: "";
-  @apply absolute inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
+  @apply fixed inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
   background-image: url("/images/branches.webp");
 
   /* Mobile (default) styling */
