@@ -2,15 +2,68 @@ import { Link } from "@/components/Link/Link";
 import Image from "next/image";
 import type { VinVisningType } from "@/app/api/vin";
 import { CustomButton } from "@/components/button/CustomButton";
+import { useEffect, useMemo, useState } from "react";
 
 type VinVisningProps = {
   data: VinVisningType[];
+  sortOption: string;
+  selectedFilterType?: string[];
+  selectedFilterLand: string[];
+  selectedFilterProducent: string[];
 };
 
-export const VinListe = ({ data }: VinVisningProps) => {
+export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterLand, selectedFilterProducent }: VinVisningProps) => {
+  const [visibleCount, setVisibleCount] = useState<number>(20); // Antal synlige produkter
+
+  // Filtrér og sorter data
+  const filteredAndSortedData = useMemo(() => {
+    let filteredData = [...data];
+
+    if (selectedFilterType.length > 0) {
+      filteredData = filteredData.filter((vin) => selectedFilterType.some((filter) => vin.tags?.includes(filter)));
+    }
+
+    if (selectedFilterLand.length > 0) {
+      filteredData = filteredData.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
+    }
+
+    if (selectedFilterProducent.length > 0) {
+      filteredData = filteredData.filter((vin) => selectedFilterProducent.includes(vin.producent));
+    }
+
+    if (sortOption !== "none") {
+      filteredData = filteredData.sort((a, b) => {
+        if (sortOption === "az") return a.navn.localeCompare(b.navn);
+        if (sortOption === "za") return b.navn.localeCompare(a.navn);
+        if (sortOption === "LowHigh") return a.price - b.price;
+        if (sortOption === "HighLow") return b.price - a.price;
+        return 0;
+      });
+    }
+
+    return filteredData;
+  }, [data, sortOption, selectedFilterType, selectedFilterLand, selectedFilterProducent]);
+
+  // Begrænsning til kun synlige produkter
+  const visibleData = useMemo(() => {
+    return filteredAndSortedData.slice(0, visibleCount);
+  }, [filteredAndSortedData, visibleCount]);
+
+  // Infinite scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100) {
+        setVisibleCount((prev) => prev + 20); // Indlæs flere produkter
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="grid grid-cols-2 px-6 py-5 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {data.map((vin) => (
+      {visibleData.map((vin) => (
         <article key={vin.sku} className="flex flex-col max-w-[30rem] ring-2 ring-primary rounded">
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
             <figure className="relative w-full lg:max-h-96 lx:max-h-[30rem] overflow-hidden rounded-t group">

@@ -25,6 +25,7 @@ main {
   @apply font-hackney text-6xl pt-16 md:text-9xl md:pt-12 whitespace-nowrap;
   font-family: "hackney", Arial, sans-serif;
 }
+
 .rotated-bg::before {
   content: "";
   @apply fixed inset-0 bg-no-repeat bg-center z-[-100] pointer-events-none;

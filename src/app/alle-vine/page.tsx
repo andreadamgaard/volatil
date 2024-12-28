@@ -1,7 +1,7 @@
 "use client";
 import { AllTheWines } from "@/content/svgs/wine/AllTheWines";
 import { LineOne } from "@/content/svgs/line1";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import type { VinVisningType } from "../api/vin";
 import { fetchProductData } from "../api/api";
 import { Sorting } from "@/components/sorting/Sorting";
@@ -11,10 +11,10 @@ import Loading from "../loading";
 import { VinListe } from "@/components/vinListe/VinListe";
 
 export default function AllWines() {
-  const [productData, setProductData] = useState<VinVisningType[]>([]);
-  const [filteredData, setFilteredData] = useState<VinVisningType[]>([]);
+  const dataRef = useRef<VinVisningType[] | null>(null); // Gemmer data
+  // const [filteredData, setFilteredData] = useState<VinVisningType[]>([]); // Filtreret data
+  const [availableProducers, setAvailableProducers] = useState<string[]>([]); // Dynamiske producenter
 
-  // State til sortering
   const [sortOption, setSortOption] = useState<string>("none");
   const [selectedFilterType, setSelectedFilterType] = useState<string[]>([]);
   const [selectedFilterLand, setSelectedFilterLand] = useState<string[]>([]);
@@ -22,56 +22,25 @@ export default function AllWines() {
 
   useEffect(() => {
     const loadData = async () => {
-      try {
-        const allData = await fetchProductData();
+      // Hent data kun, hvis det ikke allerede er gemt
+      if (!dataRef.current) {
+        try {
+          const allData = await fetchProductData();
+          dataRef.current = allData;
 
-        setProductData(allData); // Gem original data
-        setFilteredData(allData); // Start med at vise alt
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        error("Kunne ikke hente data, prøv igen senere.");
+          // Generer sorteret liste af producenter
+          const producers = Array.from(new Set(allData.map((vin) => vin.producent)))
+            .filter((producent): producent is string => typeof producent === "string") // Sikrer at kun strings inkluderes
+            .sort((a, b) => a.localeCompare(b)); // Sorter alfabetisk
+          setAvailableProducers(producers);
+        } catch (error) {
+          console.error("ingen data fetch", error);
+          error();
+        }
       }
     };
     loadData();
   }, []);
-
-  useEffect(() => {
-    // Funktion til filtrering og sortering
-    const filterAndSortData = () => {
-      let data = [...productData];
-
-      // Filtrering for type: Kun hvis der er valgte filtre
-      if (selectedFilterType.length > 0) {
-        data = data.filter((vin) => selectedFilterType.some((filter) => vin.tags?.includes(filter)));
-      }
-
-      // Filtrering for lande: Kun hvis der er valgte lande
-      if (selectedFilterLand.length > 0) {
-        data = data.filter((vin) => selectedFilterLand.some((filter) => vin.tags?.includes(filter)));
-      }
-
-      // Filtrering for producenter
-      if (selectedFilterProducent.length > 0) {
-        data = data.filter((vin) => selectedFilterProducent.includes(vin.producent));
-      }
-
-      // Sortering: Kun hvis der er en aktiv sorteringsmulighed
-      if (sortOption !== "none") {
-        data = data.sort((a, b) => {
-          if (sortOption === "az") return a.navn.localeCompare(b.navn);
-          if (sortOption === "za") return b.navn.localeCompare(a.navn);
-          if (sortOption === "LowHigh") return a.price - b.price;
-          if (sortOption === "HighLow") return b.price - a.price;
-          return 0;
-        });
-      }
-
-      setFilteredData(data); // Opdater filtreret data
-    };
-
-    filterAndSortData();
-  }, [productData, selectedFilterType, selectedFilterLand, selectedFilterProducent, sortOption]);
-  // Kører når data, filtre eller sorteringsindstillinger ændres
 
   return (
     <section className="flex flex-col items-center justify-center">
@@ -94,7 +63,7 @@ export default function AllWines() {
           <span className="flex flex-col md:flex-row md:gap-4">
             <Filter data={filterData.typer} label="Typer vine" onDataChange={setSelectedFilterType} />
             <Filter data={filterData.lande} label="Lande" onDataChange={setSelectedFilterLand} />
-            <Filter data={filterData.producent} label="Producent" onDataChange={setSelectedFilterProducent} />
+            <Filter data={availableProducers} label="Producent" onDataChange={setSelectedFilterProducent} />
           </span>
         </div>
         <div>
@@ -104,7 +73,7 @@ export default function AllWines() {
 
       {/* Vin-visning */}
       <Suspense fallback={<Loading />}>
-        <VinListe data={filteredData} />
+        <VinListe data={dataRef.current || []} sortOption={sortOption} selectedFilterType={selectedFilterType} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
       </Suspense>
 
       {/* Observer til lazy load */}
