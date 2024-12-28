@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import plugin from "tailwindcss/plugin";
 
 export default {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -35,27 +34,27 @@ export default {
     },
   },
   plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".bg-svg": {
-          backgroundImage: "url('/images/branches.svg')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
-          backgroundSize: "90%" /* Standard */,
-        },
-        "@media (min-width: 768px)": {
-          ".bg-svg": {
-            backgroundSize: "65%" /* Medium skærme */,
-          },
-        },
-        "@media (min-width: 1024px)": {
-          ".bg-svg": {
-            backgroundSize: "55%" /* Store skærme */,
-          },
-        },
-      });
-    }),
-    require("@tailwindcss/line-clamp"),
+    // plugin(({ addUtilities }) => {
+    //   addUtilities({
+    //     ".bg-svg": {
+    //       backgroundImage: "url('/images/branches.svg')",
+    //       backgroundRepeat: "no-repeat",
+    //       backgroundPosition: "center",
+    //       backgroundAttachment: "fixed",
+    //       backgroundSize: "90%" /* Standard */,
+    //     },
+    //     "@media (min-width: 768px)": {
+    //       ".bg-svg": {
+    //         backgroundSize: "65%" /* Medium skærme */,
+    //       },
+    //     },
+    //     "@media (min-width: 1024px)": {
+    //       ".bg-svg": {
+    //         backgroundSize: "55%" /* Store skærme */,
+    //       },
+    //     },
+    //   });
+    // }),
+    // require("@tailwindcss/line-clamp"),
   ],
 } satisfies Config;

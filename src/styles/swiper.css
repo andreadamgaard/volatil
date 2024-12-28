@@ -4,38 +4,7 @@
   height: 100%;
   top: 10%;
 }
-
-/* @media (min-width: 579px) {
-  .custom-arrow-prev,
-  .custom-arrow-next {
-    width: 20%;
-    height: 100%;
-    top: 1%;
-  }
-}
-
-@media (min-width: 768px) {
-  .custom-arrow-prev,
-  .custom-arrow-next {
-    width: 10%;
-    height: 100%;
-    top: 12%;
-  }
-}
-@media (min-width: 1920px) {
-  .custom-arrow-prev,
-  .custom-arrow-next {
-    width: 8%;
-    height: 100%;
-    top: 10%;
-  }
-} */
-
 .swiper-button-prev:after,
 .swiper-button-next:after {
   display: none;
 }
-/* .swiper-button-prev svg, .swiper-button-next svg {
-  display: none;
-  
-} */
