@@ -42,7 +42,7 @@ export default function RootLayout({
         <span className="hidden md:block">
           <Menu />
         </span>
-        <main className="">
+        <main className=" rotated-bg">
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
         <Footer />
