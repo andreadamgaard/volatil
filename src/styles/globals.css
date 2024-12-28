@@ -28,22 +28,19 @@ main {
 
 .rotated-bg::before {
   content: "";
-  @apply absolute inset-0 bg-no-repeat bg-center z-[-100] pointer-events-none;
+  @apply absolute inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
   background-image: url("/images/branches.webp");
 
   /* Mobile (default) styling */
-  @apply bg-contain;
-  background-size: 80%;
   transform: rotate(-16deg);
-  background-position: top 7rem;
+  background-position: center 7rem;
 
   /* Medium screens and above (md) */
   @screen md {
-    background-size: 60%;
-    background-position: top 2rem;
+    background-position: center 2rem;
+    background-size: auto;
   }
   @screen lg {
-    background-size: 45%;
-    background-position: top 1.5rem;
+    background-position: center 1.5rem;
   }
 }
