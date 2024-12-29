@@ -68,7 +68,7 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
             <figure className="relative w-full lg:max-h-96 lx:max-h-[30rem] overflow-hidden rounded-t group">
               <div className=" w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
-                <Image src={vin.image} alt={vin.title} width={2580} height={3855} className="h-full xl:min-h-[16rem] object-cover object-center" />
+                <Image src={vin.image} alt={vin.title} width={580} height={1855} className="h-full xl:min-h-[16rem] object-cover object-center" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 25vw" />
               </div>
               <div className="absolute inset-0 px-7 pb-4 flex items-end justify-end opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                 <CustomButton size="medium" className="px-4 py-2">
