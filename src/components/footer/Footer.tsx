@@ -112,7 +112,7 @@ export const Footer = () => {
       </div>
 
       <div className="flex flex-col gap-3 pt-6 lg:pt-0 md:col-start-1 md:col-span-3 ">
-        <div className="flex gap-2 text-textSale flex-wrap text-[0.65rem] md:col-start-1 md:col-span-3 md:text-xs items-center">
+        <div className="flex gap-2 text-primary flex-wrap text-[0.65rem] md:col-start-1 md:col-span-3 md:text-xs items-center">
           <p>© 2024 Volatil Vin</p>|<p>CVR: 38654233</p>|<p>+45 55 20 22 39</p>|
           <Link intent="text" href="mailto:info@volatil.dk">
             info@volatil.dk
