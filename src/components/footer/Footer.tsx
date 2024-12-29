@@ -18,10 +18,10 @@ export const Footer = () => {
             <span className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Volatil</h1>
               <span className="flex gap-0.5 md:gap-3">
-                <Link intent="icon" href="https://www.instagram.com/volatilbar">
+                <Link intent="icon" href="https://www.instagram.com/volatilbar" aria-label="Volatil Instagram">
                   <IG className="size-4 md:size-5" />
                 </Link>
-                <Link intent="icon" href="https://www.facebook.com/volatilnaturvin">
+                <Link intent="icon" href="https://www.facebook.com/volatilnaturvin" aria-label="Volatil Facebook">
                   <FB className="size-4 md:size-5" />
                 </Link>
               </span>
@@ -58,10 +58,10 @@ export const Footer = () => {
             <span className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Steffi</h1>
               <span className="flex gap-0.5 md:gap-3">
-                <Link intent="icon" href="https://www.instagram.com/steffigrafcph">
+                <Link intent="icon" href="https://www.instagram.com/steffigrafcph" aria-label="Steffi Instagram">
                   <IG className="size-4 md:size-5" />
                 </Link>
-                <Link intent="icon" href="https://www.facebook.com/steffigrafcph">
+                <Link intent="icon" href="https://www.facebook.com/steffigrafcph" aria-label="Steffi Facebook">
                   <FB className="size-4 md:size-5" />
                 </Link>
               </span>
@@ -102,10 +102,10 @@ export const Footer = () => {
           <input id="nyhedsbrev" type="email" placeholder="Kom med den mail!" className="max-w-56 h-8 px-2 tabular-nums rounded " />
         </span>
         <span className="flex gap-3 px-0.5">
-          <Link intent="icon" href="mailto:info@volatil.dk">
+          <Link intent="icon" href="mailto:info@volatil.dk" aria-label="mail">
             <Mail className="size-6 md:size-8" />
           </Link>
-          <Link intent="icon" href="https://www.youtube.com/watch?v=QsW824j3-B0">
+          <Link intent="icon" href="https://www.youtube.com/watch?v=QsW824j3-B0" aria-label="Youtube">
             <YT className="size-6 md:size-8" />
           </Link>
         </span>
@@ -114,7 +114,7 @@ export const Footer = () => {
       <div className="flex flex-col gap-3 pt-6 lg:pt-0 md:col-start-1 md:col-span-3 ">
         <div className="flex gap-2 text-primary flex-wrap text-[0.65rem] md:col-start-1 md:col-span-3 md:text-xs items-center">
           <p>© 2024 Volatil Vin</p>|<p>CVR: 38654233</p>|<p>+45 55 20 22 39</p>|
-          <Link intent="text" href="mailto:info@volatil.dk">
+          <Link intent="text" href="mailto:info@volatil.dk" aria-label="mail">
             info@volatil.dk
           </Link>
         </div>

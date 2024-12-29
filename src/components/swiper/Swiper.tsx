@@ -26,9 +26,7 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        centeredSlides={true}
         allowTouchMove={true}
-        spaceBetween={6}
         slidesPerView={1}
         autoplay={{
           delay: 4500,
@@ -36,10 +34,10 @@ export default function SwiperKarusel({ slides }: SwiperImages) {
         speed={400}
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={slide.id} className="flex justify-center place-items-center antialiased min-w-[400px] md:min-w-[450px]">
+          <SwiperSlide key={slide.id} className="flex justify-center place-items-center antialiased">
             {({ isActive, isPrev, isNext }) => (
               <>
-                <Image loading={index === 0 ? "eager" : "lazy"} priority={index === 0} src={slide.src} alt={slide.alt} width={1350} height={575} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} className="relative object-cover w-full h-[450px] md:h-[480px]" />
+                <Image loading={index === 0 ? "eager" : "lazy"} priority={index === 0} src={slide.src} alt={slide.alt} width={1350} height={575} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={75} className="relative object-cover w-full h-[350px] md:h-[480px]" />
                 <div className="absolute bottom-0 bg-gradient-to-t from-black/90 to-transparent w-full h-[70%] " />
 
                 <div className={clsx("absolute inset-0 flex flex-col justify-end mb-8 items-center text-bg transition-all ease-in duration-500", isActive ? "opacity-100 visible" : "opacity-0 invisible", (isPrev || isNext) && "opacity-0 invisible")}>
