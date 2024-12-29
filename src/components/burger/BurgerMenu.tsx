@@ -5,7 +5,7 @@ import { Plus } from "lucide-react";
 import { useState } from "react";
 import { Link } from "../Link/Link";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
-import { LineFour } from "@/content/svgs/line4";
+import { LineThree } from "@/content/svgs/line3";
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -150,7 +150,7 @@ export const BurgerMenu = () => {
           )}
         </div>
       </nav>
-      <LineFour />
+      <LineThree />
     </header>
   );
 };
