@@ -32,6 +32,7 @@ export default function RootLayout({
       <Head>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="preload" href="/fonts/hackney-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/hackney-webfont.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" href="/styles/globals.css" as="style" />
         <link rel="preload" href="/styles/swiper.css" as="style" />
         <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" />
