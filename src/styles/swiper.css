@@ -1,14 +1,17 @@
 .custom-arrow-prev,
 .custom-arrow-next {
-  width: 5rem;
   height: 100%;
   top: 10%;
+}
+
+.custom-arrow-prev {
+  left: 3rem;
+}
+.custom-arrow-next {
+  right: 3rem;
 }
 
 .swiper-button-prev:after,
 .swiper-button-next:after {
   display: none;
-  width: 5rem;
-  height: 100%;
-  top: 10%;
 }
