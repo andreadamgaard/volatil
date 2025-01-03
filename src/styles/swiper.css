@@ -8,4 +8,7 @@
 .swiper-button-prev:after,
 .swiper-button-next:after {
   display: none;
+  width: 5rem;
+  height: 100%;
+  top: 10%;
 }
