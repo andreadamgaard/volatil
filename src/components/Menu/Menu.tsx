@@ -9,7 +9,7 @@ import clsx from "clsx";
 import { Link } from "@/components/Link/Link";
 import { NavImg } from "@/components/Menu/NavImg";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
-import { LineTwo } from "@/content/svgs/line2";
+import { LineThree } from "@/content/svgs/line3";
 
 type Category = "Alle vine" | "Typer" | "Land" | "Gå på opdagelse";
 
@@ -46,7 +46,7 @@ export const Menu = () => {
     }
   };
   return (
-    <header className="hidden lg:block sticky top-0 w-full bg-bg z-50 pt-2 h-28 shadow-lg transition-all duration-300">
+    <header className="hidden lg:block sticky top-0 w-full bg-bg z-50 pt-2 h-24 transition-all duration-300">
       <nav className=" flex justify-center items-center px-8 ">
         <div className="basis-0	grow flex gap-5 lg:gap-10">
           <button className="flex items-center font-hackney text-2xl lg:text-4xl hover:text-hover vine-button" type="button" onMouseEnter={() => setIsDropdownOpen(true)} onKeyDown={handleKeyDownOnButton} onBlur={handleBlur} aria-expanded={isDropdownOpen}>
@@ -108,7 +108,7 @@ export const Menu = () => {
           <ShoppingBasket className="size-7 hover:text-hover" />
         </div>
       </nav>
-      <LineTwo className="w-full mb-0.5" />
+      <LineThree className="w-full mb-0.5" />
     </header>
   );
 };

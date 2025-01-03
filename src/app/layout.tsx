@@ -38,12 +38,19 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/hackney-webfont.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" href="/styles/globals.css" as="style" />
         <link rel="preload" href="/styles/swiper.css" as="style" />
-        <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" />
+        {/* <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" /> */}
+        <style>
+          {`
+            .preload-lcp-bg {
+              background-image: url('/images/branches.webp');
+            }
+          `}
+        </style>
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
         <BurgerMenu />
         <Menu />
-        <main className="rotated-bg">
+        <main className="rotated-bg preload-lcp-bg">
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
         <Footer />

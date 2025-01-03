@@ -71,10 +71,10 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
         <article key={vin.sku} className="flex flex-col max-w-[30rem] ring-2 ring-primary rounded">
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
             <figure className="relative w-full lg:max-h-96 lx:max-h-[30rem] overflow-hidden rounded-t group">
-              <div className=" w-full h-full transition duration-500 ease-in-out group-hover:scale-105">
+              <div className=" w-full h-full transition duration-500 ease-in-out md:group-hover:scale-105">
                 <Image src={vin.image} alt={vin.title} width={580} height={1855} className="h-full xl:min-h-[16rem] object-cover object-center" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 25vw" />
               </div>
-              <div className="absolute inset-0 px-7 pb-4 flex items-end justify-end opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+              <div className="absolute hidden inset-0 px-7 pb-4 md:flex items-end justify-end opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out">
                 <CustomButton size="medium" className="px-4 py-2">
                   Køb mig lige?!
                 </CustomButton>
@@ -88,9 +88,9 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
               >
                 <span className="line-clamp-2 text-center">{vin.navn}</span>
               </h3>
-              <span className="flex justify-between items-start md:text-base min-h-[2.5rem] pt-1">
-                <p className="max-w-[75%] break-words text-[0.8rem] italic md:text-base">{vin.producent}</p>
-                <p>{vin.price} kr</p>
+              <span className="flex justify-between items-start md:text-base min-h-[2.5rem] pt-1 gap-0.5">
+                <p className="text-[0.8rem] italic line-clamp-2 ">{vin.producent}</p>
+                <p className=" whitespace-nowrap">{vin.price} kr</p>
               </span>
             </div>
           </Link>

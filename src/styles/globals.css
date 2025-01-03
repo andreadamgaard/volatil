@@ -5,7 +5,7 @@
 @font-face {
   font-family: "hackney";
   src: url("/fonts/hackney-webfont.woff2") format("woff2"), url("/fonts/hackney-webfont.woff") format("woff");
-  font-display: "swap";
+  font-display: swap;
 }
 
 body {
@@ -32,14 +32,12 @@ main {
   background-attachment: fixed;
 
   /* Mobile (default) styling */
-  background-position: center 7rem;
+  background-position: center 9rem;
 
   /* Medium screens and above (md) */
   @screen md {
-    background-position: center 2rem;
-  }
+    background-size: auto;
 
-  @screen lg {
-    background-position: center 1.5rem;
+    background-position: center 8rem;
   }
 }
