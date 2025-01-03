@@ -52,13 +52,17 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
   // Infinite scroll handler
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 100) {
-        setVisibleCount((prev) => prev + 20); // Indlæs flere produkter
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+        setVisibleCount((prev) => prev + 20);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Tilføj oprydning
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
