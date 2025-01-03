@@ -4,10 +4,10 @@
   top: 10%;
 }
 
-.custom-arrow-prev {
+.swiper-button-prev {
   left: 3rem;
 }
-.custom-arrow-next {
+.swiper-button-next {
   right: 3rem;
 }
 
