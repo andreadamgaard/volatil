@@ -30,6 +30,7 @@ main {
   @apply inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
   background-image: url("/images/branches.webp");
   background-attachment: fixed;
+  content-visibility: auto;
 
   /* Mobile (default) styling */
   background-position: center 9rem;
