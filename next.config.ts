@@ -2,7 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.shopify.com", "volatil.dk"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "volatil.dk",
+        pathname: "/**",
+      },
+    ],
   },
 };
 

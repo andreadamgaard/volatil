@@ -20,6 +20,10 @@ export const abel = Abel({
 export const metadata: Metadata = {
   title: "Volatil redesign",
   description: "Volatil redesign - Andrea Damgaard Hegner, KEA Multimediedesign eksamen 4. semester 2024",
+  robots: "noindex, nofollow",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -30,7 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${abel.variable}`}>
       <Head>
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="preload" href="/fonts/hackney-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/hackney-webfont.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <link rel="preload" href="/styles/globals.css" as="style" />
