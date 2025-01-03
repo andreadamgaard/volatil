@@ -33,28 +33,5 @@ export default {
       },
     },
   },
-  plugins: [
-    // plugin(({ addUtilities }) => {
-    //   addUtilities({
-    //     ".bg-svg": {
-    //       backgroundImage: "url('/images/branches.svg')",
-    //       backgroundRepeat: "no-repeat",
-    //       backgroundPosition: "center",
-    //       backgroundAttachment: "fixed",
-    //       backgroundSize: "90%" /* Standard */,
-    //     },
-    //     "@media (min-width: 768px)": {
-    //       ".bg-svg": {
-    //         backgroundSize: "65%" /* Medium skærme */,
-    //       },
-    //     },
-    //     "@media (min-width: 1024px)": {
-    //       ".bg-svg": {
-    //         backgroundSize: "55%" /* Store skærme */,
-    //       },
-    //     },
-    //   });
-    // }),
-    // require("@tailwindcss/line-clamp"),
-  ],
+  plugins: [],
 } satisfies Config;
