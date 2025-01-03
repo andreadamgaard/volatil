@@ -2,11 +2,10 @@
 import { filterData } from "@/app/api/filterData";
 import { Button } from "@headlessui/react";
 import { Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "../Link/Link";
 import { VolatilLogo } from "@/content/logo/VolatilLogo";
 import { LineThree } from "@/content/svgs/line3";
-import clsx from "clsx";
 
 export const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,171 +15,142 @@ export const BurgerMenu = () => {
 
   const lande = filterData.lande;
 
-  const [header, setHeader] = useState(false);
-
-  useEffect(() => {
-    // Scroll til toppen ved refresh
-    const handleBeforeUnload = () => {
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    // Scroll-header funktion
-    const scrollHeader = () => {
-      if (window.scrollY >= 0) {
-        setHeader(true);
-      } else {
-        setHeader(false);
-      }
-    };
-    window.addEventListener("scroll", scrollHeader);
-
-    // Cleanup ved unmount
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      window.removeEventListener("scroll", scrollHeader);
-    };
-  }, []);
-
   return (
-    <>
-      <header className={clsx("w-full bg-bg z-[100] header transition-all duration-300 h-28", header ? "fixed shadow-lg" : "relative")}>
-        <nav className="relative flex justify-center items-center px-5 py-2">
-          <div className="basis-1/3" />
-          <div className="basis-1/3 flex justify-center items-center">
-            {/* Logo */}
-            <Link href="/" intent="null" aria-label="forside">
-              <VolatilLogo className="hover:text-hover h-16 stroke-[8px] transition ease-in-out duration-200" />
-            </Link>
-          </div>
+    <header className="block sticky top-0 shadow-lg lg:hidden w-full bg-bg z-[100]">
+      <nav className="relative flex justify-center items-center px-5 py-2">
+        <div className="basis-1/3" />
+        <div className="basis-1/3 flex justify-center items-center">
+          {/* Logo */}
+          <Link href="/" intent="null" aria-label="forside">
+            <VolatilLogo className="hover:text-hover h-16 stroke-[8px] transition ease-in-out duration-200" />
+          </Link>
+        </div>
 
-          <div className="relative basis-1/3 flex justify-end  items-center">
-            <Button className="relative w-8 h-8 flex items-center justify-center " onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-              <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "rotate-45" : "translate-y-[-8px]"}`} />
-              <span className={`absolute w-8 h-1 bg-primary rounded transition-opacity duration-400 ${isOpen ? "opacity-0" : ""}`} />
-              <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "-rotate-45" : "translate-y-[8px]"}`} />
-            </Button>
+        <div className="relative basis-1/3 flex justify-end  items-center">
+          <Button className="relative w-8 h-8 flex items-center justify-center " onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+            <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "rotate-45" : "translate-y-[-8px]"}`} />
+            <span className={`absolute w-8 h-1 bg-primary rounded transition-opacity duration-400 ${isOpen ? "opacity-0" : ""}`} />
+            <span className={`absolute w-8 h-1 bg-primary rounded transition-all duration-400 ${isOpen ? "-rotate-45" : "translate-y-[8px]"}`} />
+          </Button>
 
-            {/* Menu */}
-            {isOpen && (
-              <div className="absolute z-[150] top-full mt-3 right-0 w-72 h-fit bg-bg px-6 py-4 rounded ring-2 ring-primary">
-                <ul className="space-y-4">
-                  <li>
-                    <Link intent="burger" href="/alle-vine/" className="block">
-                      Alle Vine
-                    </Link>
-                  </li>
-                  <li>
-                    <Link intent="burger" href="/om-os/" className="block">
-                      Om os
-                    </Link>
-                  </li>
-                  <li>
-                    <Link intent="burger" href="/" className="block">
-                      Gavekort
-                    </Link>
-                  </li>
-                  <li>
-                    <Link intent="burger" href="/" className="block">
-                      Naturvin på abonnement
-                    </Link>
-                  </li>
-                  <li>
-                    <div>
-                      <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsVintyperOpen(!isVintyperOpen)} aria-expanded={isVintyperOpen}>
-                        <span>Vintyper</span>
-                        <span className={`transition-transform duration-300 ${isVintyperOpen ? "rotate-45 " : ""}`}>
-                          <Plus className="size-7" />
-                        </span>
-                      </Button>
-                      {isVintyperOpen && (
-                        <ul className="mt-2 space-y-4 pl-4">
-                          <li>
-                            <Link intent="burger" href="/roedvin/" className="block ">
-                              Rødvin
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/hvidvin/" className="block ">
-                              Hvidvin
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/orange-vin/" className="block ">
-                              Orange
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/rose/" className="block ">
-                              Rosé
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/bobler/" className="block ">
-                              Bobler
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/cider/" className="block ">
-                              Cider
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/lav-alkohol/" className="block ">
-                              Lav og 0%
-                            </Link>
-                          </li>
-                          <li>
-                            <Link intent="burger" href="/magnum/" className="block ">
-                              Magnum!
-                            </Link>
-                          </li>
-                        </ul>
-                      )}
-                    </div>
-                  </li>
+          {/* Menu */}
+          {isOpen && (
+            <div className="absolute z-[150] top-full mt-3 right-0 w-72 h-fit bg-bg px-6 py-4 rounded ring-2 ring-primary">
+              <ul className="space-y-4">
+                <li>
+                  <Link intent="burger" href="/alle-vine/" className="block">
+                    Alle Vine
+                  </Link>
+                </li>
+                <li>
+                  <Link intent="burger" href="/om-os/" className="block">
+                    Om os
+                  </Link>
+                </li>
+                <li>
+                  <Link intent="burger" href="/" className="block">
+                    Gavekort
+                  </Link>
+                </li>
+                <li>
+                  <Link intent="burger" href="/" className="block">
+                    Naturvin på abonnement
+                  </Link>
+                </li>
+                <li>
                   <div>
-                    <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsOpdagesleOpen(!isOpdagesleOpen)} aria-expanded={isOpdagesleOpen}>
-                      <span>Gå på opdagelse</span>
-                      <span className={`transition-transform duration-300 ${isOpdagesleOpen ? "rotate-45 " : ""}`}>
+                    <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsVintyperOpen(!isVintyperOpen)} aria-expanded={isVintyperOpen}>
+                      <span>Vintyper</span>
+                      <span className={`transition-transform duration-300 ${isVintyperOpen ? "rotate-45 " : ""}`}>
                         <Plus className="size-7" />
                       </span>
                     </Button>
-                  </div>
-                  {isOpdagesleOpen && (
-                    <ul className="mt-2 space-y-4 pl-4">
-                      <li>Psykovin!!</li>
-                      <li>Billigjuice (som stadig er psyko!)</li>
-                      <li>Weird shit (på den gode måde!)</li>
-                      <li>Staff picks</li>
-                    </ul>
-                  )}
-                  <div>
-                    <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsLandeOpen(!isLandeOpen)} aria-expanded={isLandeOpen}>
-                      <span>Lande</span>
-                      <span className={`transition-transform duration-300 ${isLandeOpen ? "rotate-45 " : ""}`}>
-                        <Plus className="size-7" />
-                      </span>
-                    </Button>
-                  </div>
-
-                  {isLandeOpen && (
-                    <div className=" mt-2 max-h-64 overflow-y-auto">
-                      <ul className=" space-y-4 pl-4 ">
-                        {lande.map((land) => (
-                          <li key={land}>{land}</li>
-                        ))}
+                    {isVintyperOpen && (
+                      <ul className="mt-2 space-y-4 pl-4">
+                        <li>
+                          <Link intent="burger" href="/roedvin/" className="block ">
+                            Rødvin
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/hvidvin/" className="block ">
+                            Hvidvin
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/orange-vin/" className="block ">
+                            Orange
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/rose/" className="block ">
+                            Rosé
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/bobler/" className="block ">
+                            Bobler
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/cider/" className="block ">
+                            Cider
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/lav-alkohol/" className="block ">
+                            Lav og 0%
+                          </Link>
+                        </li>
+                        <li>
+                          <Link intent="burger" href="/magnum/" className="block ">
+                            Magnum!
+                          </Link>
+                        </li>
                       </ul>
-                    </div>
-                  )}
-                </ul>
-              </div>
-            )}
-          </div>
-        </nav>
-        <LineThree />
-      </header>
-      {header && <div className="h-28" />}
-    </>
+                    )}
+                  </div>
+                </li>
+                <div>
+                  <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsOpdagesleOpen(!isOpdagesleOpen)} aria-expanded={isOpdagesleOpen}>
+                    <span>Gå på opdagelse</span>
+                    <span className={`transition-transform duration-300 ${isOpdagesleOpen ? "rotate-45 " : ""}`}>
+                      <Plus className="size-7" />
+                    </span>
+                  </Button>
+                </div>
+                {isOpdagesleOpen && (
+                  <ul className="mt-2 space-y-4 pl-4">
+                    <li>Psykovin!!</li>
+                    <li>Billigjuice (som stadig er psyko!)</li>
+                    <li>Weird shit (på den gode måde!)</li>
+                    <li>Staff picks</li>
+                  </ul>
+                )}
+                <div>
+                  <Button className="flex justify-between font-bold items-center w-full text-left transition ease-in-out duration-200 pb-2 border-b border-b-primary" onClick={() => setIsLandeOpen(!isLandeOpen)} aria-expanded={isLandeOpen}>
+                    <span>Lande</span>
+                    <span className={`transition-transform duration-300 ${isLandeOpen ? "rotate-45 " : ""}`}>
+                      <Plus className="size-7" />
+                    </span>
+                  </Button>
+                </div>
+
+                {isLandeOpen && (
+                  <div className=" mt-2 max-h-64 overflow-y-auto">
+                    <ul className=" space-y-4 pl-4 ">
+                      {lande.map((land) => (
+                        <li key={land}>{land}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </ul>
+            </div>
+          )}
+        </div>
+      </nav>
+      <LineThree />
+    </header>
   );
 };

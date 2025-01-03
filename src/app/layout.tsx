@@ -41,12 +41,8 @@ export default function RootLayout({
         <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" />
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
-        <span className=" md:hidden">
-          <BurgerMenu />
-        </span>
-        <span className="hidden md:block">
-          <Menu />
-        </span>
+        <BurgerMenu />
+        <Menu />
         <main className="rotated-bg">
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
