@@ -7,25 +7,25 @@ import { LineOne } from "@/content/svgs/line1";
 export const Footer = () => {
   return (
     <footer className="bg-secondary grid justify-center px-6 pt-8 pb-10 text-sm gap-y-5 md:px-16 md:grid-cols-2 md:gap-x-0 md:gap-y-0 lg:grid-cols-3">
-      <span className="flex flex-col items-center md:items-start md:col-start-1 md:col-span-2 md:row-start-1 md:pb-4">
+      <div className="flex flex-col items-center md:items-start md:col-start-1 md:col-span-2 md:row-start-1 md:pb-4">
         <VolatilLogo className="w-52 h-auto stroke-[4px] md:w-[17rem]" />
         <LineOne className="w-52 h-auto stroke-2 md:w-[17rem]" />
-      </span>
+      </div>
 
       <div className="flex gap-6 justify-between max-w-96 md:flex-col md:grid-cols-1 md:col-start-2 md:row-start-1 md:max-w-[450px] md:justify-self-end lg:min-w-96 lg:col-start-3">
         <div className="flex flex-col gap-1 md:gap-2">
           <div className="flex flex-col">
-            <span className="flex gap-16 justify-between items-center">
+            <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Volatil</h1>
-              <span className="flex gap-0.5 md:gap-3">
+              <div className="flex gap-0.5 md:gap-3">
                 <Link intent="icon" href="https://www.instagram.com/volatilbar" aria-label="Volatil Instagram">
                   <IG className="size-4 md:size-5" />
                 </Link>
                 <Link intent="icon" href="https://www.facebook.com/volatilnaturvin" aria-label="Volatil Facebook">
                   <FB className="size-4 md:size-5" />
                 </Link>
-              </span>
-            </span>
+              </div>
+            </div>
             <LineOne className="-mt-1 w-full md:-mt-2" />
           </div>
           <div className="flex flex-col gap-2 justify-between md:flex-row md:gap-3">
@@ -55,17 +55,17 @@ export const Footer = () => {
 
         <div className="flex flex-col gap-1 md:gap-2">
           <div className="flex flex-col">
-            <span className="flex gap-16 justify-between items-center">
+            <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Steffi</h1>
-              <span className="flex gap-0.5 md:gap-3">
+              <div className="flex gap-0.5 md:gap-3">
                 <Link intent="icon" href="https://www.instagram.com/steffigrafcph" aria-label="Steffi Instagram">
                   <IG className="size-4 md:size-5" />
                 </Link>
                 <Link intent="icon" href="https://www.facebook.com/steffigrafcph" aria-label="Steffi Facebook">
                   <FB className="size-4 md:size-5" />
                 </Link>
-              </span>
-            </span>
+              </div>
+            </div>
             <LineOne className="-mt-1 w-full md:-mt-2" />
           </div>
           <div className="flex flex-col gap-2 justify-between md:flex-row md:gap-3">
@@ -95,20 +95,20 @@ export const Footer = () => {
       </div>
 
       <div className=" flex flex-col gap-4 md:col-start-1 md:col-span-2 md:row-start-2 xl:col-start-2 xl:row-start-1 xl:col-span-1">
-        <span className="flex flex-col">
+        <div className="flex flex-col">
           <label htmlFor="nyhedsbrev">
-            <span className="font-hackney text-xl md:text-2xl">GIF-NYHEDSBREVET:</span>
+            <p className="font-hackney text-xl md:text-2xl">GIF-NYHEDSBREVET:</p>
           </label>
           <input id="nyhedsbrev" type="email" placeholder="Kom med den mail!" className="w-56 h-8 px-2 tabular-nums rounded " />
-        </span>
-        <span className="flex gap-3 px-0.5">
+        </div>
+        <div className="flex gap-3 px-0.5">
           <Link intent="icon" href="mailto:info@volatil.dk" aria-label="mail">
             <Mail className="size-6 md:size-8" />
           </Link>
           <Link intent="icon" href="https://www.youtube.com/watch?v=QsW824j3-B0" aria-label="Youtube">
             <YT className="size-6 md:size-8" />
           </Link>
-        </span>
+        </div>
       </div>
 
       <div className="flex flex-col gap-3 pt-6 lg:pt-0 md:col-start-1 md:col-span-3 ">
