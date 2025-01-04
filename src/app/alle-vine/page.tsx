@@ -52,7 +52,7 @@ export default function AllWines() {
     <>
       {firstImage && (
         <Head>
-          <link rel="preload" as="image" href={firstImage} imageSrcSet={`${firstImage}?w=640&q=75 640w, ${firstImage}?w=750&q=75 750w, ${firstImage}?w=828&q=75 828w`} imageSizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" />
+          <link rel="preload" as="image" href="/images/first-image.jpg" imageSizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" />
         </Head>
       )}
       <section className="flex flex-col items-center justify-center pt-4 md:pt-6 xl:pt-10">
