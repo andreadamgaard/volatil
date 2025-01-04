@@ -27,7 +27,7 @@ main {
 }
 
 .rotated-bg {
-  @apply inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
+  @apply inset-0 bg-no-repeat bg-center bg-contain pointer-events-none z-[-100];
   background-image: url("/images/branches.webp");
   background-attachment: fixed;
   content-visibility: auto;
