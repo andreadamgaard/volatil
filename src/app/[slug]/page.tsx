@@ -10,13 +10,14 @@ import { Link } from "../../components/Link/Link";
 import { CustomButton } from "../../components/button/CustomButton";
 
 async function GetVinData(slug: string): Promise<VinSingleType | null> {
-  const productData = await fetchProductData();
+  // Hent begge datasæt samtidig for at optimere performance
+  const [productData, productInfo] = await Promise.all([fetchProductData(), fetchProductInfo()]);
+
   // Find vinen der matcher slug i productData
   const matchingProduct = productData.find((dataVin: VinVisningType) => dataVin.handle === slug);
   if (!matchingProduct) return null;
 
   // Vi bruger matchingProduct.sku til at finde vinen fra Info-data
-  const productInfo = await fetchProductInfo();
   return productInfo.find((infoVin: VinSingleType) => infoVin.sku === matchingProduct.sku) || null;
 }
 
