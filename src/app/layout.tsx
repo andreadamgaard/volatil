@@ -42,7 +42,7 @@ export default function RootLayout({
       <body className={clsx(abel.className, "antialiased")}>
         <BurgerMenu />
         <Menu />
-        <main className="rotated-bg ">
+        <main className="rotated-bg">
           <img
             src="/images/branches.webp"
             alt="Preloaded background img"

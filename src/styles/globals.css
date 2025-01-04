@@ -26,8 +26,7 @@ main {
   font-family: "hackney", Arial, sans-serif;
 }
 
-.rotated-bg::before {
-  content: "";
+.rotated-bg {
   @apply inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
   background-image: url("/images/branches.webp");
   background-attachment: fixed;
@@ -36,6 +35,7 @@ main {
   /* Mobile (default) styling */
   background-position: center 9rem;
 
+  /* Medium screens and above (md) */
   @screen md {
     background-size: auto;
 
