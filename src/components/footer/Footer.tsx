@@ -13,7 +13,7 @@ export const Footer = () => {
       </div>
 
       <div className="grid gap-6 md:gap-4 md:col-start-2 md:row-start-1 md:max-w-[450px] lg:min-w-96 lg:col-start-3 grid-cols-2 md:grid-cols-1">
-        <div className="flex flex-col gap-1 md:gap-2 w-52 md:w-80">
+        <div className="flex flex-col gap-1 md:gap-2 w-40 md:w-80">
           <div className="flex flex-col">
             <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Volatil</h1>
@@ -53,7 +53,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 md:gap-2 w-52 md:w-80">
+        <div className="flex flex-col gap-1 md:gap-2 w-40 md:w-80">
           <div className="flex flex-col">
             <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Steffi</h1>
