@@ -13,7 +13,6 @@ import { Menu } from "@/components/Menu/Menu";
 export const abel = Abel({
   weight: "400",
   subsets: ["latin"],
-  display: "swap",
   variable: "--font-abel",
 });
 

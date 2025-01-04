@@ -70,9 +70,9 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
       {visibleData.map((vin) => (
         <article key={vin.sku} className="flex flex-col max-w-[20rem] ring-2 ring-primary rounded 2xl:max-w-[30rem]">
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
-            <figure className="relative w-full max-h-[25rem] overflow-hidden rounded-t group 2xl:max-h-[35rem]">
+            <figure className="relative w-full overflow-hidden rounded-t group max-h-[25rem] 2xl:max-h-[35rem] max-w-[20rem] 2xl:max-w-[30rem]">
               <div className=" w-full h-full transition duration-500 ease-in-out md:group-hover:scale-105">
-                <Image src={vin.image} alt={vin.title} width={580} height={680} className="h-full xl:min-h-[16rem] object-cover object-center" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 25vw" />
+                <Image src={vin.image} alt={vin.title} width={580} height={680} className="object-cover object-center max-h-[25rem] 2xl:max-h-[35rem] max-w-[20rem] 2xl:max-w-[30rem]" sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw, 25vw" />
               </div>
               <div className="absolute hidden inset-0 px-7 pb-4 md:flex items-end justify-end opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out">
                 <CustomButton size="medium" className="px-4 py-2">
@@ -83,7 +83,7 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
 
             <div className="flex flex-col flex-grow pt-0 pb-2 gap-y-0 px-2.5 border-t-2 border-t-primary">
               <h3
-                className="font-bold text-2xl md:text-2xl lg:text-2xl text-center xl:text-[1.5rem]
+                className="font-bold text-xl md:text-2xl text-center xl:text-[1.5rem]
                min-h-16 flex items-center justify-center leading-tight pt-1"
               >
                 <span className="line-clamp-2 text-center">{vin.navn}</span>
