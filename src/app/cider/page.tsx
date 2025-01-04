@@ -39,7 +39,7 @@ export default function Ciders() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center">
+    <section className="flex flex-col items-center justify-center pt-4 md:pt-6 xl:pt-10">
       <header className=" flex flex-col items-center w-full">
         <span className="flex justify-end items-center gap-x-2 text-center ">
           <h1 className="headline">Cider!!</h1>

@@ -8,12 +8,12 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-full overflow-x-hidden;
+  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-full;
   font-family: "hackney", Arial, sans-serif;
 }
 
 main {
-  @apply pb-4 md:pb-6;
+  @apply pb-4 md:pb-6 xl:pb-10;
 }
 
 *:focus-visible {
@@ -25,7 +25,8 @@ main {
   font-family: "hackney", Arial, sans-serif;
 }
 
-.rotated-bg {
+.rotated-bg::before {
+  content: "";
   @apply inset-0 bg-no-repeat bg-center z-[-100] bg-contain pointer-events-none;
   background-image: url("/images/branches.webp");
   background-attachment: fixed;
@@ -34,7 +35,6 @@ main {
   /* Mobile (default) styling */
   background-position: center 9rem;
 
-  /* Medium screens and above (md) */
   @screen md {
     background-size: auto;
 

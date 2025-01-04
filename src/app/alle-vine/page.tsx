@@ -45,8 +45,8 @@ export default function AllWines() {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center">
-      <header className=" flex flex-col items-center w-full">
+    <section className="flex flex-col items-center justify-center pt-4 md:pt-6 xl:pt-10">
+      <header className=" flex flex-col justify-center items-center w-full">
         <span className="flex justify-end items-center gap-x-2 md:gap-x-10 text-center ">
           <h1 className="headline">
             Alle vine<span className="text-2xl md:text-4xl">(omg!)</span>

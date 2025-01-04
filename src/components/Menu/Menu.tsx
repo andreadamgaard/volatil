@@ -54,6 +54,7 @@ export const Menu = () => {
             <ChevronDown className="size-5 lg:size-7 stroke-[3px]" />
           </button>
 
+          {/* Dropdown */}
           {isDropdownOpen && (
             <div className="absolute w-fit z-50 flex min-h-[368px] h-96 left-[2%] top-[65%] dropdown-container" onMouseEnter={() => setIsDropdownOpen(true)} onMouseLeave={() => setIsDropdownOpen(false)} onBlur={handleBlur} tabIndex={-1} role="menu">
               {/* Kategorier */}
