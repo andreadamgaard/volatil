@@ -74,6 +74,11 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
               <div className="w-full h-full transition duration-500 ease-in-out md:group-hover:scale-105">
                 <Image src={vin.image} alt={vin.title} width={580} height={680} className="object-cover object-center w-full h-auto" sizes="(max-width: 768px) 45vw, (max-width: 1024px) 30vw, (max-width: 1280px) 22vw, 22vw" />
               </div>
+              <div className="absolute hidden inset-0 px-7 pb-4 md:flex items-end justify-end opacity-0 md:group-hover:opacity-100 transition duration-300 ease-in-out">
+                <CustomButton size="medium" className="px-4 py-2">
+                  Køb mig lige?!
+                </CustomButton>
+              </div>
             </figure>
             <div className="flex flex-col flex-grow pt-0 pb-2 gap-y-0 px-2.5 border-t-2 border-t-primary">
               <h3 className="font-bold text-xl md:text-2xl text-center xl:text-[1.5rem] min-h-16 flex items-center justify-center leading-tight pt-1">
