@@ -50,11 +50,8 @@ export default function AllWines() {
 
   return (
     <>
-      {firstImage && (
-        <Head>
-          <link rel="preload" as="image" href="/images/first-image.jpg" imageSizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" />
-        </Head>
-      )}
+      <Head>{firstImage ? <link rel="preload" as="image" href={firstImage} imageSizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" /> : <link rel="preload" as="image" href="/images/fallback.jpg" imageSizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" />}</Head>
+
       <section className="flex flex-col items-center justify-center pt-4 md:pt-6 xl:pt-10">
         <header className=" flex flex-col justify-center items-center w-96 md:w-[39rem]">
           <div className="flex justify-end items-center gap-x-2 md:gap-x-10 text-center">

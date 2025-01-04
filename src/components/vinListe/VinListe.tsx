@@ -13,7 +13,7 @@ type VinVisningProps = {
 };
 
 export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterLand, selectedFilterProducent }: VinVisningProps) => {
-  const [visibleCount, setVisibleCount] = useState<number>(20); // Antal synlige produkter
+  const [visibleCount, setVisibleCount] = useState<number>(12); // Antal synlige produkter
 
   // Filtrér og sorter data
   const filteredAndSortedData = useMemo(() => {
@@ -53,7 +53,7 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
-        setVisibleCount((prev) => prev + 20);
+        setVisibleCount((prev) => prev + 12);
       }
     };
 
@@ -72,7 +72,7 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
             <figure className="relative w-full overflow-hidden rounded-t group max-w-[30rem] 2xl:max-w-[30rem]">
               <div className="w-full h-full md:transition  md:duration-500  md:ease-in-out md:group-hover:scale-105">
-                <Image src={vin.image} alt={vin.title} width={400} height={500} className="object-cover object-center" sizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" priority={index === 0} placeholder="blur" blurDataURL={`${vin.image}?w=10&q=10`} />
+                <Image src={vin.image} alt={vin.title} width={400} height={500} className="object-cover object-center" sizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" priority={index < (window.innerWidth > 1024 ? 4 : 2)} />
               </div>
               <div className="absolute hidden inset-0 px-7 pb-4 md:flex items-end justify-end opacity-0 md:group-hover:opacity-100 md:transition md:duration-300 md:ease-in-out">
                 <CustomButton size="medium" className="px-4 py-2">
