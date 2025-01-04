@@ -70,13 +70,8 @@ export const VinListe = ({ data, sortOption, selectedFilterType, selectedFilterL
       {visibleData.map((vin, index) => (
         <article key={vin.sku} className="flex flex-col max-w-[30rem] ring-2 ring-primary rounded 2xl:max-w-[30rem]">
           <Link href={vin.handle} intent="wines" className="flex flex-col h-full max-w-[30rem]">
-            <figure className="relative w-full overflow-hidden rounded-t group max-w-[30rem] 2xl:max-w-[30rem] aspect-w-4 aspect-h-5">
-              <Image src={vin.image} alt={vin.title} width={400} height={500} className="object-cover object-center" placeholder="blur" blurDataURL="/images/fallback.webp" sizes="(max-width: 768px) 45vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw" priority={index < (window.innerWidth > 1024 ? 4 : 2)} />
-              <div className="absolute hidden inset-0 px-7 pb-4 md:flex items-end justify-end opacity-0 md:group-hover:opacity-100 md:transition md:duration-300 md:ease-in-out">
-                <CustomButton size="medium" className="px-4 py-2">
-                  Køb mig lige?!
-                </CustomButton>
-              </div>
+            <figure className="relative w-full overflow-hidden rounded-t group max-w-[30rem] 2xl:max-w-[30rem]" style={{ aspectRatio: "4 / 5" }}>
+              <Image src={vin.image} alt={vin.title} width={400} height={500} className="object-cover" placeholder="blur" blurDataURL="/images/fallback.webp" sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, (max-width: 1024px) 33vw, 25vw" priority={index < (window.innerWidth > 1024 ? 4 : 2)} />
             </figure>
             <div className="flex flex-col flex-grow pt-0 pb-2 gap-y-0 px-2.5 border-t-2 border-t-primary">
               <h3 className="font-bold text-xl md:text-2xl text-center xl:text-[1.5rem] min-h-16 flex items-center justify-center leading-tight pt-1">
