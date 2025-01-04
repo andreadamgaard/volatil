@@ -1,5 +1,4 @@
-import type { ProductInfoType, StaffPicksType } from "@/app/api/DataType";
-import { LineOne } from "@/content/svgs/line1";
+import type { StaffPicksType } from "@/app/api/DataType";
 import { LineTwo } from "@/content/svgs/line2";
 import clsx from "clsx";
 import { Grape, Wine } from "lucide-react";
