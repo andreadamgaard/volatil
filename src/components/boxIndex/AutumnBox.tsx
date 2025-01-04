@@ -5,7 +5,7 @@ import { BoxText } from "./BoxText";
 
 export const AutumnBox = ({ data }: { data: BoxesType | null }) => {
   if (!data) {
-    return <p>Data findes ikke</p>;
+    return <p>Dataen kommer snaaart mand</p>;
   }
 
   return (

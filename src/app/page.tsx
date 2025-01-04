@@ -38,7 +38,7 @@ export default function Home() {
       <div className="px-6">
         <section className="flex gap-2.5 md:gap-6 lg:gap-10 justify-center">
           <BigArt img="/images/billigjuice.webp" imgAlt="billig juice" title="RØDVIIIN!" linkText="(Det er psyko!)" href="/roedvin/" />
-          <BigArt img="/images/staffPicks.webp" imgAlt="STAFF PICKS" title="STAFF PICKS!" linkText="Vi ved semi hvad vi taler om" href="/alle-vine/" />
+          <BigArt img="/images/staffPicks.webp" imgAlt="STAFF PICKS" title="STAFF PICKS!" linkText="Vi ved semi hvad vi taler om" href="/staff-picks/" />
         </section>
 
         <LineOne className="py-4 md:py-8 w-full h-auto" />

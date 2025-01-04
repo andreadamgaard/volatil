@@ -22,7 +22,7 @@ main {
 }
 
 .headline {
-  @apply font-hackney text-6xl pt-16 md:text-9xl md:pt-12 whitespace-nowrap;
+  @apply font-hackney text-6xl pt-8 md:text-9xl md:pt-12 whitespace-nowrap;
   font-family: "hackney", Arial, sans-serif;
 }
 
