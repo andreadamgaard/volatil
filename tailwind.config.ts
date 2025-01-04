@@ -31,6 +31,16 @@ export default {
         "9/16": "9 / 16",
         swiper: "6 / 3",
       },
+      animation: {
+        wiggle: "wiggle-kf 1s linear infinite",
+      },
+
+      keyframes: {
+        "wiggle-kf": {
+          "0%, 100%": { transform: "rotate(-20deg)" },
+          "50%": { transform: "rotate(20deg)" },
+        },
+      },
     },
   },
   plugins: [],

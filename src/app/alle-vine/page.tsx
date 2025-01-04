@@ -9,7 +9,6 @@ import { filterData } from "../api/filterData";
 import { Filter } from "@/components/filter/Filter";
 import Loading from "../loading";
 import { VinListe } from "@/components/vinListe/VinListe";
-import { v4 as uuidv4 } from "uuid";
 import Head from "next/head";
 
 export default function AllWines() {
@@ -80,19 +79,7 @@ export default function AllWines() {
 
         {/* Vin-visning */}
         <Suspense fallback={<Loading />}>
-          {dataRef.current ? (
-            <VinListe data={dataRef.current || []} sortOption={sortOption} selectedFilterType={selectedFilterType} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
-          ) : (
-            <div className="grid grid-cols-2 px-6 py-5 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {[...Array(20)].map(() => (
-                <div key={uuidv4()} className="flex flex-col max-w-[20rem] h-[30rem] bg-gray-200 animate-pulse rounded">
-                  <div className="h-64 bg-gray-300" />
-                  <div className="h-12 bg-gray-300 mt-2" />
-                  <div className="h-8 bg-gray-300 mt-2" />
-                </div>
-              ))}
-            </div>
-          )}
+          <VinListe data={dataRef.current || []} sortOption={sortOption} selectedFilterType={selectedFilterType} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
         </Suspense>
       </section>
     </>

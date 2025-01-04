@@ -16,6 +16,10 @@ export default function Home() {
   const [autumnBoxData, setAutumnBoxData] = useState<BoxesType | null>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getData = async () => {
       const boxes = (await fetchBoxes()) as BoxesType[];
 
