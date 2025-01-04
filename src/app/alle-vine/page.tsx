@@ -77,9 +77,6 @@ export default function AllWines() {
       <Suspense fallback={<Loading />}>
         <VinListe data={dataRef.current || []} sortOption={sortOption} selectedFilterType={selectedFilterType} selectedFilterLand={selectedFilterLand} selectedFilterProducent={selectedFilterProducent} />
       </Suspense>
-
-      {/* Observer til lazy load */}
-      {/* <section ref={observerRef} className="h-10 w-full" /> */}
     </section>
   );
 }
