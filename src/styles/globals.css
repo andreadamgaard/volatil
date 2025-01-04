@@ -4,6 +4,7 @@
 
 @font-face {
   font-family: "hackney";
+  font-display: optional;
   src: url("/fonts/hackney-webfont.woff2") format("woff2");
 }
 

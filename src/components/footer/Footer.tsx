@@ -12,8 +12,8 @@ export const Footer = () => {
         <LineOne className="w-52 h-auto stroke-2 md:w-[17rem]" />
       </div>
 
-      <div className="flex gap-6 justify-between max-w-96 md:flex-col md:grid-cols-1 md:col-start-2 md:row-start-1 md:max-w-[450px] md:justify-self-end lg:min-w-96 lg:col-start-3">
-        <div className="flex flex-col gap-1 md:gap-2">
+      <div className="grid gap-6 md:gap-4 md:col-start-2 md:row-start-1 md:max-w-[450px] lg:min-w-96 lg:col-start-3 grid-cols-2 md:grid-cols-1">
+        <div className="flex flex-col gap-1 md:gap-2 w-52 md:w-80">
           <div className="flex flex-col">
             <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Volatil</h1>
@@ -53,7 +53,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 md:gap-2">
+        <div className="flex flex-col gap-1 md:gap-2 w-52 md:w-80">
           <div className="flex flex-col">
             <div className="flex gap-16 justify-between items-center">
               <h1 className="font-hackney text-xl md:text-2xl">Steffi</h1>
@@ -120,11 +120,11 @@ export const Footer = () => {
         </div>
 
         <div className="flex gap-1 md:col-start-1 md:col-span-3">
-          <AmericanExpress className="w-10 h-auto" />
-          <Maestro className="w-10 h-auto" />
-          <Mastercard className="w-10 h-auto" />
-          <UnionPay className="w-10 h-auto" />
-          <Visa className="w-10 h-auto" />
+          <AmericanExpress className="w-10 h-6" />
+          <Maestro className="w-10 h-6" />
+          <Mastercard className="w-10 h-6" />
+          <UnionPay className="w-10 h-6" />
+          <Visa className="w-10 h-6" />
         </div>
       </div>
     </footer>
