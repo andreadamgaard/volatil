@@ -43,7 +43,7 @@ export default function RootLayout({
         <BurgerMenu />
         <Menu />
         <main className="rotated-bg">
-          <img
+          {/* <img
             src="/images/branches.webp"
             alt="Preloaded background img"
             style={{
@@ -53,7 +53,7 @@ export default function RootLayout({
               opacity: 0,
               pointerEvents: "none",
             }}
-          />
+          /> */}
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
         <Footer />
