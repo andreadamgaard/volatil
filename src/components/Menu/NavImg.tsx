@@ -4,7 +4,7 @@ import Link from "next/link";
 export const NavImg = () => {
   return (
     <div className="flex ring-primary ring-2 max-w-[28rem] h-full relative font-hackney text-bg text-5xl">
-      <Link href="/" aria-label="Staff picks" className="relative h-full w-1/2 group">
+      <Link href="/staff-picks/" aria-label="Staff picks" className="relative h-full w-1/2 group">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
         <Image className="h-full w-full object-cover" src="/images/WineHands.webp" alt="hand with wine" width={227} height={800} />
