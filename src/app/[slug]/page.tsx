@@ -54,7 +54,7 @@ export default async function VinPage({ params }) {
 
         {/* Billede */}
         <figure className="max-w-96 flex justify-center items-center md:w-fit md:max-w-[30rem] relative">
-          <Image src={vin.image} alt={vin.navn} width={600} height={900} priority={false} sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover rounded-lg" placeholder="blur" blurDataURL="/images/fallback.webp" quality={75} />
+          <Image src={vin.image} alt={vin.navn} priority width={600} height={900} className="object-cover rounded-lg" />
         </figure>
 
         {/* Tekst og data */}
