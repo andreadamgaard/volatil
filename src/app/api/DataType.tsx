@@ -1,3 +1,27 @@
+export type StaffPicksType = {
+  sku?: string;
+  handle?: string;
+  title?: string;
+  navn?: string;
+  producent?: string;
+  year?: string;
+  type?: string;
+  druer?: string | null;
+  land?: string[];
+  area?: string | null;
+  alkoholprocent?: string;
+  tilsat_svovl?: string;
+  size?: string;
+  flot_etiket?: string;
+  beskrivelse?: string;
+  smager_godt_til?: string | null;
+  price: string;
+  image: string;
+  anbefaletAf: string;
+  anbefalingen: string;
+  staffNavn: string;
+  sortOrder?: number;
+};
 export type ProductInfoType = {
   sku?: string;
   handle?: string;
