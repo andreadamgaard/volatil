@@ -35,8 +35,8 @@ export default function RootLayout({
     <html lang="en" className={`${abel.variable}`}>
       <Head>
         <link rel="preload" href="/fonts/hackney-webfont.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="/styles/globals.css" />
-        <link rel="stylesheet" href="/styles/swiper.css" />
+        <link rel="preload" as="style" href="/styles/globals.css" />
+        <link rel="preload" as="style" href="/styles/swiper.css" />
         <link rel="preload" href="/images/branches.webp" as="image" type="image/webp" />
       </Head>
       <body className={clsx(abel.className, "antialiased")}>
