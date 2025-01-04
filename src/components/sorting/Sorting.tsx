@@ -1,4 +1,4 @@
-import { Field, Listbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
+import { Field, Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from "@headlessui/react";
 import { ChevronDown, X } from "lucide-react";
 import clsx from "clsx";
 import { useState } from "react";
@@ -39,27 +39,25 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
 
         {/* Filter knappen */}
         <Listbox value={selected} onChange={handleSelection}>
-          <ListboxButton
-            className={clsx(
-              "input gap-1 md:w-[10rem] flex items-center justify-between border-2 rounded-xl pr-1.5 pl-4 py-1 md:text-lg font-bold",
-              selected
-                ? "bg-primary text-bg border-primary" // Aktiv styling
-                : "bg-bg text-primary border-primary" // Default styling
-            )}
-          >
-            {selected ? selected.label : "Sortering"}
+          {({ open }) => (
+            <div>
+              <ListboxButton className={clsx("input gap-1 md:w-[10rem] flex items-center justify-between border-2 rounded-xl pr-1.5 pl-4 py-1 md:text-lg font-bold transition ease-in-out duration-200", selected ? "bg-primary text-bg border-primary" : "bg-bg text-primary border-primary", open && "ring-2 ring-primary")}>
+                {selected ? selected.label : "Sortering"}
+                {selected ? <X className="size-5 md:size-6 md:stroke-[3px] md:transition md:ease-in-out md:duration-200 hover:scale-125" onClick={clearSelection} aria-label="Clear sort" /> : <ChevronDown className={clsx("size-5 md:size-6 md:stroke-[3px] transition-transform duration-200", open ? "rotate-180" : "")} aria-hidden="true" />}
+              </ListboxButton>
 
-            {selected ? <X className=" size-5 md:size-6 md:stroke-[3px] md:transition md:ease-in-out md:duration-200 hover:scale-125" onClick={clearSelection} aria-label="Clear sort" /> : <ChevronDown className=" size-5 md:size-6 md:stroke-[3px]" aria-hidden="true" />}
-          </ListboxButton>
-
-          {/* Dropdown med valgmuligheder */}
-          <ListboxOptions className="w-[10rem] right-10 z-10 mt-1 absolute bg-white rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
-            {sortOptions.map((option) => (
-              <ListboxOption key={option.id} value={option} className={clsx("group relative flex cursor-default items-center gap-2 py-1.5 px-3 select-none rounded-lg", "data-[focus]:bg-primary data-[focus]:text-bg focus:ring-offset-2 focus:rounded-lg")}>
-                <span>{option.label}</span>
-              </ListboxOption>
-            ))}
-          </ListboxOptions>
+              {/* Dropdown options */}
+              <Transition leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
+                <ListboxOptions className="w-[10rem] right-0 top-full z-30 mt-1 absolute bg-white rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
+                  {sortOptions.map((option) => (
+                    <ListboxOption key={option.id} value={option} className={clsx("group relative flex cursor-default items-center gap-2 py-1.5 px-3 select-none rounded-lg", "data-[focus]:bg-primary data-[focus]:text-bg focus:ring-offset-2 focus:rounded-lg")}>
+                      <span>{option.label}</span>
+                    </ListboxOption>
+                  ))}
+                </ListboxOptions>
+              </Transition>
+            </div>
+          )}
         </Listbox>
       </Field>
     </div>

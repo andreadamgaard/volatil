@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-full overflow-x-hidden;
+  @apply text-primary bg-bg font-abel antialiased flex flex-col min-h-screen w-full;
   font-family: "hackney", Arial, sans-serif;
 }
 
