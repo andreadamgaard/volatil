@@ -25,7 +25,7 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
   };
 
   const clearSelection = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Forhindre dropdown i at åbne ved klik
+    e.stopPropagation(); // Forhindre dropdown i at åbne ved klik på X knap
     handleSelection(null);
   };
 
@@ -48,7 +48,7 @@ export const Sorting = ({ onSortChange }: { onSortChange: (sortKey: string | nul
 
               {/* Dropdown options */}
               <Transition leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-                <ListboxOptions className="w-[10rem] right-0 top-full z-30 mt-1 absolute bg-white rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
+                <ListboxOptions className="w-[10rem] right-0 top-full z-30 mt-1 absolute bg-bg rounded-lg p-1 ring-2 ring-inset ring-primary focus-visible:rounded-lg">
                   {sortOptions.map((option) => (
                     <ListboxOption key={option.id} value={option} className={clsx("group relative flex cursor-default items-center gap-2 py-1.5 px-3 select-none rounded-lg", "data-[focus]:bg-primary data-[focus]:text-bg focus:ring-offset-2 focus:rounded-lg")}>
                       <span>{option.label}</span>
