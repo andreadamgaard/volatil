@@ -28,14 +28,14 @@ export const StaffBoxes = ({ product }: StaffBoxesProps) => {
             {/* Billede */}
             <div className="md:col-span-2 flex justify-center">
               <Link href={vin.handle} intent="wines">
-                <figure className={clsx("flex relative group", "rounded-lg overflow-hidden", "aspect-[4/5] max-w-96 min-w-40 max-h-[28rem] md:w-fit md:max-h-[35rem] md:max-w-[30rem]")}>
+                <figure className={clsx("flex relative group", "rounded-lg overflow-hidden", "aspect-[4/5] max-w-96 min-w-40 max-h-[28rem] md:w-fit md:max-h-[27.25rem] md:max-w-[30rem]")}>
                   <Image src={vin.image || "/images/fallback.webp"} alt={vin.title} priority width={600} height={900} className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" />
                   <figcaption className={clsx("absolute z-10", "py-1 px-3 md:px-5  mt-4 ml-4", "text-white bg-Vblue-100 group-hover:bg-Vblue-50 rounded-xl", "transition duration-300 ease-in-out", "font-hackney text-2xl")}>Den er din for {vin.price} kr!</figcaption>
                 </figure>
               </Link>
             </div>
 
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 md:col-start-3">
               {/* Infobox */}
               <InfoBoxOne vin={vin} />
 
