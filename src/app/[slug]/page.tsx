@@ -53,16 +53,16 @@ export default async function VinPage({ params }) {
             <span className="w-5/6">
               <hr className="border-primary border-1" />
             </span>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center text-center">
               <p className="italic">Smager godt til:</p>
-              <p className="text-xl font-bold">{vin.smager_godt_til}</p>
+              <p className="text-lg font-bold">{vin.smager_godt_til}</p>
             </div>
           </div>
         </div>
 
         {/* Billede */}
-        <figure className="max-w-96 min-w-40 max-h-[28rem] overflow-hidden flex items-center md:max-h-[35rem] md:w-fit md:max-w-[30rem] rounded-lg relative">
-          <Image src={vin.image} alt={vin.navn} priority width={600} height={900} className="object-cover rounded-lg" />
+        <figure className="flex items-center relative aspect-10/16 w-[20rem] md:min-w-[21rem] md:w-auto md:min-h-[35rem] lg:aspect-4/5 lg:w-[29rem]">
+          <Image src={vin.image} alt={vin.navn} priority fill className="object-cover rounded-lg" />
         </figure>
 
         {/* Tekst og data */}
