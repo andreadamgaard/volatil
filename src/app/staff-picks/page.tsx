@@ -61,9 +61,9 @@ export default function StaffPicks() {
   return (
     <section className="flex flex-col w-full mb-4">
       <div className="flex flex-col items-center justify-center px-6">
-        <div className="flex flex-col items-center justify-center w-fit">
+        <div className="flex flex-col items-center justify-center max-w-[44rem]">
           <h1 className="headline">Staff Picks</h1>
-          <LineThree className="w-fit" />
+          <LineThree className="w-full" />
         </div>
         <div className="flex flex-col text-center text-lg gap-4 pt-5 pb-20 max-w-4xl">
           <p>Jamen halløjsa! Christoffer, Hanna og Tue har rodet rundt i kælderen (og lidt i glassene), og her er resultatet — tre vine, der alle rammer lige i sjælen. Der er noget til de røde læber, noget til de sprøde vibes og noget til de små eventyr.</p>
