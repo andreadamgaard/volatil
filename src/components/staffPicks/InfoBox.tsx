@@ -1,6 +1,7 @@
 import type { StaffPicksType } from "@/app/api/DataType";
 import clsx from "clsx";
 import { Grape, Wine } from "lucide-react";
+import Link from "next/link";
 
 interface StaffBoxesProps {
   vin: StaffPicksType;
@@ -10,10 +11,10 @@ export const InfoBoxTwo = ({ vin }: StaffBoxesProps) => {
   return (
     <div className={clsx("hidden sm:grid grid-cols-4", "bg-bg border-primary border-2 rounded-lg", "min-w-80 max-w-[38rem] md:min-h-[39.75rem] lg:min-h-52 lg:max-w-[38rem]")}>
       {/* Prod + år */}
-      <div className={clsx("col-span-4 row-start-1", "flex justify-between", "py-3 px-5 md:px-5", "border-b border-primary")}>
+      <Link href={vin.handle} className={clsx("col-span-4 row-start-1", "flex justify-between", "py-3 px-5 md:px-5", "border-b border-primary")}>
         <p className="text-3xl font-bold font-hackney ">{vin.producent}</p>
         <p className="text-3xl font-bold font-hackney">{vin.year}</p>
-      </div>
+      </Link>
 
       {/* Anbefaling */}
       <div className={clsx("row-start-2 col-span-3 md:col-span-4", "flex flex-col gap-4 md:gap-8", " px-5 py-5 md:px-5", "border-b border-primary")}>
@@ -62,12 +63,6 @@ export const InfoBoxTwo = ({ vin }: StaffBoxesProps) => {
           <p className="leading-6 text-sm">{vin.beskrivelse}</p>
         </span>
       </div>
-
-      {/* Pris */}
-      {/* <div className={clsx("row-start-4 col-span-4", "flex justify-between w-full", "py-4 px-5 md:px-5", "border-t border-primary")}>
-        <p className="text-2xl font-bold font-hackney">Men prisen venner?!</p>
-        <p className="text-2xl font-bold font-hackney">{vin.price} kr.</p>
-      </div> */}
     </div>
   );
 };

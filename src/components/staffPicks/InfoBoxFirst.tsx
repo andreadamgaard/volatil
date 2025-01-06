@@ -1,6 +1,7 @@
 import type { StaffPicksType } from "@/app/api/DataType";
 import clsx from "clsx";
 import { Grape, Wine } from "lucide-react";
+import Link from "next/link";
 
 interface BoxProps {
   vin: StaffPicksType;
@@ -10,10 +11,10 @@ export const InfoBoxOne = ({ vin }: BoxProps) => {
   return (
     <div className={clsx("sm:hidden flex flex-col", "bg-bg border-primary border-2 rounded-lg", "w-full min-w-40 max-w-96 md:w-1/2 md:min-w-80 md:max-w-[30rem]")}>
       {/* Prod + år */}
-      <div className={clsx("flex justify-between", "py-3 px-5 md:px-5", "border-b border-primary")}>
+      <Link href={vin.handle} className={clsx("flex justify-between", "py-3 px-5 md:px-5", "border-b border-primary")}>
         <p className="text-3xl font-bold font-hackney ">{vin.producent}</p>
         <p className="text-3xl font-bold font-hackney">{vin.year}</p>
-      </div>
+      </Link>
 
       {/* Anbefaling og smager godt til */}
       <div className={clsx("flex flex-col gap-4 md:gap-8", "px-5 py-5 md:px-5", "border-b border-primary")}>
@@ -62,12 +63,6 @@ export const InfoBoxOne = ({ vin }: BoxProps) => {
           <p className="leading-6 text-sm md:text-base">{vin.beskrivelse}</p>
         </span>
       </div>
-
-      {/* Pris */}
-      {/* <div className="flex justify-between w-full py-4 px-5 md:px-5">
-        <p className="font-bold text-2xl font-hackney">Men prisen venner?!</p>
-        <p className="font-bold text-2xl font-hackney">{vin.price} kr.</p>
-      </div> */}
     </div>
   );
 };

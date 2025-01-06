@@ -17,7 +17,7 @@ export const StaffBoxes = ({ product }: StaffBoxesProps) => {
         <div key={vin.sku} className="flex flex-col items-center gap-2 pb-6">
           {/* Header - Ligger i midten over de andre */}
           <div className="flex flex-col justify-center items-center w-fit gap-4">
-            <h2 className="font-hackney text-[2rem] md:text-5xl">{vin.title}</h2>
+            <h2 className="font-hackney text-[2rem] md:text-5xl">{vin.navn}</h2>
             <div className={clsx("flex flex-col items-center justify-center ", "pt-2 pb-6 w-full", "border-t-2 border-primary", "text-xl font-bold italic")}>
               <p>Anbefalet af {vin.anbefaletAf}</p>
             </div>

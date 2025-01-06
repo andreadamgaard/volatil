@@ -34,15 +34,22 @@ export default function StaffPicks() {
 
   useEffect(() => {
     const getData = async () => {
+      // Bruger typescript
       const products = (await fetchProductInfo()) as StaffPicksType[];
 
-      // Filtrer og tilføj min data til produkterne
+      // Map som en opslagstabel til at finde vinen baseret på sku i staffPicksAnbefalinger
+      const staffPicksMap = new Map(staffPicksAnbefalinger.map((item) => [item.sku, item]));
+
+      // Filtrer API og link sammen til min data
       const selectedProducts = products
-        .filter((item) => staffPicksAnbefalinger.some((data) => data.sku === item.sku))
-        .map((product) => {
-          const data = staffPicksAnbefalinger.find((data) => data.sku === product.sku);
-          return { ...product, ...data };
-        })
+        // Filtrer i API så vi kun beholder vine med samme sku der er i staffPicksMap
+        .filter((vin) => staffPicksMap.has(vin.sku))
+
+        // Sammenflet data fra API med staffPicksMap
+        .map((vin) => ({
+          ...vin, // ... = vi beholder al data
+          ...staffPicksMap.get(vin.sku), // tilføjer den tilhørende anbefaling til vin med samme sku
+        }))
         .sort((a, b) => a.sortOrder - b.sortOrder);
 
       setStaffPicksData(selectedProducts);
